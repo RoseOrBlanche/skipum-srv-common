@@ -1,0 +1,4865 @@
+{
+  "namespace": "com.skipum.common",
+  "definitions": {
+    "com.skipum.common.CommonService": {
+      "kind": "service",
+      "@source": "srv/service.cds"
+    },
+    "com.skipum.common.CommonService.WeightUnits": {
+      "kind": "entity",
+      "source": "com.skipum.common.measures.WeightUnit",
+      "@readonly": true,
+      "@Common.SemanticKey": [
+        {
+          "=": "code"
+        }
+      ],
+      "@Capabilities.InsertRestrictions.Insertable": false,
+      "@Capabilities.UpdateRestrictions.Updatable": false,
+      "@Capabilities.DeleteRestrictions.Deletable": false,
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.measures.WeightUnit..name",
+          "indexNo": 1,
+          "value": {
+            "=": "WeightUnit.name"
+          },
+          "@UI.HiddenFilter": true,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>weightUnit}",
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "origin": "com.skipum.common.measures.WeightUnit..code",
+          "indexNo": 2,
+          "value": {
+            "=": "WeightUnit.code"
+          },
+          "key": true,
+          "type": "cds.String",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@UI.HiddenFilter": true,
+          "length": 3,
+          "@Common.Label": "{i18n>unitCode}",
+          "@cds.persistence.name": "CODE"
+        }
+      },
+      "@UI.Identification": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "name"
+          }
+        }
+      ],
+      "@cds.autoexpose": true,
+      "@Common.Label": "{i18n>weightUnits}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_COMMONSERVICE_WEIGHTUNITS"
+    },
+    "com.skipum.common.CommonService.DistanceUnits": {
+      "kind": "entity",
+      "source": "com.skipum.common.measures.DistanceUnit",
+      "@readonly": true,
+      "@Common.SemanticKey": [
+        {
+          "=": "code"
+        }
+      ],
+      "@Capabilities.InsertRestrictions.Insertable": false,
+      "@Capabilities.UpdateRestrictions.Updatable": false,
+      "@Capabilities.DeleteRestrictions.Deletable": false,
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.measures.DistanceUnit..name",
+          "indexNo": 1,
+          "value": {
+            "=": "DistanceUnit.name"
+          },
+          "@UI.HiddenFilter": true,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>distancesUnit}",
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "origin": "com.skipum.common.measures.DistanceUnit..code",
+          "indexNo": 2,
+          "value": {
+            "=": "DistanceUnit.code"
+          },
+          "key": true,
+          "type": "cds.String",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@UI.HiddenFilter": true,
+          "length": 3,
+          "@Common.Label": "{i18n>unitCode}",
+          "@cds.persistence.name": "CODE"
+        }
+      },
+      "@UI.Identification": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "name"
+          }
+        }
+      ],
+      "@cds.autoexpose": true,
+      "@Common.Label": "{i18n>distanceUnits}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_COMMONSERVICE_DISTANCEUNITS"
+    },
+    "com.skipum.common.CommonService.VolumeUnits": {
+      "kind": "entity",
+      "source": "com.skipum.common.measures.VolumeUnit",
+      "@readonly": true,
+      "@Common.SemanticKey": [
+        {
+          "=": "code"
+        }
+      ],
+      "@Capabilities.InsertRestrictions.Insertable": false,
+      "@Capabilities.UpdateRestrictions.Updatable": false,
+      "@Capabilities.DeleteRestrictions.Deletable": false,
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.measures.VolumeUnit..name",
+          "indexNo": 1,
+          "value": {
+            "=": "VolumeUnit.name"
+          },
+          "@UI.HiddenFilter": true,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>volumeUnit}",
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "origin": "com.skipum.common.measures.VolumeUnit..code",
+          "indexNo": 2,
+          "value": {
+            "=": "VolumeUnit.code"
+          },
+          "key": true,
+          "type": "cds.String",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@UI.HiddenFilter": true,
+          "length": 3,
+          "@Common.Label": "{i18n>unitCode}",
+          "@cds.persistence.name": "CODE"
+        }
+      },
+      "@UI.Identification": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "name"
+          }
+        }
+      ],
+      "@cds.autoexpose": true,
+      "@Common.Label": "{i18n>volumeUnits}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_COMMONSERVICE_VOLUMEUNITS"
+    },
+    "com.skipum.common.CommonService.Currencies": {
+      "kind": "entity",
+      "source": "com.skipum.common.currency.Currency",
+      "@readonly": true,
+      "@Common.SemanticKey": [
+        {
+          "=": "code"
+        }
+      ],
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.currency.Currency..name",
+          "indexNo": 1,
+          "value": {
+            "=": "Currency.name"
+          },
+          "@UI.HiddenFilter": true,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>currency}",
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "origin": "com.skipum.common.currency.Currency..code",
+          "indexNo": 2,
+          "value": {
+            "=": "Currency.code"
+          },
+          "key": true,
+          "type": "cds.String",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@UI.HiddenFilter": true,
+          "length": 3,
+          "@Common.Label": "{i18n>currencyCode}",
+          "@cds.persistence.name": "CODE"
+        }
+      },
+      "@UI.Identification": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "name"
+          }
+        }
+      ],
+      "@cds.autoexpose": true,
+      "@Capabilities.DeleteRestrictions.Deletable": false,
+      "@Capabilities.InsertRestrictions.Insertable": false,
+      "@Capabilities.UpdateRestrictions.Updatable": false,
+      "@Common.Label": "{i18n>currencies}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_COMMONSERVICE_CURRENCIES"
+    },
+    "com.skipum.common.CommonService.Countries": {
+      "kind": "entity",
+      "source": "com.skipum.common.geographic.Country",
+      "@readonly": true,
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.geographic.Country..name",
+          "indexNo": 1,
+          "value": {
+            "=": "Country.name"
+          },
+          "@UI.HiddenFilter": true,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>country}",
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "origin": "com.skipum.common.geographic.Country..code",
+          "indexNo": 2,
+          "value": {
+            "=": "Country.code"
+          },
+          "key": true,
+          "type": "cds.String",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@UI.HiddenFilter": true,
+          "length": 3,
+          "@Common.Label": "{i18n>countryCode}",
+          "@cds.persistence.name": "CODE"
+        }
+      },
+      "@UI.Identification": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "name"
+          }
+        }
+      ],
+      "@cds.autoexpose": true,
+      "@Capabilities.DeleteRestrictions.Deletable": false,
+      "@Capabilities.InsertRestrictions.Insertable": false,
+      "@Capabilities.UpdateRestrictions.Updatable": false,
+      "@Common.Label": "Country",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_COMMONSERVICE_COUNTRIES"
+    },
+    "com.skipum.common.CommonService.Regions": {
+      "kind": "entity",
+      "source": "com.skipum.common.geographic.Region",
+      "@readonly": true,
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.geographic.Region..name",
+          "indexNo": 1,
+          "value": {
+            "=": "Region.name"
+          },
+          "@UI.HiddenFilter": true,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>region}",
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "origin": "com.skipum.common.geographic.Region..code",
+          "indexNo": 2,
+          "value": {
+            "=": "Region.code"
+          },
+          "key": true,
+          "type": "cds.String",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@UI.HiddenFilter": true,
+          "length": 3,
+          "@Common.Label": "{i18n>regionCode}",
+          "@cds.persistence.name": "CODE"
+        },
+        "country": {
+          "origin": "com.skipum.common.geographic.Region..country",
+          "indexNo": 3,
+          "value": {
+            "=": "Region.country"
+          },
+          "key": true,
+          "type": "cds.Association",
+          "target": "com.skipum.common.CommonService.Countries",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@UI.HiddenFilter": true,
+          "foreignKeys": {
+            "code": {
+              "origin": "com.skipum.common.geographic.Region..country.code",
+              "indexNo": 1,
+              "path": "code",
+              "generatedFieldName": "country_code",
+              "@cds.persistence.name": "CODE"
+            }
+          },
+          "@Common.Label": "{i18n>country}",
+          "redirected": true,
+          "@cds.persistence.name": "COUNTRY"
+        },
+        "country_code": {
+          "type": "cds.String",
+          "length": 3,
+          "key": true,
+          "value": {
+            "=": "Region.country_code"
+          },
+          "origin": "com.skipum.common.geographic.Region..country_code",
+          "@odata.foreignKey4": "country",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@UI.HiddenFilter": true,
+          "@Common.Label": "{i18n>country}",
+          "@cds.persistence.name": "COUNTRY_CODE"
+        }
+      },
+      "@UI.Identification": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "name"
+          }
+        }
+      ],
+      "@cds.autoexpose": true,
+      "@Capabilities.DeleteRestrictions.Deletable": false,
+      "@Capabilities.InsertRestrictions.Insertable": false,
+      "@Capabilities.UpdateRestrictions.Updatable": false,
+      "@Common.Label": "Region",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_COMMONSERVICE_REGIONS"
+    },
+    "com.skipum.common.CarrierService": {
+      "kind": "service",
+      "@source": "srv/service.cds"
+    },
+    "com.skipum.common.CarrierService.Carriers": {
+      "kind": "entity",
+      "source": "com.skipum.common.carrier.Carrier",
+      "@readonly": true,
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.carrier.Carrier..name",
+          "indexNo": 1,
+          "value": {
+            "=": "Carrier.name"
+          },
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>carrier}",
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "origin": "com.skipum.common.carrier.Carrier..code",
+          "indexNo": 2,
+          "value": {
+            "=": "Carrier.code"
+          },
+          "key": true,
+          "type": "cds.String",
+          "@description": "{i18n>carrier}",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "length": 3,
+          "@Common.Label": "{i18n>carrier}",
+          "@cds.persistence.name": "CODE"
+        },
+        "logo_url": {
+          "origin": "com.skipum.common.carrier.Carrier..logo_url",
+          "indexNo": 3,
+          "value": {
+            "=": "Carrier.logo_url"
+          },
+          "type": "cds.String",
+          "length": 200,
+          "@cds.persistence.name": "LOGO_URL"
+        },
+        "site_url": {
+          "origin": "com.skipum.common.carrier.Carrier..site_url",
+          "indexNo": 4,
+          "value": {
+            "=": "Carrier.site_url"
+          },
+          "type": "cds.String",
+          "length": 200,
+          "@cds.persistence.name": "SITE_URL"
+        },
+        "enabled": {
+          "origin": "com.skipum.common.carrier.Carrier..enabled",
+          "indexNo": 5,
+          "value": {
+            "=": "Carrier.enabled"
+          },
+          "type": "cds.Boolean",
+          "@description": "{i18n>enabled}",
+          "@Common.Label": "{i18n>enabled}",
+          "@cds.persistence.name": "ENABLED"
+        },
+        "services": {
+          "origin": "com.skipum.common.carrier.Carrier..services",
+          "indexNo": 6,
+          "value": {
+            "=": "Carrier.services"
+          },
+          "type": "cds.Composition",
+          "target": "com.skipum.common.CarrierService.Services",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "services.carrier"
+              },
+              {
+                "=": "$self"
+              }
+            ]
+          },
+          "redirected": true,
+          "@cds.persistence.name": "SERVICES"
+        },
+        "actions": {
+          "origin": "com.skipum.common.carrier.Carrier..actions",
+          "indexNo": 7,
+          "value": {
+            "=": "Carrier.actions"
+          },
+          "type": "cds.Composition",
+          "target": "com.skipum.common.CarrierService.CarrierActions",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "actions.carrier"
+              },
+              {
+                "=": "$self"
+              }
+            ]
+          },
+          "redirected": true,
+          "@cds.persistence.name": "ACTIONS"
+        },
+        "feeds": {
+          "origin": "com.skipum.common.carrier.Carrier..feeds",
+          "indexNo": 8,
+          "value": {
+            "=": "Carrier.feeds"
+          },
+          "type": "cds.Composition",
+          "target": "com.skipum.common.CarrierService.CarrierFeeds",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "feeds.carrier"
+              },
+              {
+                "=": "$self"
+              }
+            ]
+          },
+          "redirected": true,
+          "@cds.persistence.name": "FEEDS"
+        }
+      },
+      "@cds.autoexpose": true,
+      "@Capabilities.DeleteRestrictions.Deletable": false,
+      "@Capabilities.InsertRestrictions.Insertable": false,
+      "@Capabilities.UpdateRestrictions.Updatable": false,
+      "@Common.Label": "Carriers",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CARRIERSERVICE_CARRIERS"
+    },
+    "com.skipum.common.CarrierService.Services": {
+      "kind": "entity",
+      "source": "com.skipum.common.carrier.Service",
+      "@readonly": true,
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.carrier.Service..name",
+          "indexNo": 1,
+          "value": {
+            "=": "Service.name"
+          },
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "origin": "com.skipum.common.carrier.Service..code",
+          "indexNo": 2,
+          "value": {
+            "=": "Service.code"
+          },
+          "key": true,
+          "type": "cds.String",
+          "@description": "{i18n>service}",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "length": 3,
+          "@Common.Label": "{i18n>service}",
+          "@cds.persistence.name": "CODE"
+        },
+        "modeOfTransport": {
+          "origin": "com.skipum.common.carrier.Service..modeOfTransport",
+          "indexNo": 3,
+          "value": {
+            "=": "Service.modeOfTransport"
+          },
+          "type": "cds.Association",
+          "target": "com.skipum.common.CarrierService.ModeOfTransports",
+          "@Common.Text.$value": {
+            "=": "modeOfTransport.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@Common.ValueList.entity": "ModeOfTransports",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.FieldControl": {
+            "#": "Mandatory"
+          },
+          "foreignKeys": {
+            "code": {
+              "origin": "com.skipum.common.carrier.Service..modeOfTransport.code",
+              "indexNo": 1,
+              "path": "code",
+              "generatedFieldName": "modeOfTransport_code",
+              "@cds.persistence.name": "CODE"
+            }
+          },
+          "@Common.Label": "{i18n>modeoftransport}",
+          "redirected": true,
+          "@cds.persistence.name": "MODEOFTRANSPORT"
+        },
+        "serviceType": {
+          "origin": "com.skipum.common.carrier.Service..serviceType",
+          "indexNo": 4,
+          "value": {
+            "=": "Service.serviceType"
+          },
+          "type": "cds.Association",
+          "target": "com.skipum.common.CarrierService.ServiceTypes",
+          "@Common.Text.$value": {
+            "=": "serviceType.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@Common.ValueList.entity": "ServiceTypes",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.FieldControl": {
+            "#": "Mandatory"
+          },
+          "foreignKeys": {
+            "code": {
+              "origin": "com.skipum.common.carrier.Service..serviceType.code",
+              "indexNo": 1,
+              "path": "code",
+              "generatedFieldName": "serviceType_code",
+              "@cds.persistence.name": "CODE"
+            }
+          },
+          "@Common.Label": "{i18n>serviceType}",
+          "redirected": true,
+          "@cds.persistence.name": "SERVICETYPE"
+        },
+        "serviceSubType": {
+          "origin": "com.skipum.common.carrier.Service..serviceSubType",
+          "indexNo": 5,
+          "value": {
+            "=": "Service.serviceSubType"
+          },
+          "type": "cds.Association",
+          "target": "com.skipum.common.CarrierService.ServiceSubTypes",
+          "@Common.Text.$value": {
+            "=": "serviceType.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@Common.ValueList.entity": "ServiceSubTypes",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.FieldControl": {
+            "#": "Mandatory"
+          },
+          "foreignKeys": {
+            "code": {
+              "origin": "com.skipum.common.carrier.Service..serviceSubType.code",
+              "indexNo": 1,
+              "path": "code",
+              "generatedFieldName": "serviceSubType_code",
+              "@cds.persistence.name": "CODE"
+            }
+          },
+          "@Common.Label": "{i18n>serviceSubType}",
+          "redirected": true,
+          "@cds.persistence.name": "SERVICESUBTYPE"
+        },
+        "carrier": {
+          "origin": "com.skipum.common.carrier.Service..carrier",
+          "indexNo": 6,
+          "value": {
+            "=": "Service.carrier"
+          },
+          "type": "cds.Association",
+          "target": "com.skipum.common.CarrierService.Carriers",
+          "@Common.Text.$value": {
+            "=": "carrier.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@Common.ValueList.entity": "CarrierMasters",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.FieldControl": {
+            "#": "Mandatory"
+          },
+          "foreignKeys": {
+            "code": {
+              "origin": "com.skipum.common.carrier.Service..carrier.code",
+              "indexNo": 1,
+              "path": "code",
+              "generatedFieldName": "carrier_code",
+              "@cds.persistence.name": "CODE"
+            }
+          },
+          "@Common.Label": "{i18n>carrier}",
+          "redirected": true,
+          "@cds.persistence.name": "CARRIER"
+        },
+        "enabled": {
+          "origin": "com.skipum.common.carrier.Service..enabled",
+          "indexNo": 7,
+          "value": {
+            "=": "Service.enabled"
+          },
+          "type": "cds.Boolean",
+          "@description": "{i18n>enabled}",
+          "@Common.Label": "{i18n>enabled}",
+          "@cds.persistence.name": "ENABLED"
+        },
+        "modeOfTransport_code": {
+          "type": "cds.String",
+          "length": 3,
+          "value": {
+            "=": "Service.modeOfTransport_code"
+          },
+          "origin": "com.skipum.common.carrier.Service..modeOfTransport_code",
+          "@odata.foreignKey4": "modeOfTransport",
+          "@Common.Text.$value": {
+            "=": "modeOfTransport.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@Common.ValueList.entity": "ModeOfTransports",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.FieldControl": {
+            "#": "Mandatory"
+          },
+          "@Common.Label": "{i18n>modeoftransport}",
+          "@cds.persistence.name": "MODEOFTRANSPORT_CODE"
+        },
+        "serviceType_code": {
+          "type": "cds.String",
+          "length": 3,
+          "value": {
+            "=": "Service.serviceType_code"
+          },
+          "origin": "com.skipum.common.carrier.Service..serviceType_code",
+          "@odata.foreignKey4": "serviceType",
+          "@Common.Text.$value": {
+            "=": "serviceType.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@Common.ValueList.entity": "ServiceTypes",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.FieldControl": {
+            "#": "Mandatory"
+          },
+          "@Common.Label": "{i18n>serviceType}",
+          "@cds.persistence.name": "SERVICETYPE_CODE"
+        },
+        "serviceSubType_code": {
+          "type": "cds.String",
+          "length": 3,
+          "value": {
+            "=": "Service.serviceSubType_code"
+          },
+          "origin": "com.skipum.common.carrier.Service..serviceSubType_code",
+          "@odata.foreignKey4": "serviceSubType",
+          "@Common.Text.$value": {
+            "=": "serviceType.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@Common.ValueList.entity": "ServiceSubTypes",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.FieldControl": {
+            "#": "Mandatory"
+          },
+          "@Common.Label": "{i18n>serviceSubType}",
+          "@cds.persistence.name": "SERVICESUBTYPE_CODE"
+        },
+        "carrier_code": {
+          "type": "cds.String",
+          "length": 3,
+          "value": {
+            "=": "Service.carrier_code"
+          },
+          "origin": "com.skipum.common.carrier.Service..carrier_code",
+          "@odata.foreignKey4": "carrier",
+          "@Common.Text.$value": {
+            "=": "carrier.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@Common.ValueList.entity": "CarrierMasters",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.FieldControl": {
+            "#": "Mandatory"
+          },
+          "@Common.Label": "{i18n>carrier}",
+          "@cds.persistence.name": "CARRIER_CODE"
+        }
+      },
+      "@cds.autoexpose": true,
+      "@Capabilities.DeleteRestrictions.Deletable": false,
+      "@Capabilities.InsertRestrictions.Insertable": false,
+      "@Capabilities.UpdateRestrictions.Updatable": false,
+      "@Common.Label": "Carrier Services",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CARRIERSERVICE_SERVICES"
+    },
+    "com.skipum.common.CarrierService.ServiceSubTypes": {
+      "kind": "entity",
+      "source": "com.skipum.common.carrier.ServiceSubType",
+      "@readonly": true,
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.carrier.ServiceSubType..name",
+          "indexNo": 1,
+          "value": {
+            "=": "ServiceSubType.name"
+          },
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>serviceSubType}",
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "origin": "com.skipum.common.carrier.ServiceSubType..code",
+          "indexNo": 2,
+          "value": {
+            "=": "ServiceSubType.code"
+          },
+          "key": true,
+          "type": "cds.String",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@description": "{i18n>serviceSubType}",
+          "length": 3,
+          "@Common.Label": "{i18n>serviceSubType}",
+          "@cds.persistence.name": "CODE"
+        }
+      },
+      "@cds.autoexpose": true,
+      "@Capabilities.DeleteRestrictions.Deletable": false,
+      "@Capabilities.InsertRestrictions.Insertable": false,
+      "@Capabilities.UpdateRestrictions.Updatable": false,
+      "@Common.Label": "Service Sub-types",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CARRIERSERVICE_SERVICESUBTYPES"
+    },
+    "com.skipum.common.CarrierService.ServiceTypes": {
+      "kind": "entity",
+      "source": "com.skipum.common.carrier.ServiceType",
+      "@readonly": true,
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.carrier.ServiceType..name",
+          "indexNo": 1,
+          "value": {
+            "=": "ServiceType.name"
+          },
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>serviceType}",
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "origin": "com.skipum.common.carrier.ServiceType..code",
+          "indexNo": 2,
+          "value": {
+            "=": "ServiceType.code"
+          },
+          "key": true,
+          "type": "cds.String",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@description": "{i18n>serviceType}",
+          "length": 3,
+          "@Common.Label": "{i18n>serviceType}",
+          "@cds.persistence.name": "CODE"
+        }
+      },
+      "@cds.autoexpose": true,
+      "@Capabilities.DeleteRestrictions.Deletable": false,
+      "@Capabilities.InsertRestrictions.Insertable": false,
+      "@Capabilities.UpdateRestrictions.Updatable": false,
+      "@Common.Label": "Service Types",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CARRIERSERVICE_SERVICETYPES"
+    },
+    "com.skipum.common.CarrierService.ModeOfTransports": {
+      "kind": "entity",
+      "source": "com.skipum.common.carrier.ModeOfTransport",
+      "@readonly": true,
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.carrier.ModeOfTransport..name",
+          "indexNo": 1,
+          "value": {
+            "=": "ModeOfTransport.name"
+          },
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>modeoftransport}",
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "origin": "com.skipum.common.carrier.ModeOfTransport..code",
+          "indexNo": 2,
+          "value": {
+            "=": "ModeOfTransport.code"
+          },
+          "key": true,
+          "type": "cds.String",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@description": "{i18n>modeoftransport}",
+          "length": 3,
+          "@Common.Label": "{i18n>modeoftransport}",
+          "@cds.persistence.name": "CODE"
+        }
+      },
+      "@cds.autoexpose": true,
+      "@Capabilities.DeleteRestrictions.Deletable": false,
+      "@Capabilities.InsertRestrictions.Insertable": false,
+      "@Capabilities.UpdateRestrictions.Updatable": false,
+      "@Common.Label": "Mode Of Transports",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CARRIERSERVICE_MODEOFTRANSPORTS"
+    },
+    "com.skipum.common.CarrierService.CarrierFeeds": {
+      "kind": "entity",
+      "source": "com.skipum.common.carrier.CarrierFeed",
+      "@readonly": true,
+      "elements": {
+        "feed": {
+          "origin": "com.skipum.common.carrier.CarrierFeed..feed",
+          "indexNo": 1,
+          "value": {
+            "=": "CarrierFeed.feed"
+          },
+          "key": true,
+          "type": "cds.Association",
+          "target": "com.skipum.common.CarrierService.com_skipum_common_contentSource_ContentFeed",
+          "@Common.Text.$value": {
+            "=": "feed.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@Common.ValueList.entity": "ContentFeeds",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.FieldControl": {
+            "#": "Mandatory"
+          },
+          "foreignKeys": {
+            "code": {
+              "origin": "com.skipum.common.carrier.CarrierFeed..feed.code",
+              "indexNo": 1,
+              "path": "code",
+              "generatedFieldName": "feed_code",
+              "@cds.persistence.name": "CODE"
+            }
+          },
+          "@Common.Label": "{i18n>contentFeed}",
+          "redirected": true,
+          "@cds.persistence.name": "FEED"
+        },
+        "carrier": {
+          "origin": "com.skipum.common.carrier.CarrierFeed..carrier",
+          "indexNo": 2,
+          "value": {
+            "=": "CarrierFeed.carrier"
+          },
+          "key": true,
+          "type": "cds.Association",
+          "target": "com.skipum.common.CarrierService.Carriers",
+          "foreignKeys": {
+            "code": {
+              "origin": "com.skipum.common.carrier.CarrierFeed..carrier.code",
+              "indexNo": 1,
+              "path": "code",
+              "generatedFieldName": "carrier_code",
+              "@cds.persistence.name": "CODE"
+            }
+          },
+          "redirected": true,
+          "@cds.persistence.name": "CARRIER"
+        },
+        "enabled": {
+          "origin": "com.skipum.common.carrier.CarrierFeed..enabled",
+          "indexNo": 3,
+          "value": {
+            "=": "CarrierFeed.enabled"
+          },
+          "type": "cds.Boolean",
+          "@description": "{i18n>enabled}",
+          "@Common.Label": "{i18n>enabled}",
+          "@cds.persistence.name": "ENABLED"
+        },
+        "provider": {
+          "origin": "com.skipum.common.carrier.CarrierFeed..provider",
+          "indexNo": 4,
+          "value": {
+            "=": "CarrierFeed.provider"
+          },
+          "type": "cds.Association",
+          "target": "com.skipum.common.CarrierService.com_skipum_common_contentSource_ContentSource",
+          "@Common.Text.$value": {
+            "=": "defaultProvider.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@Common.ValueList.entity": "ContentSources",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.FieldControl": {
+            "#": "Mandatory"
+          },
+          "foreignKeys": {
+            "code": {
+              "origin": "com.skipum.common.carrier.CarrierFeed..provider.code",
+              "indexNo": 1,
+              "path": "code",
+              "generatedFieldName": "provider_code",
+              "@cds.persistence.name": "CODE"
+            }
+          },
+          "@Common.Label": "{i18n>contentSource}",
+          "redirected": true,
+          "@cds.persistence.name": "PROVIDER"
+        },
+        "feed_code": {
+          "type": "cds.String",
+          "length": 3,
+          "key": true,
+          "value": {
+            "=": "CarrierFeed.feed_code"
+          },
+          "origin": "com.skipum.common.carrier.CarrierFeed..feed_code",
+          "@odata.foreignKey4": "feed",
+          "@Common.Text.$value": {
+            "=": "feed.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@Common.ValueList.entity": "ContentFeeds",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.FieldControl": {
+            "#": "Mandatory"
+          },
+          "@Common.Label": "{i18n>contentFeed}",
+          "@cds.persistence.name": "FEED_CODE"
+        },
+        "carrier_code": {
+          "type": "cds.String",
+          "length": 3,
+          "key": true,
+          "value": {
+            "=": "CarrierFeed.carrier_code"
+          },
+          "origin": "com.skipum.common.carrier.CarrierFeed..carrier_code",
+          "@odata.foreignKey4": "carrier",
+          "@cds.persistence.name": "CARRIER_CODE"
+        },
+        "provider_code": {
+          "type": "cds.String",
+          "length": 3,
+          "value": {
+            "=": "CarrierFeed.provider_code"
+          },
+          "origin": "com.skipum.common.carrier.CarrierFeed..provider_code",
+          "@odata.foreignKey4": "provider",
+          "@Common.Text.$value": {
+            "=": "defaultProvider.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@Common.ValueList.entity": "ContentSources",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.FieldControl": {
+            "#": "Mandatory"
+          },
+          "@Common.Label": "{i18n>contentSource}",
+          "@cds.persistence.name": "PROVIDER_CODE"
+        }
+      },
+      "@Capabilities.DeleteRestrictions.Deletable": false,
+      "@Capabilities.InsertRestrictions.Insertable": false,
+      "@Capabilities.UpdateRestrictions.Updatable": false,
+      "@Common.Label": "Carrier Feeds",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CARRIERSERVICE_CARRIERFEEDS"
+    },
+    "com.skipum.common.CarrierService.CarrierActions": {
+      "kind": "entity",
+      "source": "com.skipum.common.carrier.CarrierAction",
+      "@readonly": true,
+      "elements": {
+        "actionCode": {
+          "origin": "com.skipum.common.carrier.CarrierAction..actionCode",
+          "indexNo": 1,
+          "value": {
+            "=": "CarrierAction.actionCode"
+          },
+          "key": true,
+          "type": "cds.Association",
+          "target": "com.skipum.common.CarrierService.com_skipum_common_contentSource_ContentAction",
+          "@Common.Text.$value": {
+            "=": "action.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@Common.ValueList.entity": "ContentActions",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.FieldControl": {
+            "#": "Mandatory"
+          },
+          "foreignKeys": {
+            "code": {
+              "origin": "com.skipum.common.carrier.CarrierAction..actionCode.code",
+              "indexNo": 1,
+              "path": "code",
+              "generatedFieldName": "actionCode_code",
+              "@cds.persistence.name": "CODE"
+            }
+          },
+          "@Common.Label": "{i18n>contentAction}",
+          "redirected": true,
+          "@cds.persistence.name": "ACTIONCODE"
+        },
+        "carrier": {
+          "origin": "com.skipum.common.carrier.CarrierAction..carrier",
+          "indexNo": 2,
+          "value": {
+            "=": "CarrierAction.carrier"
+          },
+          "key": true,
+          "type": "cds.Association",
+          "target": "com.skipum.common.CarrierService.Carriers",
+          "foreignKeys": {
+            "code": {
+              "origin": "com.skipum.common.carrier.CarrierAction..carrier.code",
+              "indexNo": 1,
+              "path": "code",
+              "generatedFieldName": "carrier_code",
+              "@cds.persistence.name": "CODE"
+            }
+          },
+          "redirected": true,
+          "@cds.persistence.name": "CARRIER"
+        },
+        "enabled": {
+          "origin": "com.skipum.common.carrier.CarrierAction..enabled",
+          "indexNo": 3,
+          "value": {
+            "=": "CarrierAction.enabled"
+          },
+          "type": "cds.Boolean",
+          "@description": "{i18n>enabled}",
+          "@Common.Label": "{i18n>enabled}",
+          "@cds.persistence.name": "ENABLED"
+        },
+        "provider": {
+          "origin": "com.skipum.common.carrier.CarrierAction..provider",
+          "indexNo": 4,
+          "value": {
+            "=": "CarrierAction.provider"
+          },
+          "type": "cds.Association",
+          "target": "com.skipum.common.CarrierService.com_skipum_common_contentSource_ContentSource",
+          "@Common.Text.$value": {
+            "=": "defaultProvider.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@Common.ValueList.entity": "ContentSources",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.FieldControl": {
+            "#": "Mandatory"
+          },
+          "foreignKeys": {
+            "code": {
+              "origin": "com.skipum.common.carrier.CarrierAction..provider.code",
+              "indexNo": 1,
+              "path": "code",
+              "generatedFieldName": "provider_code",
+              "@cds.persistence.name": "CODE"
+            }
+          },
+          "@Common.Label": "{i18n>contentSource}",
+          "redirected": true,
+          "@cds.persistence.name": "PROVIDER"
+        },
+        "actionCode_code": {
+          "type": "cds.String",
+          "length": 3,
+          "key": true,
+          "value": {
+            "=": "CarrierAction.actionCode_code"
+          },
+          "origin": "com.skipum.common.carrier.CarrierAction..actionCode_code",
+          "@odata.foreignKey4": "actionCode",
+          "@Common.Text.$value": {
+            "=": "action.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@Common.ValueList.entity": "ContentActions",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.FieldControl": {
+            "#": "Mandatory"
+          },
+          "@Common.Label": "{i18n>contentAction}",
+          "@cds.persistence.name": "ACTIONCODE_CODE"
+        },
+        "carrier_code": {
+          "type": "cds.String",
+          "length": 3,
+          "key": true,
+          "value": {
+            "=": "CarrierAction.carrier_code"
+          },
+          "origin": "com.skipum.common.carrier.CarrierAction..carrier_code",
+          "@odata.foreignKey4": "carrier",
+          "@cds.persistence.name": "CARRIER_CODE"
+        },
+        "provider_code": {
+          "type": "cds.String",
+          "length": 3,
+          "value": {
+            "=": "CarrierAction.provider_code"
+          },
+          "origin": "com.skipum.common.carrier.CarrierAction..provider_code",
+          "@odata.foreignKey4": "provider",
+          "@Common.Text.$value": {
+            "=": "defaultProvider.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@Common.ValueList.entity": "ContentSources",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.FieldControl": {
+            "#": "Mandatory"
+          },
+          "@Common.Label": "{i18n>contentSource}",
+          "@cds.persistence.name": "PROVIDER_CODE"
+        }
+      },
+      "@Capabilities.DeleteRestrictions.Deletable": false,
+      "@Capabilities.InsertRestrictions.Insertable": false,
+      "@Capabilities.UpdateRestrictions.Updatable": false,
+      "@Common.Label": "Carrier Action",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CARRIERSERVICE_CARRIERACTIONS"
+    },
+    "com.skipum.common.address.Addressee": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 60,
+      "@Common.Label": "{i18n>addressee}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_ADDRESS_ADDRESSEE"
+    },
+    "com.skipum.common.address.AddressLine": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 60,
+      "@Common.Label": "{i18n>addressLine}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_ADDRESS_ADDRESSLINE"
+    },
+    "com.skipum.common.address.PostalCode": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 15,
+      "@Common.Label": "{i18n>postalCode}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_ADDRESS_POSTALCODE"
+    },
+    "com.skipum.common.address.City": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 60,
+      "@Common.Label": "{i18n>city}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_ADDRESS_CITY"
+    },
+    "com.skipum.common.address.POBox": {
+      "kind": "type",
+      "type": "cds.Boolean",
+      "@Common.Label": "{i18n>pOBox}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_ADDRESS_POBOX"
+    },
+    "com.skipum.common.address.BusinessAddress": {
+      "abstract": true,
+      "kind": "entity",
+      "includes": [
+        "com.skipum.common.address.Address"
+      ],
+      "elements": {
+        "address1": {
+          "origin": "com.skipum.common.address.Address..address1",
+          "indexNo": 1,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>addressLine}",
+          "@cds.persistence.name": "ADDRESS1"
+        },
+        "address2": {
+          "origin": "com.skipum.common.address.Address..address2",
+          "indexNo": 2,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>addressLine}",
+          "@cds.persistence.name": "ADDRESS2"
+        },
+        "address3": {
+          "origin": "com.skipum.common.address.Address..address3",
+          "indexNo": 3,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>addressLine}",
+          "@cds.persistence.name": "ADDRESS3"
+        },
+        "city": {
+          "origin": "com.skipum.common.address.Address..city",
+          "indexNo": 4,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>city}",
+          "@cds.persistence.name": "CITY"
+        },
+        "postalCode": {
+          "origin": "com.skipum.common.address.Address..postalCode",
+          "indexNo": 5,
+          "type": "cds.String",
+          "length": 15,
+          "@Common.Label": "{i18n>postalCode}",
+          "@cds.persistence.name": "POSTALCODE"
+        },
+        "region": {
+          "origin": "com.skipum.common.address.Address..region",
+          "indexNo": 6,
+          "type": "cds.Association",
+          "target": "com.skipum.common.geographic.Region",
+          "@Common.Text.$value": {
+            "=": "region.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextFirst"
+          },
+          "@Common.ValueList.entity": "Regions",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.ValueListWithFixedValues": true,
+          "foreignKeys": {
+            "code": {
+              "origin": "com.skipum.common.address.Address..region.code",
+              "indexNo": 1,
+              "path": "code",
+              "generatedFieldName": "region_code",
+              "@cds.persistence.name": "CODE"
+            },
+            "country_code": {
+              "path": "country_code",
+              "generatedFieldName": "region_country_code",
+              "@cds.persistence.name": "COUNTRY_CODE"
+            }
+          },
+          "@cds.persistence.name": "REGION"
+        },
+        "country": {
+          "origin": "com.skipum.common.address.Address..country",
+          "indexNo": 7,
+          "type": "cds.Association",
+          "target": "com.skipum.common.geographic.Country",
+          "@Common.Text.$value": {
+            "=": "country.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextFirst"
+          },
+          "@Common.ValueList.entity": "Countries",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.ValueListWithFixedValues": true,
+          "foreignKeys": {
+            "code": {
+              "origin": "com.skipum.common.address.Address..country.code",
+              "indexNo": 1,
+              "path": "code",
+              "generatedFieldName": "country_code",
+              "@cds.persistence.name": "CODE"
+            }
+          },
+          "@cds.persistence.name": "COUNTRY"
+        },
+        "poBox": {
+          "origin": "com.skipum.common.address.Address..poBox",
+          "indexNo": 8,
+          "type": "cds.Boolean",
+          "@Common.Label": "{i18n>pOBox}",
+          "@cds.persistence.name": "POBOX"
+        },
+        "addressee": {
+          "origin": "com.skipum.common.address.Address..addressee",
+          "indexNo": 9,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>addressee}",
+          "@cds.persistence.name": "ADDRESSEE"
+        },
+        "region_code": {
+          "type": "cds.String",
+          "length": 3,
+          "@odata.foreignKey4": "region",
+          "@Common.Text.$value": {
+            "=": "region.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextFirst"
+          },
+          "@Common.ValueList.entity": "Regions",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.ValueListWithFixedValues": true,
+          "@cds.persistence.name": "REGION_CODE"
+        },
+        "region_country_code": {
+          "type": "cds.String",
+          "length": 3,
+          "@odata.foreignKey4": "region",
+          "@Common.Text.$value": {
+            "=": "region.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextFirst"
+          },
+          "@Common.ValueList.entity": "Regions",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.ValueListWithFixedValues": true,
+          "@cds.persistence.name": "REGION_COUNTRY_CODE"
+        },
+        "country_code": {
+          "type": "cds.String",
+          "length": 3,
+          "@odata.foreignKey4": "country",
+          "@Common.Text.$value": {
+            "=": "country.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextFirst"
+          },
+          "@Common.ValueList.entity": "Countries",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.ValueListWithFixedValues": true,
+          "@cds.persistence.name": "COUNTRY_CODE"
+        }
+      },
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_ADDRESS_BUSINESSADDRESS"
+    },
+    "com.skipum.common.address.Address": {
+      "abstract": true,
+      "kind": "entity",
+      "includes": [
+        "com.skipum.common.address.PostalAddress"
+      ],
+      "elements": {
+        "address1": {
+          "origin": "com.skipum.common.address.PostalAddress..address1",
+          "indexNo": 1,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>addressLine}",
+          "@cds.persistence.name": "ADDRESS1"
+        },
+        "address2": {
+          "origin": "com.skipum.common.address.PostalAddress..address2",
+          "indexNo": 2,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>addressLine}",
+          "@cds.persistence.name": "ADDRESS2"
+        },
+        "address3": {
+          "origin": "com.skipum.common.address.PostalAddress..address3",
+          "indexNo": 3,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>addressLine}",
+          "@cds.persistence.name": "ADDRESS3"
+        },
+        "city": {
+          "origin": "com.skipum.common.address.PostalAddress..city",
+          "indexNo": 4,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>city}",
+          "@cds.persistence.name": "CITY"
+        },
+        "postalCode": {
+          "origin": "com.skipum.common.address.PostalAddress..postalCode",
+          "indexNo": 5,
+          "type": "cds.String",
+          "length": 15,
+          "@Common.Label": "{i18n>postalCode}",
+          "@cds.persistence.name": "POSTALCODE"
+        },
+        "region": {
+          "origin": "com.skipum.common.address.PostalAddress..region",
+          "indexNo": 6,
+          "type": "cds.Association",
+          "target": "com.skipum.common.geographic.Region",
+          "@Common.Text.$value": {
+            "=": "region.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextFirst"
+          },
+          "@Common.ValueList.entity": "Regions",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.ValueListWithFixedValues": true,
+          "foreignKeys": {
+            "code": {
+              "origin": "com.skipum.common.address.PostalAddress..region.code",
+              "indexNo": 1,
+              "path": "code",
+              "generatedFieldName": "region_code",
+              "@cds.persistence.name": "CODE"
+            },
+            "country_code": {
+              "path": "country_code",
+              "generatedFieldName": "region_country_code",
+              "@cds.persistence.name": "COUNTRY_CODE"
+            }
+          },
+          "@cds.persistence.name": "REGION"
+        },
+        "country": {
+          "origin": "com.skipum.common.address.PostalAddress..country",
+          "indexNo": 7,
+          "type": "cds.Association",
+          "target": "com.skipum.common.geographic.Country",
+          "@Common.Text.$value": {
+            "=": "country.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextFirst"
+          },
+          "@Common.ValueList.entity": "Countries",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.ValueListWithFixedValues": true,
+          "foreignKeys": {
+            "code": {
+              "origin": "com.skipum.common.address.PostalAddress..country.code",
+              "indexNo": 1,
+              "path": "code",
+              "generatedFieldName": "country_code",
+              "@cds.persistence.name": "CODE"
+            }
+          },
+          "@cds.persistence.name": "COUNTRY"
+        },
+        "poBox": {
+          "origin": "com.skipum.common.address.PostalAddress..poBox",
+          "indexNo": 8,
+          "type": "cds.Boolean",
+          "@Common.Label": "{i18n>pOBox}",
+          "@cds.persistence.name": "POBOX"
+        },
+        "addressee": {
+          "indexNo": 9,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>addressee}",
+          "@cds.persistence.name": "ADDRESSEE"
+        },
+        "region_code": {
+          "type": "cds.String",
+          "length": 3,
+          "@odata.foreignKey4": "region",
+          "@Common.Text.$value": {
+            "=": "region.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextFirst"
+          },
+          "@Common.ValueList.entity": "Regions",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.ValueListWithFixedValues": true,
+          "@cds.persistence.name": "REGION_CODE"
+        },
+        "region_country_code": {
+          "type": "cds.String",
+          "length": 3,
+          "@odata.foreignKey4": "region",
+          "@Common.Text.$value": {
+            "=": "region.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextFirst"
+          },
+          "@Common.ValueList.entity": "Regions",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.ValueListWithFixedValues": true,
+          "@cds.persistence.name": "REGION_COUNTRY_CODE"
+        },
+        "country_code": {
+          "type": "cds.String",
+          "length": 3,
+          "@odata.foreignKey4": "country",
+          "@Common.Text.$value": {
+            "=": "country.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextFirst"
+          },
+          "@Common.ValueList.entity": "Countries",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.ValueListWithFixedValues": true,
+          "@cds.persistence.name": "COUNTRY_CODE"
+        }
+      },
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_ADDRESS_ADDRESS"
+    },
+    "com.skipum.common.address.PostalAddress": {
+      "abstract": true,
+      "kind": "entity",
+      "elements": {
+        "address1": {
+          "indexNo": 1,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>addressLine}",
+          "@cds.persistence.name": "ADDRESS1"
+        },
+        "address2": {
+          "indexNo": 2,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>addressLine}",
+          "@cds.persistence.name": "ADDRESS2"
+        },
+        "address3": {
+          "indexNo": 3,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>addressLine}",
+          "@cds.persistence.name": "ADDRESS3"
+        },
+        "city": {
+          "indexNo": 4,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>city}",
+          "@cds.persistence.name": "CITY"
+        },
+        "postalCode": {
+          "indexNo": 5,
+          "type": "cds.String",
+          "length": 15,
+          "@Common.Label": "{i18n>postalCode}",
+          "@cds.persistence.name": "POSTALCODE"
+        },
+        "region": {
+          "indexNo": 6,
+          "type": "cds.Association",
+          "target": "com.skipum.common.geographic.Region",
+          "@Common.Text.$value": {
+            "=": "region.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextFirst"
+          },
+          "@Common.ValueList.entity": "Regions",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.ValueListWithFixedValues": true,
+          "foreignKeys": {
+            "code": {
+              "path": "code",
+              "indexNo": 1,
+              "generatedFieldName": "region_code",
+              "@cds.persistence.name": "CODE"
+            },
+            "country_code": {
+              "path": "country_code",
+              "generatedFieldName": "region_country_code",
+              "@cds.persistence.name": "COUNTRY_CODE"
+            }
+          },
+          "@cds.persistence.name": "REGION"
+        },
+        "country": {
+          "indexNo": 7,
+          "type": "cds.Association",
+          "target": "com.skipum.common.geographic.Country",
+          "@Common.Text.$value": {
+            "=": "country.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextFirst"
+          },
+          "@Common.ValueList.entity": "Countries",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.ValueListWithFixedValues": true,
+          "foreignKeys": {
+            "code": {
+              "path": "code",
+              "indexNo": 1,
+              "generatedFieldName": "country_code",
+              "@cds.persistence.name": "CODE"
+            }
+          },
+          "@cds.persistence.name": "COUNTRY"
+        },
+        "poBox": {
+          "indexNo": 8,
+          "type": "cds.Boolean",
+          "@Common.Label": "{i18n>pOBox}",
+          "@cds.persistence.name": "POBOX"
+        },
+        "region_code": {
+          "type": "cds.String",
+          "length": 3,
+          "@odata.foreignKey4": "region",
+          "@Common.Text.$value": {
+            "=": "region.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextFirst"
+          },
+          "@Common.ValueList.entity": "Regions",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.ValueListWithFixedValues": true,
+          "@cds.persistence.name": "REGION_CODE"
+        },
+        "region_country_code": {
+          "type": "cds.String",
+          "length": 3,
+          "@odata.foreignKey4": "region",
+          "@Common.Text.$value": {
+            "=": "region.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextFirst"
+          },
+          "@Common.ValueList.entity": "Regions",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.ValueListWithFixedValues": true,
+          "@cds.persistence.name": "REGION_COUNTRY_CODE"
+        },
+        "country_code": {
+          "type": "cds.String",
+          "length": 3,
+          "@odata.foreignKey4": "country",
+          "@Common.Text.$value": {
+            "=": "country.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextFirst"
+          },
+          "@Common.ValueList.entity": "Countries",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.ValueListWithFixedValues": true,
+          "@cds.persistence.name": "COUNTRY_CODE"
+        }
+      },
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_ADDRESS_POSTALADDRESS"
+    },
+    "com.skipum.common.businessObject.User": {
+      "kind": "type",
+      "type": "cds.String",
+      "@description": "{i18n>user}",
+      "length": 255,
+      "@Common.Label": "{i18n>user}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_BUSINESSOBJECT_USER"
+    },
+    "com.skipum.common.businessObject.DocumentNumber": {
+      "kind": "type",
+      "type": "cds.String",
+      "@description": "{i18n>documentNumber}",
+      "length": 100,
+      "@Common.Label": "{i18n>documentNumber}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_BUSINESSOBJECT_DOCUMENTNUMBER"
+    },
+    "com.skipum.common.businessObject.SourceDocumentNumber": {
+      "kind": "type",
+      "type": "cds.String",
+      "@description": "{i18n>sourceDocumentNumber}",
+      "length": 100,
+      "@Common.Label": "{i18n>sourceDocumentNumber}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_BUSINESSOBJECT_SOURCEDOCUMENTNUMBER"
+    },
+    "com.skipum.common.businessObject.SourceSystemCode": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 3,
+      "@Common.Label": "{i18n>sourceSystemCode}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_BUSINESSOBJECT_SOURCESYSTEMCODE"
+    },
+    "com.skipum.common.businessObject.SourceSystem": {
+      "kind": "entity",
+      "includes": [
+        "com.skipum.common.codes.CodeList"
+      ],
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.codes.CodeList..name",
+          "indexNo": 1,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>sourceSystem}",
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.String",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "length": 3,
+          "@Common.Label": "{i18n>sourceSystemCode}",
+          "@cds.persistence.name": "CODE"
+        }
+      },
+      "@cds.autoexpose": true,
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_BUSINESSOBJECT_SOURCESYSTEM"
+    },
+    "com.skipum.common.businessObject.BusinessDocument": {
+      "abstract": true,
+      "kind": "entity",
+      "includes": [
+        "com.skipum.common.businessObject.SourceDocument"
+      ],
+      "elements": {
+        "ID": {
+          "origin": "com.skipum.common.businessObject.SourceDocument..ID",
+          "indexNo": 3,
+          "key": true,
+          "type": "cds.UUID",
+          "@Common.FieldControl": {
+            "#": "ReadOnly"
+          },
+          "@Common.Updatable": false,
+          "@Common.Creatable": true,
+          "@UI.HiddenFilter": true,
+          "@Common.Label": "{i18n>UID}",
+          "@cds.persistence.name": "ID"
+        },
+        "sourceSystem": {
+          "origin": "com.skipum.common.businessObject.SourceDocument..sourceSystem",
+          "indexNo": 4,
+          "type": "cds.Association",
+          "target": "com.skipum.common.businessObject.SourceSystem",
+          "@Common.Text.$value": {
+            "=": "sourceSystem.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@Common.ValueList.entity": "SourceSystems",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.FieldControl": {
+            "#": "ReadOnly"
+          },
+          "@Common.ValueListWithFixedValues": true,
+          "@Common.Updatable": false,
+          "@Common.Creatable": true,
+          "foreignKeys": {
+            "code": {
+              "origin": "com.skipum.common.businessObject.SourceDocument..sourceSystem.code",
+              "indexNo": 1,
+              "path": "code",
+              "generatedFieldName": "sourceSystem_code",
+              "@cds.persistence.name": "CODE"
+            }
+          },
+          "@Common.Label": "{i18n>sourceSystem}",
+          "@cds.persistence.name": "SOURCESYSTEM"
+        },
+        "sourceDocument": {
+          "origin": "com.skipum.common.businessObject.SourceDocument..sourceDocument",
+          "indexNo": 5,
+          "type": "cds.String",
+          "@Common.FieldControl": {
+            "#": "ReadOnly"
+          },
+          "@Common.Updatable": false,
+          "@Common.Creatable": true,
+          "@description": "{i18n>sourceDocumentNumber}",
+          "length": 100,
+          "@Common.Label": "{i18n>sourceDocumentNumber}",
+          "@cds.persistence.name": "SOURCEDOCUMENT"
+        },
+        "document": {
+          "indexNo": 6,
+          "type": "cds.String",
+          "@Common.FieldControl": {
+            "#": "ReadOnly"
+          },
+          "@Common.Updatable": false,
+          "@Common.Creatable": true,
+          "@description": "{i18n>documentNumber}",
+          "length": 100,
+          "@Common.Label": "{i18n>documentNumber}",
+          "@cds.persistence.name": "DOCUMENT"
+        },
+        "created_byUser": {
+          "indexNo": 1,
+          "type": "cds.String",
+          "@Core.Computed": true,
+          "@odata.on.insert": {
+            "#": "user"
+          },
+          "@Common.FieldControl": {
+            "#": "ReadOnly"
+          },
+          "@Common.Updatable": false,
+          "@Common.Creatable": true,
+          "@description": "{i18n>user}",
+          "length": 255,
+          "viaTransform": true,
+          "@Common.Label": "{i18n>createdBy}",
+          "@cds.persistence.name": "CREATED_BYUSER"
+        },
+        "created_at": {
+          "indexNo": 2,
+          "type": "cds.DateTime",
+          "@odata.on.insert": {
+            "#": "now"
+          },
+          "@Common.FieldControl": {
+            "#": "ReadOnly"
+          },
+          "@Common.Updatable": false,
+          "@Common.Creatable": true,
+          "viaTransform": true,
+          "@Common.Label": "{i18n>createdAt}",
+          "@cds.persistence.name": "CREATED_AT"
+        },
+        "modified_byUser": {
+          "indexNo": 1,
+          "type": "cds.String",
+          "@Core.Computed": true,
+          "@odata.on.update": {
+            "#": "user"
+          },
+          "@Common.FieldControl": {
+            "#": "ReadOnly"
+          },
+          "@Common.Updatable": false,
+          "@Common.Creatable": true,
+          "@description": "{i18n>user}",
+          "length": 255,
+          "viaTransform": true,
+          "@Common.Label": "{i18n>changedBy}",
+          "@cds.persistence.name": "MODIFIED_BYUSER"
+        },
+        "modified_at": {
+          "indexNo": 2,
+          "type": "cds.DateTime",
+          "@odata.on.update": {
+            "#": "now"
+          },
+          "@odata.etag": true,
+          "@Common.FieldControl": {
+            "#": "ReadOnly"
+          },
+          "@Common.Updatable": false,
+          "@Common.Creatable": true,
+          "viaTransform": true,
+          "@Common.Label": "{i18n>changedAt}",
+          "@cds.persistence.name": "MODIFIED_AT"
+        },
+        "sourceSystem_code": {
+          "type": "cds.String",
+          "length": 3,
+          "@odata.foreignKey4": "sourceSystem",
+          "@Common.Text.$value": {
+            "=": "sourceSystem.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@Common.ValueList.entity": "SourceSystems",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.FieldControl": {
+            "#": "ReadOnly"
+          },
+          "@Common.ValueListWithFixedValues": true,
+          "@Common.Updatable": false,
+          "@Common.Creatable": true,
+          "@Common.Label": "{i18n>sourceSystem}",
+          "@cds.persistence.name": "SOURCESYSTEM_CODE"
+        }
+      },
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_BUSINESSOBJECT_BUSINESSDOCUMENT"
+    },
+    "com.skipum.common.businessObject.SourceDocument": {
+      "abstract": true,
+      "kind": "entity",
+      "includes": [
+        "com.skipum.common.businessObject.BusinessObject"
+      ],
+      "elements": {
+        "ID": {
+          "origin": "com.skipum.common.businessObject.BusinessObject..ID",
+          "indexNo": 3,
+          "key": true,
+          "type": "cds.UUID",
+          "@Common.FieldControl": {
+            "#": "ReadOnly"
+          },
+          "@Common.Updatable": false,
+          "@Common.Creatable": true,
+          "@UI.HiddenFilter": true,
+          "@Common.Label": "{i18n>UID}",
+          "@cds.persistence.name": "ID"
+        },
+        "sourceSystem": {
+          "indexNo": 4,
+          "type": "cds.Association",
+          "target": "com.skipum.common.businessObject.SourceSystem",
+          "@Common.Text.$value": {
+            "=": "sourceSystem.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@Common.ValueList.entity": "SourceSystems",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.FieldControl": {
+            "#": "ReadOnly"
+          },
+          "@Common.ValueListWithFixedValues": true,
+          "@Common.Updatable": false,
+          "@Common.Creatable": true,
+          "foreignKeys": {
+            "code": {
+              "path": "code",
+              "indexNo": 1,
+              "generatedFieldName": "sourceSystem_code",
+              "@cds.persistence.name": "CODE"
+            }
+          },
+          "@Common.Label": "{i18n>sourceSystem}",
+          "@cds.persistence.name": "SOURCESYSTEM"
+        },
+        "sourceDocument": {
+          "indexNo": 5,
+          "type": "cds.String",
+          "@Common.FieldControl": {
+            "#": "ReadOnly"
+          },
+          "@Common.Updatable": false,
+          "@Common.Creatable": true,
+          "@description": "{i18n>sourceDocumentNumber}",
+          "length": 100,
+          "@Common.Label": "{i18n>sourceDocumentNumber}",
+          "@cds.persistence.name": "SOURCEDOCUMENT"
+        },
+        "created_byUser": {
+          "indexNo": 1,
+          "type": "cds.String",
+          "@Core.Computed": true,
+          "@odata.on.insert": {
+            "#": "user"
+          },
+          "@Common.FieldControl": {
+            "#": "ReadOnly"
+          },
+          "@Common.Updatable": false,
+          "@Common.Creatable": true,
+          "@description": "{i18n>user}",
+          "length": 255,
+          "viaTransform": true,
+          "@Common.Label": "{i18n>createdBy}",
+          "@cds.persistence.name": "CREATED_BYUSER"
+        },
+        "created_at": {
+          "indexNo": 2,
+          "type": "cds.DateTime",
+          "@odata.on.insert": {
+            "#": "now"
+          },
+          "@Common.FieldControl": {
+            "#": "ReadOnly"
+          },
+          "@Common.Updatable": false,
+          "@Common.Creatable": true,
+          "viaTransform": true,
+          "@Common.Label": "{i18n>createdAt}",
+          "@cds.persistence.name": "CREATED_AT"
+        },
+        "modified_byUser": {
+          "indexNo": 1,
+          "type": "cds.String",
+          "@Core.Computed": true,
+          "@odata.on.update": {
+            "#": "user"
+          },
+          "@Common.FieldControl": {
+            "#": "ReadOnly"
+          },
+          "@Common.Updatable": false,
+          "@Common.Creatable": true,
+          "@description": "{i18n>user}",
+          "length": 255,
+          "viaTransform": true,
+          "@Common.Label": "{i18n>changedBy}",
+          "@cds.persistence.name": "MODIFIED_BYUSER"
+        },
+        "modified_at": {
+          "indexNo": 2,
+          "type": "cds.DateTime",
+          "@odata.on.update": {
+            "#": "now"
+          },
+          "@odata.etag": true,
+          "@Common.FieldControl": {
+            "#": "ReadOnly"
+          },
+          "@Common.Updatable": false,
+          "@Common.Creatable": true,
+          "viaTransform": true,
+          "@Common.Label": "{i18n>changedAt}",
+          "@cds.persistence.name": "MODIFIED_AT"
+        },
+        "sourceSystem_code": {
+          "type": "cds.String",
+          "length": 3,
+          "@odata.foreignKey4": "sourceSystem",
+          "@Common.Text.$value": {
+            "=": "sourceSystem.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@Common.ValueList.entity": "SourceSystems",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.FieldControl": {
+            "#": "ReadOnly"
+          },
+          "@Common.ValueListWithFixedValues": true,
+          "@Common.Updatable": false,
+          "@Common.Creatable": true,
+          "@Common.Label": "{i18n>sourceSystem}",
+          "@cds.persistence.name": "SOURCESYSTEM_CODE"
+        }
+      },
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_BUSINESSOBJECT_SOURCEDOCUMENT"
+    },
+    "com.skipum.common.businessObject.BusinessObject": {
+      "abstract": true,
+      "kind": "entity",
+      "includes": [
+        "com.skipum.common.businessObject.ManagedObject"
+      ],
+      "elements": {
+        "ID": {
+          "key": true,
+          "indexNo": 3,
+          "type": "cds.UUID",
+          "@Common.FieldControl": {
+            "#": "ReadOnly"
+          },
+          "@Common.Updatable": false,
+          "@Common.Creatable": true,
+          "@UI.HiddenFilter": true,
+          "@Common.Label": "{i18n>UID}",
+          "@cds.persistence.name": "ID"
+        },
+        "created_byUser": {
+          "indexNo": 1,
+          "type": "cds.String",
+          "@Core.Computed": true,
+          "@odata.on.insert": {
+            "#": "user"
+          },
+          "@Common.FieldControl": {
+            "#": "ReadOnly"
+          },
+          "@Common.Updatable": false,
+          "@Common.Creatable": true,
+          "@description": "{i18n>user}",
+          "length": 255,
+          "viaTransform": true,
+          "@Common.Label": "{i18n>createdBy}",
+          "@cds.persistence.name": "CREATED_BYUSER"
+        },
+        "created_at": {
+          "indexNo": 2,
+          "type": "cds.DateTime",
+          "@odata.on.insert": {
+            "#": "now"
+          },
+          "@Common.FieldControl": {
+            "#": "ReadOnly"
+          },
+          "@Common.Updatable": false,
+          "@Common.Creatable": true,
+          "viaTransform": true,
+          "@Common.Label": "{i18n>createdAt}",
+          "@cds.persistence.name": "CREATED_AT"
+        },
+        "modified_byUser": {
+          "indexNo": 1,
+          "type": "cds.String",
+          "@Core.Computed": true,
+          "@odata.on.update": {
+            "#": "user"
+          },
+          "@Common.FieldControl": {
+            "#": "ReadOnly"
+          },
+          "@Common.Updatable": false,
+          "@Common.Creatable": true,
+          "@description": "{i18n>user}",
+          "length": 255,
+          "viaTransform": true,
+          "@Common.Label": "{i18n>changedBy}",
+          "@cds.persistence.name": "MODIFIED_BYUSER"
+        },
+        "modified_at": {
+          "indexNo": 2,
+          "type": "cds.DateTime",
+          "@odata.on.update": {
+            "#": "now"
+          },
+          "@odata.etag": true,
+          "@Common.FieldControl": {
+            "#": "ReadOnly"
+          },
+          "@Common.Updatable": false,
+          "@Common.Creatable": true,
+          "viaTransform": true,
+          "@Common.Label": "{i18n>changedAt}",
+          "@cds.persistence.name": "MODIFIED_AT"
+        }
+      },
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_BUSINESSOBJECT_BUSINESSOBJECT"
+    },
+    "com.skipum.common.businessObject.ManagedObject": {
+      "abstract": true,
+      "kind": "entity",
+      "elements": {
+        "created_byUser": {
+          "indexNo": 1,
+          "type": "cds.String",
+          "@Core.Computed": true,
+          "@odata.on.insert": {
+            "#": "user"
+          },
+          "@Common.FieldControl": {
+            "#": "ReadOnly"
+          },
+          "@Common.Updatable": false,
+          "@Common.Creatable": true,
+          "@description": "{i18n>user}",
+          "length": 255,
+          "viaTransform": true,
+          "@Common.Label": "{i18n>createdBy}",
+          "@cds.persistence.name": "CREATED_BYUSER"
+        },
+        "created_at": {
+          "indexNo": 2,
+          "type": "cds.DateTime",
+          "@odata.on.insert": {
+            "#": "now"
+          },
+          "@Common.FieldControl": {
+            "#": "ReadOnly"
+          },
+          "@Common.Updatable": false,
+          "@Common.Creatable": true,
+          "viaTransform": true,
+          "@Common.Label": "{i18n>createdAt}",
+          "@cds.persistence.name": "CREATED_AT"
+        },
+        "modified_byUser": {
+          "indexNo": 1,
+          "type": "cds.String",
+          "@Core.Computed": true,
+          "@odata.on.update": {
+            "#": "user"
+          },
+          "@Common.FieldControl": {
+            "#": "ReadOnly"
+          },
+          "@Common.Updatable": false,
+          "@Common.Creatable": true,
+          "@description": "{i18n>user}",
+          "length": 255,
+          "viaTransform": true,
+          "@Common.Label": "{i18n>changedBy}",
+          "@cds.persistence.name": "MODIFIED_BYUSER"
+        },
+        "modified_at": {
+          "indexNo": 2,
+          "type": "cds.DateTime",
+          "@odata.on.update": {
+            "#": "now"
+          },
+          "@odata.etag": true,
+          "@Common.FieldControl": {
+            "#": "ReadOnly"
+          },
+          "@Common.Updatable": false,
+          "@Common.Creatable": true,
+          "viaTransform": true,
+          "@Common.Label": "{i18n>changedAt}",
+          "@cds.persistence.name": "MODIFIED_AT"
+        }
+      },
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_BUSINESSOBJECT_MANAGEDOBJECT"
+    },
+    "skipum.base.common.businessPartner.PartnerType": {
+      "kind": "type",
+      "type": "cds.String",
+      "@description": "{i18n>partnerType}",
+      "length": 3,
+      "@Common.Label": "{i18n>partnerType}",
+      "@cds.persistence.name": "SKIPUM_BASE_COMMON_BUSINESSPARTNER_PARTNERTYPE"
+    },
+    "skipum.base.common.businessPartner.PartnerTypes": {
+      "kind": "entity",
+      "includes": [
+        "com.skipum.common.codes.CodeList"
+      ],
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.codes.CodeList..name",
+          "indexNo": 1,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>partnerType}",
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.String",
+          "@description": "{i18n>partnerType}",
+          "length": 3,
+          "@Common.Label": "{i18n>partnerType}",
+          "@cds.persistence.name": "CODE"
+        }
+      },
+      "@cds.autoexpose": true,
+      "@cds.persistence.name": "SKIPUM_BASE_COMMON_BUSINESSPARTNER_PARTNERTYPES"
+    },
+    "skipum.base.common.businessPartner.BusinessAddress": {
+      "abstract": true,
+      "kind": "entity",
+      "includes": [
+        "com.skipum.common.address.BusinessAddress"
+      ],
+      "elements": {
+        "address1": {
+          "origin": "com.skipum.common.address.BusinessAddress..address1",
+          "indexNo": 1,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>addressLine}",
+          "@cds.persistence.name": "ADDRESS1"
+        },
+        "address2": {
+          "origin": "com.skipum.common.address.BusinessAddress..address2",
+          "indexNo": 2,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>addressLine}",
+          "@cds.persistence.name": "ADDRESS2"
+        },
+        "address3": {
+          "origin": "com.skipum.common.address.BusinessAddress..address3",
+          "indexNo": 3,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>addressLine}",
+          "@cds.persistence.name": "ADDRESS3"
+        },
+        "city": {
+          "origin": "com.skipum.common.address.BusinessAddress..city",
+          "indexNo": 4,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>city}",
+          "@cds.persistence.name": "CITY"
+        },
+        "postalCode": {
+          "origin": "com.skipum.common.address.BusinessAddress..postalCode",
+          "indexNo": 5,
+          "type": "cds.String",
+          "length": 15,
+          "@Common.Label": "{i18n>postalCode}",
+          "@cds.persistence.name": "POSTALCODE"
+        },
+        "region": {
+          "origin": "com.skipum.common.address.BusinessAddress..region",
+          "indexNo": 6,
+          "type": "cds.Association",
+          "target": "com.skipum.common.geographic.Region",
+          "@Common.Text.$value": {
+            "=": "region.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextFirst"
+          },
+          "@Common.ValueList.entity": "Regions",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.ValueListWithFixedValues": true,
+          "foreignKeys": {
+            "code": {
+              "origin": "com.skipum.common.address.BusinessAddress..region.code",
+              "indexNo": 1,
+              "path": "code",
+              "generatedFieldName": "region_code",
+              "@cds.persistence.name": "CODE"
+            },
+            "country_code": {
+              "path": "country_code",
+              "generatedFieldName": "region_country_code",
+              "@cds.persistence.name": "COUNTRY_CODE"
+            }
+          },
+          "@cds.persistence.name": "REGION"
+        },
+        "country": {
+          "origin": "com.skipum.common.address.BusinessAddress..country",
+          "indexNo": 7,
+          "type": "cds.Association",
+          "target": "com.skipum.common.geographic.Country",
+          "@Common.Text.$value": {
+            "=": "country.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextFirst"
+          },
+          "@Common.ValueList.entity": "Countries",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.ValueListWithFixedValues": true,
+          "foreignKeys": {
+            "code": {
+              "origin": "com.skipum.common.address.BusinessAddress..country.code",
+              "indexNo": 1,
+              "path": "code",
+              "generatedFieldName": "country_code",
+              "@cds.persistence.name": "CODE"
+            }
+          },
+          "@cds.persistence.name": "COUNTRY"
+        },
+        "poBox": {
+          "origin": "com.skipum.common.address.BusinessAddress..poBox",
+          "indexNo": 8,
+          "type": "cds.Boolean",
+          "@Common.Label": "{i18n>pOBox}",
+          "@cds.persistence.name": "POBOX"
+        },
+        "addressee": {
+          "origin": "com.skipum.common.address.BusinessAddress..addressee",
+          "indexNo": 9,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>addressee}",
+          "@cds.persistence.name": "ADDRESSEE"
+        },
+        "communicationMethod_businessPhone": {
+          "indexNo": 1,
+          "type": "cds.String",
+          "@description": "{i18n>businessPhoneNumber}",
+          "@Communication.IsPhoneNumber": {
+            "#": "work"
+          },
+          "length": 20,
+          "viaTransform": true,
+          "@Common.Label": "{i18n>businessPhoneNumber}",
+          "@cds.persistence.name": "COMMUNICATIONMETHOD_BUSINESSPHONE"
+        },
+        "communicationMethod_mobilePhone": {
+          "indexNo": 2,
+          "type": "cds.String",
+          "@description": "{i18n>mobilePhoneNumber}",
+          "@Communication.IsPhoneNumber": {
+            "#": "cell"
+          },
+          "length": 20,
+          "viaTransform": true,
+          "@Common.Label": "{i18n>mobilePhoneNumber}",
+          "@cds.persistence.name": "COMMUNICATIONMETHOD_MOBILEPHONE"
+        },
+        "communicationMethod_fax": {
+          "indexNo": 3,
+          "type": "cds.String",
+          "@description": "{i18n>faxNumber}",
+          "@Communication.IsPhoneNumber": {
+            "#": "fax"
+          },
+          "length": 20,
+          "viaTransform": true,
+          "@Common.Label": "{i18n>faxNumber}",
+          "@cds.persistence.name": "COMMUNICATIONMETHOD_FAX"
+        },
+        "communicationMethod_email": {
+          "indexNo": 4,
+          "type": "cds.String",
+          "@Communication.IsEmailAddress": true,
+          "length": 120,
+          "viaTransform": true,
+          "@Common.Label": "{i18n>emailAddress}",
+          "@cds.persistence.name": "COMMUNICATIONMETHOD_EMAIL"
+        },
+        "region_code": {
+          "type": "cds.String",
+          "length": 3,
+          "@odata.foreignKey4": "region",
+          "@Common.Text.$value": {
+            "=": "region.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextFirst"
+          },
+          "@Common.ValueList.entity": "Regions",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.ValueListWithFixedValues": true,
+          "@cds.persistence.name": "REGION_CODE"
+        },
+        "region_country_code": {
+          "type": "cds.String",
+          "length": 3,
+          "@odata.foreignKey4": "region",
+          "@Common.Text.$value": {
+            "=": "region.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextFirst"
+          },
+          "@Common.ValueList.entity": "Regions",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.ValueListWithFixedValues": true,
+          "@cds.persistence.name": "REGION_COUNTRY_CODE"
+        },
+        "country_code": {
+          "type": "cds.String",
+          "length": 3,
+          "@odata.foreignKey4": "country",
+          "@Common.Text.$value": {
+            "=": "country.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextFirst"
+          },
+          "@Common.ValueList.entity": "Countries",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.ValueListWithFixedValues": true,
+          "@cds.persistence.name": "COUNTRY_CODE"
+        }
+      },
+      "@cds.persistence.name": "SKIPUM_BASE_COMMON_BUSINESSPARTNER_BUSINESSADDRESS"
+    },
+    "skipum.base.common.businessPartner.PhoneNumber": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 20,
+      "@Common.Label": "{i18n>phoneNumber}",
+      "@cds.persistence.name": "SKIPUM_BASE_COMMON_BUSINESSPARTNER_PHONENUMBER"
+    },
+    "skipum.base.common.businessPartner.Email": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 120,
+      "@Common.Label": "{i18n>emailAddress}",
+      "@cds.persistence.name": "SKIPUM_BASE_COMMON_BUSINESSPARTNER_EMAIL"
+    },
+    "skipum.base.common.businessPartner.CommunicationMethod": {
+      "abstract": true,
+      "kind": "entity",
+      "elements": {
+        "businessPhone": {
+          "indexNo": 1,
+          "type": "cds.String",
+          "@description": "{i18n>businessPhoneNumber}",
+          "@Communication.IsPhoneNumber": {
+            "#": "work"
+          },
+          "length": 20,
+          "@Common.Label": "{i18n>businessPhoneNumber}",
+          "@cds.persistence.name": "BUSINESSPHONE"
+        },
+        "mobilePhone": {
+          "indexNo": 2,
+          "type": "cds.String",
+          "@description": "{i18n>mobilePhoneNumber}",
+          "@Communication.IsPhoneNumber": {
+            "#": "cell"
+          },
+          "length": 20,
+          "@Common.Label": "{i18n>mobilePhoneNumber}",
+          "@cds.persistence.name": "MOBILEPHONE"
+        },
+        "fax": {
+          "indexNo": 3,
+          "type": "cds.String",
+          "@description": "{i18n>faxNumber}",
+          "@Communication.IsPhoneNumber": {
+            "#": "fax"
+          },
+          "length": 20,
+          "@Common.Label": "{i18n>faxNumber}",
+          "@cds.persistence.name": "FAX"
+        },
+        "email": {
+          "indexNo": 4,
+          "type": "cds.String",
+          "@Communication.IsEmailAddress": true,
+          "length": 120,
+          "@Common.Label": "{i18n>emailAddress}",
+          "@cds.persistence.name": "EMAIL"
+        }
+      },
+      "@cds.persistence.name": "SKIPUM_BASE_COMMON_BUSINESSPARTNER_COMMUNICATIONMETHOD"
+    },
+    "com.skipum.common.carrier.Enabled": {
+      "kind": "type",
+      "type": "cds.Boolean",
+      "@description": "{i18n>enabled}",
+      "@Common.Label": "{i18n>enabled}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CARRIER_ENABLED"
+    },
+    "com.skipum.common.carrier.ModeOfTransportCode": {
+      "kind": "type",
+      "type": "cds.String",
+      "@description": "{i18n>modeoftransport}",
+      "length": 3,
+      "@Common.Label": "{i18n>modeoftransport}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CARRIER_MODEOFTRANSPORTCODE"
+    },
+    "com.skipum.common.carrier.ModeOfTransport": {
+      "kind": "entity",
+      "includes": [
+        "com.skipum.common.codes.CodeList"
+      ],
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.codes.CodeList..name",
+          "indexNo": 1,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>modeoftransport}",
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.String",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@description": "{i18n>modeoftransport}",
+          "length": 3,
+          "@Common.Label": "{i18n>modeoftransport}",
+          "@cds.persistence.name": "CODE"
+        }
+      },
+      "@cds.autoexpose": true,
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CARRIER_MODEOFTRANSPORT"
+    },
+    "com.skipum.common.carrier.ServiceTypeCode": {
+      "kind": "type",
+      "type": "cds.String",
+      "@description": "{i18n>serviceType}",
+      "length": 3,
+      "@Common.Label": "{i18n>serviceType}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CARRIER_SERVICETYPECODE"
+    },
+    "com.skipum.common.carrier.ServiceType": {
+      "kind": "entity",
+      "includes": [
+        "com.skipum.common.codes.CodeList"
+      ],
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.codes.CodeList..name",
+          "indexNo": 1,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>serviceType}",
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.String",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@description": "{i18n>serviceType}",
+          "length": 3,
+          "@Common.Label": "{i18n>serviceType}",
+          "@cds.persistence.name": "CODE"
+        }
+      },
+      "@cds.autoexpose": true,
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CARRIER_SERVICETYPE"
+    },
+    "com.skipum.common.carrier.ServiceSubTypeCode": {
+      "kind": "type",
+      "type": "cds.String",
+      "@description": "{i18n>serviceSubType}",
+      "length": 3,
+      "@Common.Label": "{i18n>serviceSubType}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CARRIER_SERVICESUBTYPECODE"
+    },
+    "com.skipum.common.carrier.ServiceSubType": {
+      "kind": "entity",
+      "includes": [
+        "com.skipum.common.codes.CodeList"
+      ],
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.codes.CodeList..name",
+          "indexNo": 1,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>serviceSubType}",
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.String",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@description": "{i18n>serviceSubType}",
+          "length": 3,
+          "@Common.Label": "{i18n>serviceSubType}",
+          "@cds.persistence.name": "CODE"
+        }
+      },
+      "@cds.autoexpose": true,
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CARRIER_SERVICESUBTYPE"
+    },
+    "com.skipum.common.carrier.DaysInTransitTypeCode": {
+      "kind": "type",
+      "type": "cds.String",
+      "@description": "{i18n>daysInTransitType}",
+      "length": 3,
+      "@Common.Label": "{i18n>daysInTransitType}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CARRIER_DAYSINTRANSITTYPECODE"
+    },
+    "com.skipum.common.carrier.DaysInTransitType": {
+      "kind": "entity",
+      "includes": [
+        "com.skipum.common.codes.CodeList"
+      ],
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.codes.CodeList..name",
+          "indexNo": 1,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>daysInTransitType}",
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.String",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@description": "{i18n>daysInTransitType}",
+          "length": 3,
+          "@Common.Label": "{i18n>daysInTransitType}",
+          "@cds.persistence.name": "CODE"
+        }
+      },
+      "@cds.autoexpose": true,
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CARRIER_DAYSINTRANSITTYPE"
+    },
+    "com.skipum.common.carrier.CommitmentTimeTypeCode": {
+      "kind": "type",
+      "type": "cds.String",
+      "@description": "{i18n>commitmentTimeType}",
+      "length": 3,
+      "@Common.Label": "{i18n>commitmentTimeType}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CARRIER_COMMITMENTTIMETYPECODE"
+    },
+    "com.skipum.common.carrier.CommitmentTimeType": {
+      "kind": "entity",
+      "includes": [
+        "com.skipum.common.codes.CodeList"
+      ],
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.codes.CodeList..name",
+          "indexNo": 1,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>commitmentTimeType}",
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.String",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@description": "{i18n>commitmentTimeType}",
+          "length": 3,
+          "@Common.Label": "{i18n>commitmentTimeType}",
+          "@cds.persistence.name": "CODE"
+        }
+      },
+      "@cds.autoexpose": true,
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CARRIER_COMMITMENTTIMETYPE"
+    },
+    "com.skipum.common.carrier.CarrierAction": {
+      "kind": "entity",
+      "elements": {
+        "actionCode": {
+          "key": true,
+          "indexNo": 1,
+          "type": "cds.Association",
+          "target": "com.skipum.common.contentSource.ContentAction",
+          "@Common.Text.$value": {
+            "=": "action.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@Common.ValueList.entity": "ContentActions",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.FieldControl": {
+            "#": "Mandatory"
+          },
+          "foreignKeys": {
+            "code": {
+              "path": "code",
+              "indexNo": 1,
+              "generatedFieldName": "actionCode_code",
+              "@cds.persistence.name": "CODE"
+            }
+          },
+          "@Common.Label": "{i18n>contentAction}",
+          "@cds.persistence.name": "ACTIONCODE"
+        },
+        "carrier": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.Association",
+          "target": "com.skipum.common.carrier.Carrier",
+          "foreignKeys": {
+            "code": {
+              "path": "code",
+              "indexNo": 1,
+              "generatedFieldName": "carrier_code",
+              "@cds.persistence.name": "CODE"
+            }
+          },
+          "@cds.persistence.name": "CARRIER"
+        },
+        "enabled": {
+          "indexNo": 3,
+          "type": "cds.Boolean",
+          "@description": "{i18n>enabled}",
+          "@Common.Label": "{i18n>enabled}",
+          "@cds.persistence.name": "ENABLED"
+        },
+        "provider": {
+          "indexNo": 4,
+          "type": "cds.Association",
+          "target": "com.skipum.common.contentSource.ContentSource",
+          "@Common.Text.$value": {
+            "=": "defaultProvider.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@Common.ValueList.entity": "ContentSources",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.FieldControl": {
+            "#": "Mandatory"
+          },
+          "foreignKeys": {
+            "code": {
+              "path": "code",
+              "indexNo": 1,
+              "generatedFieldName": "provider_code",
+              "@cds.persistence.name": "CODE"
+            }
+          },
+          "@Common.Label": "{i18n>contentSource}",
+          "@cds.persistence.name": "PROVIDER"
+        },
+        "actionCode_code": {
+          "type": "cds.String",
+          "length": 3,
+          "key": true,
+          "@odata.foreignKey4": "actionCode",
+          "@Common.Text.$value": {
+            "=": "action.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@Common.ValueList.entity": "ContentActions",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.FieldControl": {
+            "#": "Mandatory"
+          },
+          "@Common.Label": "{i18n>contentAction}",
+          "@cds.persistence.name": "ACTIONCODE_CODE"
+        },
+        "carrier_code": {
+          "type": "cds.String",
+          "length": 3,
+          "key": true,
+          "@odata.foreignKey4": "carrier",
+          "@cds.persistence.name": "CARRIER_CODE"
+        },
+        "provider_code": {
+          "type": "cds.String",
+          "length": 3,
+          "@odata.foreignKey4": "provider",
+          "@Common.Text.$value": {
+            "=": "defaultProvider.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@Common.ValueList.entity": "ContentSources",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.FieldControl": {
+            "#": "Mandatory"
+          },
+          "@Common.Label": "{i18n>contentSource}",
+          "@cds.persistence.name": "PROVIDER_CODE"
+        }
+      },
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CARRIER_CARRIERACTION"
+    },
+    "com.skipum.common.carrier.CarrierFeed": {
+      "kind": "entity",
+      "elements": {
+        "feed": {
+          "key": true,
+          "indexNo": 1,
+          "type": "cds.Association",
+          "target": "com.skipum.common.contentSource.ContentFeed",
+          "@Common.Text.$value": {
+            "=": "feed.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@Common.ValueList.entity": "ContentFeeds",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.FieldControl": {
+            "#": "Mandatory"
+          },
+          "foreignKeys": {
+            "code": {
+              "path": "code",
+              "indexNo": 1,
+              "generatedFieldName": "feed_code",
+              "@cds.persistence.name": "CODE"
+            }
+          },
+          "@Common.Label": "{i18n>contentFeed}",
+          "@cds.persistence.name": "FEED"
+        },
+        "carrier": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.Association",
+          "target": "com.skipum.common.carrier.Carrier",
+          "foreignKeys": {
+            "code": {
+              "path": "code",
+              "indexNo": 1,
+              "generatedFieldName": "carrier_code",
+              "@cds.persistence.name": "CODE"
+            }
+          },
+          "@cds.persistence.name": "CARRIER"
+        },
+        "enabled": {
+          "indexNo": 3,
+          "type": "cds.Boolean",
+          "@description": "{i18n>enabled}",
+          "@Common.Label": "{i18n>enabled}",
+          "@cds.persistence.name": "ENABLED"
+        },
+        "provider": {
+          "indexNo": 4,
+          "type": "cds.Association",
+          "target": "com.skipum.common.contentSource.ContentSource",
+          "@Common.Text.$value": {
+            "=": "defaultProvider.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@Common.ValueList.entity": "ContentSources",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.FieldControl": {
+            "#": "Mandatory"
+          },
+          "foreignKeys": {
+            "code": {
+              "path": "code",
+              "indexNo": 1,
+              "generatedFieldName": "provider_code",
+              "@cds.persistence.name": "CODE"
+            }
+          },
+          "@Common.Label": "{i18n>contentSource}",
+          "@cds.persistence.name": "PROVIDER"
+        },
+        "feed_code": {
+          "type": "cds.String",
+          "length": 3,
+          "key": true,
+          "@odata.foreignKey4": "feed",
+          "@Common.Text.$value": {
+            "=": "feed.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@Common.ValueList.entity": "ContentFeeds",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.FieldControl": {
+            "#": "Mandatory"
+          },
+          "@Common.Label": "{i18n>contentFeed}",
+          "@cds.persistence.name": "FEED_CODE"
+        },
+        "carrier_code": {
+          "type": "cds.String",
+          "length": 3,
+          "key": true,
+          "@odata.foreignKey4": "carrier",
+          "@cds.persistence.name": "CARRIER_CODE"
+        },
+        "provider_code": {
+          "type": "cds.String",
+          "length": 3,
+          "@odata.foreignKey4": "provider",
+          "@Common.Text.$value": {
+            "=": "defaultProvider.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@Common.ValueList.entity": "ContentSources",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.FieldControl": {
+            "#": "Mandatory"
+          },
+          "@Common.Label": "{i18n>contentSource}",
+          "@cds.persistence.name": "PROVIDER_CODE"
+        }
+      },
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CARRIER_CARRIERFEED"
+    },
+    "com.skipum.common.carrier.CarrierCode": {
+      "kind": "type",
+      "type": "cds.String",
+      "@description": "{i18n>carrier}",
+      "length": 3,
+      "@Common.Label": "{i18n>carrier}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CARRIER_CARRIERCODE"
+    },
+    "com.skipum.common.carrier.CarrierBase": {
+      "abstract": true,
+      "kind": "entity",
+      "includes": [
+        "com.skipum.common.codes.CodeList"
+      ],
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.codes.CodeList..name",
+          "indexNo": 1,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.String",
+          "@description": "{i18n>carrier}",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "length": 3,
+          "@Common.Label": "{i18n>carrier}",
+          "@cds.persistence.name": "CODE"
+        },
+        "logo_url": {
+          "indexNo": 3,
+          "type": "cds.String",
+          "length": 200,
+          "@cds.persistence.name": "LOGO_URL"
+        },
+        "site_url": {
+          "indexNo": 4,
+          "type": "cds.String",
+          "length": 200,
+          "@cds.persistence.name": "SITE_URL"
+        }
+      },
+      "@cds.autoexpose": true,
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CARRIER_CARRIERBASE"
+    },
+    "com.skipum.common.carrier.Carrier": {
+      "kind": "entity",
+      "includes": [
+        "com.skipum.common.carrier.CarrierBase"
+      ],
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.carrier.CarrierBase..name",
+          "indexNo": 1,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>carrier}",
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "origin": "com.skipum.common.carrier.CarrierBase..code",
+          "indexNo": 2,
+          "key": true,
+          "type": "cds.String",
+          "@description": "{i18n>carrier}",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "length": 3,
+          "@Common.Label": "{i18n>carrier}",
+          "@cds.persistence.name": "CODE"
+        },
+        "logo_url": {
+          "origin": "com.skipum.common.carrier.CarrierBase..logo_url",
+          "indexNo": 3,
+          "type": "cds.String",
+          "length": 200,
+          "@cds.persistence.name": "LOGO_URL"
+        },
+        "site_url": {
+          "origin": "com.skipum.common.carrier.CarrierBase..site_url",
+          "indexNo": 4,
+          "type": "cds.String",
+          "length": 200,
+          "@cds.persistence.name": "SITE_URL"
+        },
+        "enabled": {
+          "indexNo": 5,
+          "type": "cds.Boolean",
+          "@description": "{i18n>enabled}",
+          "@Common.Label": "{i18n>enabled}",
+          "@cds.persistence.name": "ENABLED"
+        },
+        "services": {
+          "indexNo": 6,
+          "type": "cds.Composition",
+          "target": "com.skipum.common.carrier.Service",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "services.carrier"
+              },
+              {
+                "=": "$self"
+              }
+            ]
+          },
+          "@cds.persistence.name": "SERVICES"
+        },
+        "actions": {
+          "indexNo": 7,
+          "type": "cds.Composition",
+          "target": "com.skipum.common.carrier.CarrierAction",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "actions.carrier"
+              },
+              {
+                "=": "$self"
+              }
+            ]
+          },
+          "@cds.persistence.name": "ACTIONS"
+        },
+        "feeds": {
+          "indexNo": 8,
+          "type": "cds.Composition",
+          "target": "com.skipum.common.carrier.CarrierFeed",
+          "cardinality": {
+            "targetMax": "*"
+          },
+          "onCond": {
+            "op": "=",
+            "args": [
+              {
+                "=": "feeds.carrier"
+              },
+              {
+                "=": "$self"
+              }
+            ]
+          },
+          "@cds.persistence.name": "FEEDS"
+        }
+      },
+      "@cds.autoexpose": true,
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CARRIER_CARRIER"
+    },
+    "com.skipum.common.carrier.ServiceCode": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 3,
+      "@Common.Label": "{i18n>service}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CARRIER_SERVICECODE"
+    },
+    "com.skipum.common.carrier.ServiceBase": {
+      "kind": "entity",
+      "includes": [
+        "com.skipum.common.codes.CodeList"
+      ],
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.codes.CodeList..name",
+          "indexNo": 1,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.String",
+          "@description": "{i18n>service}",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "length": 3,
+          "@Common.Label": "{i18n>service}",
+          "@cds.persistence.name": "CODE"
+        },
+        "modeOfTransport": {
+          "indexNo": 3,
+          "type": "cds.Association",
+          "target": "com.skipum.common.carrier.ModeOfTransport",
+          "@Common.Text.$value": {
+            "=": "modeOfTransport.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@Common.ValueList.entity": "ModeOfTransports",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.FieldControl": {
+            "#": "Mandatory"
+          },
+          "foreignKeys": {
+            "code": {
+              "path": "code",
+              "indexNo": 1,
+              "generatedFieldName": "modeOfTransport_code",
+              "@cds.persistence.name": "CODE"
+            }
+          },
+          "@Common.Label": "{i18n>modeoftransport}",
+          "@cds.persistence.name": "MODEOFTRANSPORT"
+        },
+        "serviceType": {
+          "indexNo": 4,
+          "type": "cds.Association",
+          "target": "com.skipum.common.carrier.ServiceType",
+          "@Common.Text.$value": {
+            "=": "serviceType.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@Common.ValueList.entity": "ServiceTypes",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.FieldControl": {
+            "#": "Mandatory"
+          },
+          "foreignKeys": {
+            "code": {
+              "path": "code",
+              "indexNo": 1,
+              "generatedFieldName": "serviceType_code",
+              "@cds.persistence.name": "CODE"
+            }
+          },
+          "@Common.Label": "{i18n>serviceType}",
+          "@cds.persistence.name": "SERVICETYPE"
+        },
+        "serviceSubType": {
+          "indexNo": 5,
+          "type": "cds.Association",
+          "target": "com.skipum.common.carrier.ServiceSubType",
+          "@Common.Text.$value": {
+            "=": "serviceType.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@Common.ValueList.entity": "ServiceSubTypes",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.FieldControl": {
+            "#": "Mandatory"
+          },
+          "foreignKeys": {
+            "code": {
+              "path": "code",
+              "indexNo": 1,
+              "generatedFieldName": "serviceSubType_code",
+              "@cds.persistence.name": "CODE"
+            }
+          },
+          "@Common.Label": "{i18n>serviceSubType}",
+          "@cds.persistence.name": "SERVICESUBTYPE"
+        },
+        "modeOfTransport_code": {
+          "type": "cds.String",
+          "length": 3,
+          "@odata.foreignKey4": "modeOfTransport",
+          "@Common.Text.$value": {
+            "=": "modeOfTransport.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@Common.ValueList.entity": "ModeOfTransports",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.FieldControl": {
+            "#": "Mandatory"
+          },
+          "@Common.Label": "{i18n>modeoftransport}",
+          "@cds.persistence.name": "MODEOFTRANSPORT_CODE"
+        },
+        "serviceType_code": {
+          "type": "cds.String",
+          "length": 3,
+          "@odata.foreignKey4": "serviceType",
+          "@Common.Text.$value": {
+            "=": "serviceType.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@Common.ValueList.entity": "ServiceTypes",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.FieldControl": {
+            "#": "Mandatory"
+          },
+          "@Common.Label": "{i18n>serviceType}",
+          "@cds.persistence.name": "SERVICETYPE_CODE"
+        },
+        "serviceSubType_code": {
+          "type": "cds.String",
+          "length": 3,
+          "@odata.foreignKey4": "serviceSubType",
+          "@Common.Text.$value": {
+            "=": "serviceType.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@Common.ValueList.entity": "ServiceSubTypes",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.FieldControl": {
+            "#": "Mandatory"
+          },
+          "@Common.Label": "{i18n>serviceSubType}",
+          "@cds.persistence.name": "SERVICESUBTYPE_CODE"
+        }
+      },
+      "@cds.autoexpose": true,
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CARRIER_SERVICEBASE"
+    },
+    "com.skipum.common.carrier.Service": {
+      "kind": "entity",
+      "includes": [
+        "com.skipum.common.carrier.ServiceBase"
+      ],
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.carrier.ServiceBase..name",
+          "indexNo": 1,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "origin": "com.skipum.common.carrier.ServiceBase..code",
+          "indexNo": 2,
+          "key": true,
+          "type": "cds.String",
+          "@description": "{i18n>service}",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "length": 3,
+          "@Common.Label": "{i18n>service}",
+          "@cds.persistence.name": "CODE"
+        },
+        "modeOfTransport": {
+          "origin": "com.skipum.common.carrier.ServiceBase..modeOfTransport",
+          "indexNo": 3,
+          "type": "cds.Association",
+          "target": "com.skipum.common.carrier.ModeOfTransport",
+          "@Common.Text.$value": {
+            "=": "modeOfTransport.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@Common.ValueList.entity": "ModeOfTransports",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.FieldControl": {
+            "#": "Mandatory"
+          },
+          "foreignKeys": {
+            "code": {
+              "origin": "com.skipum.common.carrier.ServiceBase..modeOfTransport.code",
+              "indexNo": 1,
+              "path": "code",
+              "generatedFieldName": "modeOfTransport_code",
+              "@cds.persistence.name": "CODE"
+            }
+          },
+          "@Common.Label": "{i18n>modeoftransport}",
+          "@cds.persistence.name": "MODEOFTRANSPORT"
+        },
+        "serviceType": {
+          "origin": "com.skipum.common.carrier.ServiceBase..serviceType",
+          "indexNo": 4,
+          "type": "cds.Association",
+          "target": "com.skipum.common.carrier.ServiceType",
+          "@Common.Text.$value": {
+            "=": "serviceType.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@Common.ValueList.entity": "ServiceTypes",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.FieldControl": {
+            "#": "Mandatory"
+          },
+          "foreignKeys": {
+            "code": {
+              "origin": "com.skipum.common.carrier.ServiceBase..serviceType.code",
+              "indexNo": 1,
+              "path": "code",
+              "generatedFieldName": "serviceType_code",
+              "@cds.persistence.name": "CODE"
+            }
+          },
+          "@Common.Label": "{i18n>serviceType}",
+          "@cds.persistence.name": "SERVICETYPE"
+        },
+        "serviceSubType": {
+          "origin": "com.skipum.common.carrier.ServiceBase..serviceSubType",
+          "indexNo": 5,
+          "type": "cds.Association",
+          "target": "com.skipum.common.carrier.ServiceSubType",
+          "@Common.Text.$value": {
+            "=": "serviceType.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@Common.ValueList.entity": "ServiceSubTypes",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.FieldControl": {
+            "#": "Mandatory"
+          },
+          "foreignKeys": {
+            "code": {
+              "origin": "com.skipum.common.carrier.ServiceBase..serviceSubType.code",
+              "indexNo": 1,
+              "path": "code",
+              "generatedFieldName": "serviceSubType_code",
+              "@cds.persistence.name": "CODE"
+            }
+          },
+          "@Common.Label": "{i18n>serviceSubType}",
+          "@cds.persistence.name": "SERVICESUBTYPE"
+        },
+        "carrier": {
+          "indexNo": 6,
+          "type": "cds.Association",
+          "target": "com.skipum.common.carrier.Carrier",
+          "@Common.Text.$value": {
+            "=": "carrier.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@Common.ValueList.entity": "CarrierMasters",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.FieldControl": {
+            "#": "Mandatory"
+          },
+          "foreignKeys": {
+            "code": {
+              "path": "code",
+              "indexNo": 1,
+              "generatedFieldName": "carrier_code",
+              "@cds.persistence.name": "CODE"
+            }
+          },
+          "@Common.Label": "{i18n>carrier}",
+          "@cds.persistence.name": "CARRIER"
+        },
+        "enabled": {
+          "indexNo": 7,
+          "type": "cds.Boolean",
+          "@description": "{i18n>enabled}",
+          "@Common.Label": "{i18n>enabled}",
+          "@cds.persistence.name": "ENABLED"
+        },
+        "modeOfTransport_code": {
+          "type": "cds.String",
+          "length": 3,
+          "@odata.foreignKey4": "modeOfTransport",
+          "@Common.Text.$value": {
+            "=": "modeOfTransport.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@Common.ValueList.entity": "ModeOfTransports",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.FieldControl": {
+            "#": "Mandatory"
+          },
+          "@Common.Label": "{i18n>modeoftransport}",
+          "@cds.persistence.name": "MODEOFTRANSPORT_CODE"
+        },
+        "serviceType_code": {
+          "type": "cds.String",
+          "length": 3,
+          "@odata.foreignKey4": "serviceType",
+          "@Common.Text.$value": {
+            "=": "serviceType.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@Common.ValueList.entity": "ServiceTypes",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.FieldControl": {
+            "#": "Mandatory"
+          },
+          "@Common.Label": "{i18n>serviceType}",
+          "@cds.persistence.name": "SERVICETYPE_CODE"
+        },
+        "serviceSubType_code": {
+          "type": "cds.String",
+          "length": 3,
+          "@odata.foreignKey4": "serviceSubType",
+          "@Common.Text.$value": {
+            "=": "serviceType.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@Common.ValueList.entity": "ServiceSubTypes",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.FieldControl": {
+            "#": "Mandatory"
+          },
+          "@Common.Label": "{i18n>serviceSubType}",
+          "@cds.persistence.name": "SERVICESUBTYPE_CODE"
+        },
+        "carrier_code": {
+          "type": "cds.String",
+          "length": 3,
+          "@odata.foreignKey4": "carrier",
+          "@Common.Text.$value": {
+            "=": "carrier.name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@Common.ValueList.entity": "CarrierMasters",
+          "@Common.ValueList.type": {
+            "#": "fixed"
+          },
+          "@Common.FieldControl": {
+            "#": "Mandatory"
+          },
+          "@Common.Label": "{i18n>carrier}",
+          "@cds.persistence.name": "CARRIER_CODE"
+        }
+      },
+      "@cds.autoexpose": true,
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CARRIER_SERVICE"
+    },
+    "com.skipum.common.codes.Code": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 3,
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CODES_CODE"
+    },
+    "com.skipum.common.codes.Criticality": {
+      "kind": "type",
+      "type": "cds.Integer",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CODES_CRITICALITY"
+    },
+    "com.skipum.common.codes.CodeName": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 60,
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CODES_CODENAME"
+    },
+    "com.skipum.common.codes.CodeList": {
+      "abstract": true,
+      "kind": "entity",
+      "elements": {
+        "name": {
+          "indexNo": 1,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "NAME"
+        }
+      },
+      "@cds.autoexpose": true,
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CODES_CODELIST"
+    },
+    "com.skipum.common.contentSource.Enabled": {
+      "kind": "type",
+      "type": "cds.Boolean",
+      "@Common.Label": "{i18n>enabled}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CONTENTSOURCE_ENABLED"
+    },
+    "com.skipum.common.contentSource.ContentSourceCode": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 3,
+      "@Common.Label": "{i18n>contentSourceCode}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CONTENTSOURCE_CONTENTSOURCECODE"
+    },
+    "com.skipum.common.contentSource.ContentSource": {
+      "kind": "entity",
+      "includes": [
+        "com.skipum.common.codes.CodeList"
+      ],
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.codes.CodeList..name",
+          "indexNo": 1,
+          "@UI.HiddenFilter": true,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>contentSource}",
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.String",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@UI.HiddenFilter": true,
+          "length": 3,
+          "@Common.Label": "{i18n>contentSourceCode}",
+          "@cds.persistence.name": "CODE"
+        }
+      },
+      "@UI.Identification": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "name"
+          }
+        }
+      ],
+      "@cds.autoexpose": true,
+      "@Common.Label": "{i18n>contentSources}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CONTENTSOURCE_CONTENTSOURCE"
+    },
+    "com.skipum.common.contentSource.ContentActionCode": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 3,
+      "@Common.Label": "{i18n>contentActionCode}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CONTENTSOURCE_CONTENTACTIONCODE"
+    },
+    "com.skipum.common.contentSource.ContentAction": {
+      "kind": "entity",
+      "includes": [
+        "com.skipum.common.codes.CodeList"
+      ],
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.codes.CodeList..name",
+          "indexNo": 1,
+          "@UI.HiddenFilter": true,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>contentAction}",
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.String",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@UI.HiddenFilter": true,
+          "length": 3,
+          "@Common.Label": "{i18n>contentActionCode}",
+          "@cds.persistence.name": "CODE"
+        }
+      },
+      "@UI.Identification": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "name"
+          }
+        }
+      ],
+      "@cds.autoexpose": true,
+      "@Common.Label": "{i18n>contentActions}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CONTENTSOURCE_CONTENTACTION"
+    },
+    "com.skipum.common.contentSource.ContentFeedCode": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 3,
+      "@Common.Label": "{i18n>contentFeedCode}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CONTENTSOURCE_CONTENTFEEDCODE"
+    },
+    "com.skipum.common.contentSource.ContentFeed": {
+      "kind": "entity",
+      "includes": [
+        "com.skipum.common.codes.CodeList"
+      ],
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.codes.CodeList..name",
+          "indexNo": 1,
+          "@UI.HiddenFilter": true,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>contentFeed}",
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.String",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@UI.HiddenFilter": true,
+          "length": 3,
+          "@Common.Label": "{i18n>contentFeedCode}",
+          "@cds.persistence.name": "CODE"
+        }
+      },
+      "@UI.Identification": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "name"
+          }
+        }
+      ],
+      "@cds.autoexpose": true,
+      "@Common.Label": "{i18n>contentFeeds}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CONTENTSOURCE_CONTENTFEED"
+    },
+    "com.skipum.common.contentSource.ProcessorReturnCode": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 40,
+      "@Common.Label": "{i18n>processorReturnCode}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CONTENTSOURCE_PROCESSORRETURNCODE"
+    },
+    "com.skipum.common.contentSource.ProcessorReturnDescription": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 220,
+      "@Common.Label": "{i18n>processorReturnDescription}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CONTENTSOURCE_PROCESSORRETURNDESCRIPTION"
+    },
+    "com.skipum.common.contentSource.ProcessorReturn": {
+      "kind": "type",
+      "elements": {
+        "code": {
+          "indexNo": 1,
+          "type": "cds.String",
+          "@Common.FieldControl": {
+            "#": "ReadOnly"
+          },
+          "@Common.Updatable": false,
+          "@Common.Creatable": false,
+          "length": 40,
+          "@Common.Label": "{i18n>processorReturnCode}",
+          "@cds.persistence.name": "CODE"
+        },
+        "description": {
+          "indexNo": 2,
+          "type": "cds.String",
+          "@Common.FieldControl": {
+            "#": "ReadOnly"
+          },
+          "@Common.Updatable": false,
+          "@Common.Creatable": false,
+          "length": 220,
+          "@Common.Label": "{i18n>processorReturnDescription}",
+          "@cds.persistence.name": "DESCRIPTION"
+        }
+      },
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CONTENTSOURCE_PROCESSORRETURN"
+    },
+    "com.skipum.common.currency.CurrencyCode": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 3,
+      "@Common.Label": "{i18n>currencyCode}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CURRENCY_CURRENCYCODE"
+    },
+    "com.skipum.common.currency.Currency": {
+      "kind": "entity",
+      "includes": [
+        "com.skipum.common.codes.CodeList"
+      ],
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.codes.CodeList..name",
+          "indexNo": 1,
+          "@UI.HiddenFilter": true,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>currency}",
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.String",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@UI.HiddenFilter": true,
+          "length": 3,
+          "@Common.Label": "{i18n>currencyCode}",
+          "@cds.persistence.name": "CODE"
+        }
+      },
+      "@UI.Identification": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "name"
+          }
+        }
+      ],
+      "@cds.autoexpose": true,
+      "@Common.Label": "{i18n>currencies}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CURRENCY_CURRENCY"
+    },
+    "com.skipum.common.geographic.CountryCode": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 3,
+      "@Common.Label": "{i18n>countryCode}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_GEOGRAPHIC_COUNTRYCODE"
+    },
+    "com.skipum.common.geographic.Country": {
+      "kind": "entity",
+      "includes": [
+        "com.skipum.common.codes.CodeList"
+      ],
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.codes.CodeList..name",
+          "indexNo": 1,
+          "@UI.HiddenFilter": true,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>country}",
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.String",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@UI.HiddenFilter": true,
+          "length": 3,
+          "@Common.Label": "{i18n>countryCode}",
+          "@cds.persistence.name": "CODE"
+        }
+      },
+      "@UI.Identification": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "name"
+          }
+        }
+      ],
+      "@cds.autoexpose": true,
+      "@Common.Label": "{i18n>countries}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_GEOGRAPHIC_COUNTRY"
+    },
+    "com.skipum.common.geographic.RegionCode": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 3,
+      "@Common.Label": "{i18n>regionCode}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_GEOGRAPHIC_REGIONCODE"
+    },
+    "com.skipum.common.geographic.Region": {
+      "kind": "entity",
+      "includes": [
+        "com.skipum.common.codes.CodeList"
+      ],
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.codes.CodeList..name",
+          "indexNo": 1,
+          "@UI.HiddenFilter": true,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>region}",
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.String",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@UI.HiddenFilter": true,
+          "length": 3,
+          "@Common.Label": "{i18n>regionCode}",
+          "@cds.persistence.name": "CODE"
+        },
+        "country": {
+          "key": true,
+          "indexNo": 3,
+          "type": "cds.Association",
+          "target": "com.skipum.common.geographic.Country",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@UI.HiddenFilter": true,
+          "foreignKeys": {
+            "code": {
+              "path": "code",
+              "indexNo": 1,
+              "generatedFieldName": "country_code",
+              "@cds.persistence.name": "CODE"
+            }
+          },
+          "@Common.Label": "{i18n>country}",
+          "@cds.persistence.name": "COUNTRY"
+        },
+        "country_code": {
+          "type": "cds.String",
+          "length": 3,
+          "key": true,
+          "@odata.foreignKey4": "country",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@UI.HiddenFilter": true,
+          "@Common.Label": "{i18n>country}",
+          "@cds.persistence.name": "COUNTRY_CODE"
+        }
+      },
+      "@UI.Identification": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "name"
+          }
+        }
+      ],
+      "@cds.autoexpose": true,
+      "@Common.Label": "{i18n>regions}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_GEOGRAPHIC_REGION"
+    },
+    "com.skipum.common.locale.LanguageCode": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 2,
+      "@Common.Label": "{i18n>languageCode}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_LOCALE_LANGUAGECODE"
+    },
+    "com.skipum.common.locale.Locale": {
+      "kind": "type",
+      "type": "cds.String",
+      "@description": "{i18n>locale}",
+      "length": 6,
+      "@Common.Label": "{i18n>locale}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_LOCALE_LOCALE"
+    },
+    "com.skipum.common.locale.Language": {
+      "kind": "entity",
+      "includes": [
+        "com.skipum.common.codes.CodeList"
+      ],
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.codes.CodeList..name",
+          "indexNo": 1,
+          "@UI.HiddenFilter": true,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>language}",
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.String",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@UI.HiddenFilter": true,
+          "length": 2,
+          "@Common.Label": "{i18n>languageCode}",
+          "@cds.persistence.name": "CODE"
+        }
+      },
+      "@UI.Identification": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "name"
+          }
+        }
+      ],
+      "@cds.autoexpose": true,
+      "@Common.Label": "{i18n>languages}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_LOCALE_LANGUAGE"
+    },
+    "com.skipum.common.measures.DistanceValue": {
+      "kind": "type",
+      "type": "cds.Decimal",
+      "@Measures.Unit": {
+        "=": "Units.Length"
+      },
+      "precision": 10,
+      "scale": 3,
+      "@Common.Label": "{i18n>distance}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_MEASURES_DISTANCEVALUE"
+    },
+    "com.skipum.common.measures.AreaValue": {
+      "kind": "type",
+      "type": "cds.Decimal",
+      "@Measures.Unit": {
+        "=": "Units.Area"
+      },
+      "precision": 10,
+      "scale": 3,
+      "@Common.Label": "{i18n>area}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_MEASURES_AREAVALUE"
+    },
+    "com.skipum.common.measures.VolumeValue": {
+      "kind": "type",
+      "type": "cds.Decimal",
+      "@Measures.Unit": {
+        "=": "Units.Volume"
+      },
+      "precision": 10,
+      "scale": 3,
+      "@Common.Label": "{i18n>volume}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_MEASURES_VOLUMEVALUE"
+    },
+    "com.skipum.common.measures.WeightValue": {
+      "kind": "type",
+      "type": "cds.Decimal",
+      "@Measures.Unit": {
+        "=": "Units.Weight"
+      },
+      "precision": 10,
+      "scale": 3,
+      "@Common.Label": "{i18n>weight}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_MEASURES_WEIGHTVALUE"
+    },
+    "com.skipum.common.measures.BaseValue": {
+      "kind": "type",
+      "type": "cds.Decimal",
+      "@Measures.Unit": {
+        "=": "Units.Base"
+      },
+      "precision": 10,
+      "scale": 0,
+      "@Common.Label": "{i18n>base}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_MEASURES_BASEVALUE"
+    },
+    "com.skipum.common.measures.DistanceUnitCode": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 3,
+      "@Common.Label": "{i18n>unit}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_MEASURES_DISTANCEUNITCODE"
+    },
+    "com.skipum.common.measures.AreaUnitCode": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 3,
+      "@Common.Label": "{i18n>unit}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_MEASURES_AREAUNITCODE"
+    },
+    "com.skipum.common.measures.VolumeUnitCode": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 3,
+      "@Common.Label": "{i18n>unit}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_MEASURES_VOLUMEUNITCODE"
+    },
+    "com.skipum.common.measures.WeightUnitCode": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 3,
+      "@Common.Label": "{i18n>unit}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_MEASURES_WEIGHTUNITCODE"
+    },
+    "com.skipum.common.measures.BaseUnitCode": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 3,
+      "@Common.Label": "{i18n>unit}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_MEASURES_BASEUNITCODE"
+    },
+    "com.skipum.common.measures.DistanceUnit": {
+      "kind": "entity",
+      "includes": [
+        "com.skipum.common.codes.CodeList"
+      ],
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.codes.CodeList..name",
+          "indexNo": 1,
+          "@UI.HiddenFilter": true,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>distancesUnit}",
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.String",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@UI.HiddenFilter": true,
+          "length": 3,
+          "@Common.Label": "{i18n>unitCode}",
+          "@cds.persistence.name": "CODE"
+        }
+      },
+      "@UI.Identification": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "name"
+          }
+        }
+      ],
+      "@cds.autoexpose": true,
+      "@Common.Label": "{i18n>distancesUnit}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_MEASURES_DISTANCEUNIT"
+    },
+    "com.skipum.common.measures.AreaUnit": {
+      "kind": "entity",
+      "includes": [
+        "com.skipum.common.codes.CodeList"
+      ],
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.codes.CodeList..name",
+          "indexNo": 1,
+          "@UI.HiddenFilter": true,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>areaUnit}",
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.String",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@UI.HiddenFilter": true,
+          "length": 3,
+          "@Common.Label": "{i18n>unitCode}",
+          "@cds.persistence.name": "CODE"
+        }
+      },
+      "@UI.Identification": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "name"
+          }
+        }
+      ],
+      "@cds.autoexpose": true,
+      "@Common.Label": "{i18n>areaUnit}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_MEASURES_AREAUNIT"
+    },
+    "com.skipum.common.measures.VolumeUnit": {
+      "kind": "entity",
+      "includes": [
+        "com.skipum.common.codes.CodeList"
+      ],
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.codes.CodeList..name",
+          "indexNo": 1,
+          "@UI.HiddenFilter": true,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>volumeUnit}",
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.String",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@UI.HiddenFilter": true,
+          "length": 3,
+          "@Common.Label": "{i18n>unitCode}",
+          "@cds.persistence.name": "CODE"
+        }
+      },
+      "@UI.Identification": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "name"
+          }
+        }
+      ],
+      "@cds.autoexpose": true,
+      "@Common.Label": "{i18n>volumeUnit}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_MEASURES_VOLUMEUNIT"
+    },
+    "com.skipum.common.measures.WeightUnit": {
+      "kind": "entity",
+      "includes": [
+        "com.skipum.common.codes.CodeList"
+      ],
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.codes.CodeList..name",
+          "indexNo": 1,
+          "@UI.HiddenFilter": true,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>weightUnit}",
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.String",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@UI.HiddenFilter": true,
+          "length": 3,
+          "@Common.Label": "{i18n>unitCode}",
+          "@cds.persistence.name": "CODE"
+        }
+      },
+      "@UI.Identification": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "name"
+          }
+        }
+      ],
+      "@cds.autoexpose": true,
+      "@Common.Label": "{i18n>weightUnit}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_MEASURES_WEIGHTUNIT"
+    },
+    "com.skipum.common.measures.BaseUnit": {
+      "kind": "entity",
+      "includes": [
+        "com.skipum.common.codes.CodeList"
+      ],
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.codes.CodeList..name",
+          "indexNo": 1,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.String",
+          "length": 3,
+          "@Common.Label": "{i18n>unit}",
+          "@cds.persistence.name": "CODE"
+        }
+      },
+      "@cds.autoexpose": true,
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_MEASURES_BASEUNIT"
+    },
+    "com.skipum.common.measures.Dimensions": {
+      "kind": "type",
+      "elements": {
+        "length": {
+          "indexNo": 1,
+          "type": "cds.Decimal",
+          "@Measures.Unit": {
+            "=": "unit"
+          },
+          "precision": 10,
+          "scale": 3,
+          "@Common.Label": "{i18n>distance}",
+          "@cds.persistence.name": "LENGTH"
+        },
+        "width": {
+          "indexNo": 2,
+          "type": "cds.Decimal",
+          "@Measures.Unit": {
+            "=": "unit"
+          },
+          "precision": 10,
+          "scale": 3,
+          "@Common.Label": "{i18n>distance}",
+          "@cds.persistence.name": "WIDTH"
+        },
+        "height": {
+          "indexNo": 3,
+          "type": "cds.Decimal",
+          "@Measures.Unit": {
+            "=": "unit"
+          },
+          "precision": 10,
+          "scale": 3,
+          "@Common.Label": "{i18n>distance}",
+          "@cds.persistence.name": "HEIGHT"
+        },
+        "unit": {
+          "indexNo": 4,
+          "type": "cds.Association",
+          "target": "com.skipum.common.measures.DistanceUnit",
+          "foreignKeys": {
+            "code": {
+              "path": "code",
+              "indexNo": 1,
+              "generatedFieldName": "unit_code",
+              "@cds.persistence.name": "CODE"
+            }
+          },
+          "@cds.persistence.name": "UNIT"
+        },
+        "unit_code": {
+          "type": "cds.String",
+          "length": 3,
+          "@odata.foreignKey4": "unit",
+          "@cds.persistence.name": "UNIT_CODE"
+        }
+      },
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_MEASURES_DIMENSIONS"
+    },
+    "com.skipum.common.measures.Weight": {
+      "kind": "type",
+      "elements": {
+        "weight": {
+          "indexNo": 1,
+          "type": "cds.Decimal",
+          "@Measures.Unit": {
+            "=": "unit"
+          },
+          "precision": 10,
+          "scale": 3,
+          "@Common.Label": "{i18n>weight}",
+          "@cds.persistence.name": "WEIGHT"
+        },
+        "unit": {
+          "indexNo": 2,
+          "type": "cds.Association",
+          "target": "com.skipum.common.measures.WeightUnit",
+          "foreignKeys": {
+            "code": {
+              "path": "code",
+              "indexNo": 1,
+              "generatedFieldName": "unit_code",
+              "@cds.persistence.name": "CODE"
+            }
+          },
+          "@cds.persistence.name": "UNIT"
+        },
+        "unit_code": {
+          "type": "cds.String",
+          "length": 3,
+          "@odata.foreignKey4": "unit",
+          "@cds.persistence.name": "UNIT_CODE"
+        }
+      },
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_MEASURES_WEIGHT"
+    },
+    "com.skipum.common.measures.Volume": {
+      "kind": "type",
+      "elements": {
+        "volume": {
+          "indexNo": 1,
+          "type": "cds.Decimal",
+          "@Measures.Unit": {
+            "=": "unit"
+          },
+          "precision": 10,
+          "scale": 3,
+          "@Common.Label": "{i18n>volume}",
+          "@cds.persistence.name": "VOLUME"
+        },
+        "unit": {
+          "indexNo": 2,
+          "type": "cds.Association",
+          "target": "com.skipum.common.measures.VolumeUnit",
+          "foreignKeys": {
+            "code": {
+              "path": "code",
+              "indexNo": 1,
+              "generatedFieldName": "unit_code",
+              "@cds.persistence.name": "CODE"
+            }
+          },
+          "@cds.persistence.name": "UNIT"
+        },
+        "unit_code": {
+          "type": "cds.String",
+          "length": 3,
+          "@odata.foreignKey4": "unit",
+          "@cds.persistence.name": "UNIT_CODE"
+        }
+      },
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_MEASURES_VOLUME"
+    },
+    "com.skipum.common.CarrierService.com_skipum_common_contentSource_ContentFeed": {
+      "kind": "entity",
+      "source": "com.skipum.common.contentSource.ContentFeed",
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.contentSource.ContentFeed..name",
+          "indexNo": 1,
+          "@UI.HiddenFilter": true,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>contentFeed}",
+          "value": {
+            "=": "ContentFeed.name"
+          },
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.String",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@UI.HiddenFilter": true,
+          "length": 3,
+          "@Common.Label": "{i18n>contentFeedCode}",
+          "value": {
+            "=": "ContentFeed.code"
+          },
+          "origin": "com.skipum.common.contentSource.ContentFeed..code",
+          "@cds.persistence.name": "CODE"
+        }
+      },
+      "@UI.Identification": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "name"
+          }
+        }
+      ],
+      "@cds.autoexpose": true,
+      "@Common.Label": "{i18n>contentFeeds}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CARRIERSERVICE_COM_SKIPUM_COMMON_CONTENTSOURCE_CONTENTFEED"
+    },
+    "com.skipum.common.CarrierService.com_skipum_common_contentSource_ContentSource": {
+      "kind": "entity",
+      "source": "com.skipum.common.contentSource.ContentSource",
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.contentSource.ContentSource..name",
+          "indexNo": 1,
+          "@UI.HiddenFilter": true,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>contentSource}",
+          "value": {
+            "=": "ContentSource.name"
+          },
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.String",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@UI.HiddenFilter": true,
+          "length": 3,
+          "@Common.Label": "{i18n>contentSourceCode}",
+          "value": {
+            "=": "ContentSource.code"
+          },
+          "origin": "com.skipum.common.contentSource.ContentSource..code",
+          "@cds.persistence.name": "CODE"
+        }
+      },
+      "@UI.Identification": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "name"
+          }
+        }
+      ],
+      "@cds.autoexpose": true,
+      "@Common.Label": "{i18n>contentSources}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CARRIERSERVICE_COM_SKIPUM_COMMON_CONTENTSOURCE_CONTENTSOURCE"
+    },
+    "com.skipum.common.CarrierService.com_skipum_common_contentSource_ContentAction": {
+      "kind": "entity",
+      "source": "com.skipum.common.contentSource.ContentAction",
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.contentSource.ContentAction..name",
+          "indexNo": 1,
+          "@UI.HiddenFilter": true,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>contentAction}",
+          "value": {
+            "=": "ContentAction.name"
+          },
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.String",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@UI.HiddenFilter": true,
+          "length": 3,
+          "@Common.Label": "{i18n>contentActionCode}",
+          "value": {
+            "=": "ContentAction.code"
+          },
+          "origin": "com.skipum.common.contentSource.ContentAction..code",
+          "@cds.persistence.name": "CODE"
+        }
+      },
+      "@UI.Identification": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "name"
+          }
+        }
+      ],
+      "@cds.autoexpose": true,
+      "@Common.Label": "{i18n>contentActions}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CARRIERSERVICE_COM_SKIPUM_COMMON_CONTENTSOURCE_CONTENTACTION"
+    }
+  },
+  "version": {
+    "csn": "0.1.0"
+  },
+  "@sql_mapping": "plain"
+}

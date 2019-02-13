@@ -80,47 +80,47 @@ service CommonService {
 	as projection on geographic.Region;
 }
 
-// service CarrierService
-// {
-// 	@readonly entity Carriers
-// 	@(
-// 		title : 'Carriers'
-// 	)
-// 	as projection on carrier.Carrier;
+ service CarrierService
+ {
+ 	@readonly entity Carriers
+ 	@(
+ 		title : 'Carriers'
+ 	)
+ 	as projection on carrier.Carrier;
 
-// 	@readonly entity Services
-// 	@(
-// 		title : 'Carrier Services'
-// 	)
-// 	as projection on carrier.Service;
+	@readonly entity Services
+	@(
+		title : 'Carrier Services'
+	)
+	as projection on carrier.Service;
 	
-// 	@readonly entity ServiceSubTypes
-// 	@(
-// 		title : 'Service Sub-types'
-// 	)
-// 	as projection on carrier.ServiceSubType;
+	@readonly entity ServiceSubTypes
+	@(
+		title : 'Service Sub-types'
+	)
+	as projection on carrier.ServiceSubType;
 
-// 	@readonly entity ServiceTypes
-// 	@(
-// 		title : 'Service Types'
-// 	)
-// 	as projection on carrier.ServiceType;
+	@readonly entity ServiceTypes
+	@(
+		title : 'Service Types'
+	)
+	as projection on carrier.ServiceType;
 
-// 	@readonly entity ModeOfTransports
-// 	@(
-// 		title : 'Mode Of Transports'
-// 	)
-// 	as projection on carrier.ModeOfTransport;
+	@readonly entity ModeOfTransports
+	@(
+		title : 'Mode Of Transports'
+	)
+	as projection on carrier.ModeOfTransport;
 
-// 	@readonly entity CarrierFeeds
-// 	@(
-// 		title : 'Carrier Feeds'
-// 	)
-// 	as projection on carrier.CarrierFeed;
+	@readonly entity CarrierFeeds
+	@(
+		title : 'Carrier Feeds'
+	)
+	as projection on carrier.CarrierFeed;
 
-// 	@readonly entity CarrierActions
-// 	@(
-// 		title : 'Carrier Action'
-// 	)
-// 	as projection on carrier.CarrierAction;
-// }
+	@readonly entity CarrierActions
+	@(
+		title : 'Carrier Action'
+	)
+	as projection on carrier.CarrierAction;
+}
