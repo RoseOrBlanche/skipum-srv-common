@@ -1,0 +1,1094 @@
+{
+  "namespace": "com.skipum.common",
+  "definitions": {
+    "com.skipum.common.CommonService": {
+      "kind": "service",
+      "@source": "srv/service.cds"
+    },
+    "com.skipum.common.CommonService.WeightUnits": {
+      "kind": "entity",
+      "source": "com.skipum.common.measures.WeightUnit",
+      "@Common.SemanticKey": [
+        {
+          "=": "code"
+        }
+      ],
+      "@Capabilities.InsertRestrictions.Insertable": false,
+      "@Capabilities.UpdateRestrictions.Updatable": false,
+      "@Capabilities.DeleteRestrictions.Deletable": false,
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.measures.WeightUnit..name",
+          "indexNo": 1,
+          "value": {
+            "=": "WeightUnit.name"
+          },
+          "@UI.HiddenFilter": true,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>weightUnit}",
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "origin": "com.skipum.common.measures.WeightUnit..code",
+          "indexNo": 2,
+          "value": {
+            "=": "WeightUnit.code"
+          },
+          "key": true,
+          "type": "cds.String",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@UI.HiddenFilter": true,
+          "length": 3,
+          "@Common.Label": "{i18n>unitCode}",
+          "@cds.persistence.name": "CODE"
+        }
+      },
+      "@UI.Identification": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "name"
+          }
+        }
+      ],
+      "@cds.autoexpose": true,
+      "@Common.Label": "{i18n>weightUnits}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_COMMONSERVICE_WEIGHTUNITS"
+    },
+    "com.skipum.common.CommonService.DistanceUnits": {
+      "kind": "entity",
+      "source": "com.skipum.common.measures.DistanceUnit",
+      "@Common.SemanticKey": [
+        {
+          "=": "code"
+        }
+      ],
+      "@Capabilities.InsertRestrictions.Insertable": false,
+      "@Capabilities.UpdateRestrictions.Updatable": false,
+      "@Capabilities.DeleteRestrictions.Deletable": false,
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.measures.DistanceUnit..name",
+          "indexNo": 1,
+          "value": {
+            "=": "DistanceUnit.name"
+          },
+          "@UI.HiddenFilter": true,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>distancesUnit}",
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "origin": "com.skipum.common.measures.DistanceUnit..code",
+          "indexNo": 2,
+          "value": {
+            "=": "DistanceUnit.code"
+          },
+          "key": true,
+          "type": "cds.String",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@UI.HiddenFilter": true,
+          "length": 3,
+          "@Common.Label": "{i18n>unitCode}",
+          "@cds.persistence.name": "CODE"
+        }
+      },
+      "@UI.Identification": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "name"
+          }
+        }
+      ],
+      "@cds.autoexpose": true,
+      "@Common.Label": "{i18n>distanceUnits}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_COMMONSERVICE_DISTANCEUNITS"
+    },
+    "com.skipum.common.CommonService.VolumeUnits": {
+      "kind": "entity",
+      "source": "com.skipum.common.measures.VolumeUnit",
+      "@Common.SemanticKey": [
+        {
+          "=": "code"
+        }
+      ],
+      "@Capabilities.InsertRestrictions.Insertable": false,
+      "@Capabilities.UpdateRestrictions.Updatable": false,
+      "@Capabilities.DeleteRestrictions.Deletable": false,
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.measures.VolumeUnit..name",
+          "indexNo": 1,
+          "value": {
+            "=": "VolumeUnit.name"
+          },
+          "@UI.HiddenFilter": true,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>volumeUnit}",
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "origin": "com.skipum.common.measures.VolumeUnit..code",
+          "indexNo": 2,
+          "value": {
+            "=": "VolumeUnit.code"
+          },
+          "key": true,
+          "type": "cds.String",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@UI.HiddenFilter": true,
+          "length": 3,
+          "@Common.Label": "{i18n>unitCode}",
+          "@cds.persistence.name": "CODE"
+        }
+      },
+      "@UI.Identification": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "name"
+          }
+        }
+      ],
+      "@cds.autoexpose": true,
+      "@Common.Label": "{i18n>volumeUnits}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_COMMONSERVICE_VOLUMEUNITS"
+    },
+    "com.skipum.common.codes.Code": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 3,
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CODES_CODE"
+    },
+    "com.skipum.common.codes.Criticality": {
+      "kind": "type",
+      "type": "cds.Integer",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CODES_CRITICALITY"
+    },
+    "com.skipum.common.codes.CodeName": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 60,
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CODES_CODENAME"
+    },
+    "com.skipum.common.codes.CodeList": {
+      "abstract": true,
+      "kind": "entity",
+      "elements": {
+        "name": {
+          "indexNo": 1,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "NAME"
+        }
+      },
+      "@cds.autoexpose": true,
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CODES_CODELIST"
+    },
+    "com.skipum.common.contentSource.Enabled": {
+      "kind": "type",
+      "type": "cds.Boolean",
+      "@Common.Label": "{i18n>enabled}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CONTENTSOURCE_ENABLED"
+    },
+    "com.skipum.common.contentSource.ContentSourceCode": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 3,
+      "@Common.Label": "{i18n>contentSourceCode}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CONTENTSOURCE_CONTENTSOURCECODE"
+    },
+    "com.skipum.common.contentSource.ContentSource": {
+      "kind": "entity",
+      "includes": [
+        "com.skipum.common.codes.CodeList"
+      ],
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.codes.CodeList..name",
+          "indexNo": 1,
+          "@UI.HiddenFilter": true,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>contentSource}",
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.String",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@UI.HiddenFilter": true,
+          "length": 3,
+          "@Common.Label": "{i18n>contentSourceCode}",
+          "@cds.persistence.name": "CODE"
+        }
+      },
+      "@UI.Identification": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "name"
+          }
+        }
+      ],
+      "@cds.autoexpose": true,
+      "@Common.Label": "{i18n>contentSources}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CONTENTSOURCE_CONTENTSOURCE"
+    },
+    "com.skipum.common.contentSource.ContentActionCode": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 3,
+      "@Common.Label": "{i18n>contentActionCode}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CONTENTSOURCE_CONTENTACTIONCODE"
+    },
+    "com.skipum.common.contentSource.ContentAction": {
+      "kind": "entity",
+      "includes": [
+        "com.skipum.common.codes.CodeList"
+      ],
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.codes.CodeList..name",
+          "indexNo": 1,
+          "@UI.HiddenFilter": true,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>contentAction}",
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.String",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@UI.HiddenFilter": true,
+          "length": 3,
+          "@Common.Label": "{i18n>contentActionCode}",
+          "@cds.persistence.name": "CODE"
+        }
+      },
+      "@UI.Identification": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "name"
+          }
+        }
+      ],
+      "@cds.autoexpose": true,
+      "@Common.Label": "{i18n>contentActions}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CONTENTSOURCE_CONTENTACTION"
+    },
+    "com.skipum.common.contentSource.ContentFeedCode": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 3,
+      "@Common.Label": "{i18n>contentFeedCode}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CONTENTSOURCE_CONTENTFEEDCODE"
+    },
+    "com.skipum.common.contentSource.ContentFeed": {
+      "kind": "entity",
+      "includes": [
+        "com.skipum.common.codes.CodeList"
+      ],
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.codes.CodeList..name",
+          "indexNo": 1,
+          "@UI.HiddenFilter": true,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>contentFeed}",
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.String",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@UI.HiddenFilter": true,
+          "length": 3,
+          "@Common.Label": "{i18n>contentFeedCode}",
+          "@cds.persistence.name": "CODE"
+        }
+      },
+      "@UI.Identification": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "name"
+          }
+        }
+      ],
+      "@cds.autoexpose": true,
+      "@Common.Label": "{i18n>contentFeeds}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CONTENTSOURCE_CONTENTFEED"
+    },
+    "com.skipum.common.contentSource.ProcessorReturnCode": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 40,
+      "@Common.Label": "{i18n>processorReturnCode}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CONTENTSOURCE_PROCESSORRETURNCODE"
+    },
+    "com.skipum.common.contentSource.ProcessorReturnDescription": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 220,
+      "@Common.Label": "{i18n>processorReturnDescription}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CONTENTSOURCE_PROCESSORRETURNDESCRIPTION"
+    },
+    "com.skipum.common.contentSource.ProcessorReturn": {
+      "kind": "type",
+      "elements": {
+        "code": {
+          "indexNo": 1,
+          "type": "cds.String",
+          "@Common.FieldControl": {
+            "#": "ReadOnly"
+          },
+          "@Common.Updatable": false,
+          "@Common.Creatable": false,
+          "length": 40,
+          "@Common.Label": "{i18n>processorReturnCode}",
+          "@cds.persistence.name": "CODE"
+        },
+        "description": {
+          "indexNo": 2,
+          "type": "cds.String",
+          "@Common.FieldControl": {
+            "#": "ReadOnly"
+          },
+          "@Common.Updatable": false,
+          "@Common.Creatable": false,
+          "length": 220,
+          "@Common.Label": "{i18n>processorReturnDescription}",
+          "@cds.persistence.name": "DESCRIPTION"
+        }
+      },
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CONTENTSOURCE_PROCESSORRETURN"
+    },
+    "com.skipum.common.currency.CurrencyCode": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 3,
+      "@Common.Label": "{i18n>currencyCode}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CURRENCY_CURRENCYCODE"
+    },
+    "com.skipum.common.currency.Currency": {
+      "kind": "entity",
+      "includes": [
+        "com.skipum.common.codes.CodeList"
+      ],
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.codes.CodeList..name",
+          "indexNo": 1,
+          "@UI.HiddenFilter": true,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>currency}",
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.String",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@UI.HiddenFilter": true,
+          "length": 3,
+          "@Common.Label": "{i18n>currencyCode}",
+          "@cds.persistence.name": "CODE"
+        }
+      },
+      "@UI.Identification": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "name"
+          }
+        }
+      ],
+      "@cds.autoexpose": true,
+      "@Common.Label": "{i18n>currencies}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CURRENCY_CURRENCY"
+    },
+    "com.skipum.common.geographic.CountryCode": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 3,
+      "@Common.Label": "{i18n>countryCode}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_GEOGRAPHIC_COUNTRYCODE"
+    },
+    "com.skipum.common.geographic.Country": {
+      "kind": "entity",
+      "includes": [
+        "com.skipum.common.codes.CodeList"
+      ],
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.codes.CodeList..name",
+          "indexNo": 1,
+          "@UI.HiddenFilter": true,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>country}",
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.String",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@UI.HiddenFilter": true,
+          "length": 3,
+          "@Common.Label": "{i18n>countryCode}",
+          "@cds.persistence.name": "CODE"
+        }
+      },
+      "@UI.Identification": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "name"
+          }
+        }
+      ],
+      "@cds.autoexpose": true,
+      "@Common.Label": "{i18n>countries}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_GEOGRAPHIC_COUNTRY"
+    },
+    "com.skipum.common.geographic.RegionCode": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 3,
+      "@Common.Label": "{i18n>regionCode}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_GEOGRAPHIC_REGIONCODE"
+    },
+    "com.skipum.common.geographic.Region": {
+      "kind": "entity",
+      "includes": [
+        "com.skipum.common.codes.CodeList"
+      ],
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.codes.CodeList..name",
+          "indexNo": 1,
+          "@UI.HiddenFilter": true,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>region}",
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.String",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@UI.HiddenFilter": true,
+          "length": 3,
+          "@Common.Label": "{i18n>regionCode}",
+          "@cds.persistence.name": "CODE"
+        },
+        "country": {
+          "key": true,
+          "indexNo": 3,
+          "type": "cds.Association",
+          "target": "com.skipum.common.geographic.Country",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@UI.HiddenFilter": true,
+          "foreignKeys": {
+            "code": {
+              "path": "code",
+              "indexNo": 1,
+              "generatedFieldName": "country_code",
+              "@cds.persistence.name": "CODE"
+            }
+          },
+          "@Common.Label": "{i18n>country}",
+          "@cds.persistence.name": "COUNTRY"
+        },
+        "country_code": {
+          "type": "cds.String",
+          "length": 3,
+          "key": true,
+          "@odata.foreignKey4": "country",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@UI.HiddenFilter": true,
+          "@Common.Label": "{i18n>country}",
+          "@cds.persistence.name": "COUNTRY_CODE"
+        }
+      },
+      "@UI.Identification": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "name"
+          }
+        }
+      ],
+      "@cds.autoexpose": true,
+      "@Common.Label": "{i18n>regions}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_GEOGRAPHIC_REGION"
+    },
+    "com.skipum.common.locale.LanguageCode": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 2,
+      "@Common.Label": "{i18n>languageCode}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_LOCALE_LANGUAGECODE"
+    },
+    "com.skipum.common.locale.Locale": {
+      "kind": "type",
+      "type": "cds.String",
+      "@description": "{i18n>locale}",
+      "length": 6,
+      "@Common.Label": "{i18n>locale}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_LOCALE_LOCALE"
+    },
+    "com.skipum.common.locale.Language": {
+      "kind": "entity",
+      "includes": [
+        "com.skipum.common.codes.CodeList"
+      ],
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.codes.CodeList..name",
+          "indexNo": 1,
+          "@UI.HiddenFilter": true,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>language}",
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.String",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@UI.HiddenFilter": true,
+          "length": 2,
+          "@Common.Label": "{i18n>languageCode}",
+          "@cds.persistence.name": "CODE"
+        }
+      },
+      "@UI.Identification": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "name"
+          }
+        }
+      ],
+      "@cds.autoexpose": true,
+      "@Common.Label": "{i18n>languages}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_LOCALE_LANGUAGE"
+    },
+    "com.skipum.common.measures.DistanceValue": {
+      "kind": "type",
+      "type": "cds.Decimal",
+      "@Measures.Unit": {
+        "=": "Units.Length"
+      },
+      "precision": 10,
+      "scale": 3,
+      "@Common.Label": "{i18n>distance}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_MEASURES_DISTANCEVALUE"
+    },
+    "com.skipum.common.measures.AreaValue": {
+      "kind": "type",
+      "type": "cds.Decimal",
+      "@Measures.Unit": {
+        "=": "Units.Area"
+      },
+      "precision": 10,
+      "scale": 3,
+      "@Common.Label": "{i18n>area}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_MEASURES_AREAVALUE"
+    },
+    "com.skipum.common.measures.VolumeValue": {
+      "kind": "type",
+      "type": "cds.Decimal",
+      "@Measures.Unit": {
+        "=": "Units.Volume"
+      },
+      "precision": 10,
+      "scale": 3,
+      "@Common.Label": "{i18n>volume}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_MEASURES_VOLUMEVALUE"
+    },
+    "com.skipum.common.measures.WeightValue": {
+      "kind": "type",
+      "type": "cds.Decimal",
+      "@Measures.Unit": {
+        "=": "Units.Weight"
+      },
+      "precision": 10,
+      "scale": 3,
+      "@Common.Label": "{i18n>weight}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_MEASURES_WEIGHTVALUE"
+    },
+    "com.skipum.common.measures.BaseValue": {
+      "kind": "type",
+      "type": "cds.Decimal",
+      "@Measures.Unit": {
+        "=": "Units.Base"
+      },
+      "precision": 10,
+      "scale": 0,
+      "@Common.Label": "{i18n>base}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_MEASURES_BASEVALUE"
+    },
+    "com.skipum.common.measures.DistanceUnitCode": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 3,
+      "@Common.Label": "{i18n>unit}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_MEASURES_DISTANCEUNITCODE"
+    },
+    "com.skipum.common.measures.AreaUnitCode": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 3,
+      "@Common.Label": "{i18n>unit}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_MEASURES_AREAUNITCODE"
+    },
+    "com.skipum.common.measures.VolumeUnitCode": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 3,
+      "@Common.Label": "{i18n>unit}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_MEASURES_VOLUMEUNITCODE"
+    },
+    "com.skipum.common.measures.WeightUnitCode": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 3,
+      "@Common.Label": "{i18n>unit}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_MEASURES_WEIGHTUNITCODE"
+    },
+    "com.skipum.common.measures.BaseUnitCode": {
+      "kind": "type",
+      "type": "cds.String",
+      "length": 3,
+      "@Common.Label": "{i18n>unit}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_MEASURES_BASEUNITCODE"
+    },
+    "com.skipum.common.measures.DistanceUnit": {
+      "kind": "entity",
+      "includes": [
+        "com.skipum.common.codes.CodeList"
+      ],
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.codes.CodeList..name",
+          "indexNo": 1,
+          "@UI.HiddenFilter": true,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>distancesUnit}",
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.String",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@UI.HiddenFilter": true,
+          "length": 3,
+          "@Common.Label": "{i18n>unitCode}",
+          "@cds.persistence.name": "CODE"
+        }
+      },
+      "@UI.Identification": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "name"
+          }
+        }
+      ],
+      "@cds.autoexpose": true,
+      "@Common.Label": "{i18n>distancesUnit}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_MEASURES_DISTANCEUNIT"
+    },
+    "com.skipum.common.measures.AreaUnit": {
+      "kind": "entity",
+      "includes": [
+        "com.skipum.common.codes.CodeList"
+      ],
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.codes.CodeList..name",
+          "indexNo": 1,
+          "@UI.HiddenFilter": true,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>areaUnit}",
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.String",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@UI.HiddenFilter": true,
+          "length": 3,
+          "@Common.Label": "{i18n>unitCode}",
+          "@cds.persistence.name": "CODE"
+        }
+      },
+      "@UI.Identification": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "name"
+          }
+        }
+      ],
+      "@cds.autoexpose": true,
+      "@Common.Label": "{i18n>areaUnit}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_MEASURES_AREAUNIT"
+    },
+    "com.skipum.common.measures.VolumeUnit": {
+      "kind": "entity",
+      "includes": [
+        "com.skipum.common.codes.CodeList"
+      ],
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.codes.CodeList..name",
+          "indexNo": 1,
+          "@UI.HiddenFilter": true,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>volumeUnit}",
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.String",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@UI.HiddenFilter": true,
+          "length": 3,
+          "@Common.Label": "{i18n>unitCode}",
+          "@cds.persistence.name": "CODE"
+        }
+      },
+      "@UI.Identification": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "name"
+          }
+        }
+      ],
+      "@cds.autoexpose": true,
+      "@Common.Label": "{i18n>volumeUnit}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_MEASURES_VOLUMEUNIT"
+    },
+    "com.skipum.common.measures.WeightUnit": {
+      "kind": "entity",
+      "includes": [
+        "com.skipum.common.codes.CodeList"
+      ],
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.codes.CodeList..name",
+          "indexNo": 1,
+          "@UI.HiddenFilter": true,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>weightUnit}",
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.String",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@UI.HiddenFilter": true,
+          "length": 3,
+          "@Common.Label": "{i18n>unitCode}",
+          "@cds.persistence.name": "CODE"
+        }
+      },
+      "@UI.Identification": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "name"
+          }
+        }
+      ],
+      "@cds.autoexpose": true,
+      "@Common.Label": "{i18n>weightUnit}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_MEASURES_WEIGHTUNIT"
+    },
+    "com.skipum.common.measures.BaseUnit": {
+      "kind": "entity",
+      "includes": [
+        "com.skipum.common.codes.CodeList"
+      ],
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.codes.CodeList..name",
+          "indexNo": 1,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "key": true,
+          "indexNo": 2,
+          "type": "cds.String",
+          "length": 3,
+          "@Common.Label": "{i18n>unit}",
+          "@cds.persistence.name": "CODE"
+        }
+      },
+      "@cds.autoexpose": true,
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_MEASURES_BASEUNIT"
+    },
+    "com.skipum.common.measures.Dimensions": {
+      "kind": "type",
+      "elements": {
+        "length": {
+          "indexNo": 1,
+          "type": "cds.Decimal",
+          "@Measures.Unit": {
+            "=": "unit"
+          },
+          "precision": 10,
+          "scale": 3,
+          "@Common.Label": "{i18n>distance}",
+          "@cds.persistence.name": "LENGTH"
+        },
+        "width": {
+          "indexNo": 2,
+          "type": "cds.Decimal",
+          "@Measures.Unit": {
+            "=": "unit"
+          },
+          "precision": 10,
+          "scale": 3,
+          "@Common.Label": "{i18n>distance}",
+          "@cds.persistence.name": "WIDTH"
+        },
+        "height": {
+          "indexNo": 3,
+          "type": "cds.Decimal",
+          "@Measures.Unit": {
+            "=": "unit"
+          },
+          "precision": 10,
+          "scale": 3,
+          "@Common.Label": "{i18n>distance}",
+          "@cds.persistence.name": "HEIGHT"
+        },
+        "unit": {
+          "indexNo": 4,
+          "type": "cds.Association",
+          "target": "com.skipum.common.measures.DistanceUnit",
+          "foreignKeys": {
+            "code": {
+              "path": "code",
+              "indexNo": 1,
+              "generatedFieldName": "unit_code",
+              "@cds.persistence.name": "CODE"
+            }
+          },
+          "@cds.persistence.name": "UNIT"
+        },
+        "unit_code": {
+          "type": "cds.String",
+          "length": 3,
+          "@odata.foreignKey4": "unit",
+          "@cds.persistence.name": "UNIT_CODE"
+        }
+      },
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_MEASURES_DIMENSIONS"
+    },
+    "com.skipum.common.measures.Weight": {
+      "kind": "type",
+      "elements": {
+        "weight": {
+          "indexNo": 1,
+          "type": "cds.Decimal",
+          "@Measures.Unit": {
+            "=": "unit"
+          },
+          "precision": 10,
+          "scale": 3,
+          "@Common.Label": "{i18n>weight}",
+          "@cds.persistence.name": "WEIGHT"
+        },
+        "unit": {
+          "indexNo": 2,
+          "type": "cds.Association",
+          "target": "com.skipum.common.measures.WeightUnit",
+          "foreignKeys": {
+            "code": {
+              "path": "code",
+              "indexNo": 1,
+              "generatedFieldName": "unit_code",
+              "@cds.persistence.name": "CODE"
+            }
+          },
+          "@cds.persistence.name": "UNIT"
+        },
+        "unit_code": {
+          "type": "cds.String",
+          "length": 3,
+          "@odata.foreignKey4": "unit",
+          "@cds.persistence.name": "UNIT_CODE"
+        }
+      },
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_MEASURES_WEIGHT"
+    },
+    "com.skipum.common.measures.Volume": {
+      "kind": "type",
+      "elements": {
+        "volume": {
+          "indexNo": 1,
+          "type": "cds.Decimal",
+          "@Measures.Unit": {
+            "=": "unit"
+          },
+          "precision": 10,
+          "scale": 3,
+          "@Common.Label": "{i18n>volume}",
+          "@cds.persistence.name": "VOLUME"
+        },
+        "unit": {
+          "indexNo": 2,
+          "type": "cds.Association",
+          "target": "com.skipum.common.measures.VolumeUnit",
+          "foreignKeys": {
+            "code": {
+              "path": "code",
+              "indexNo": 1,
+              "generatedFieldName": "unit_code",
+              "@cds.persistence.name": "CODE"
+            }
+          },
+          "@cds.persistence.name": "UNIT"
+        },
+        "unit_code": {
+          "type": "cds.String",
+          "length": 3,
+          "@odata.foreignKey4": "unit",
+          "@cds.persistence.name": "UNIT_CODE"
+        }
+      },
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_MEASURES_VOLUME"
+    }
+  },
+  "version": {
+    "csn": "0.1.0"
+  },
+  "@sql_mapping": "plain"
+}

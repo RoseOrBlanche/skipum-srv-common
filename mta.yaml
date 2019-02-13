@@ -1,0 +1,55 @@
+ID: skipum_srv_common
+_schema-version: "2.1"
+description: Skipum Common Service
+parameters:
+  deploy_mode: html5-repo
+version: 0.0.1
+modules:
+  - name: skipum_srv_common_appRouter
+    type: approuter.nodejs
+    path: skipum_srv_common_appRouter
+    parameters:
+      disk-quota: 256M
+      memory: 256M
+    requires:
+      - name: rt_skipum_srv_common_appRouter
+  - name: skipum_srv_common_ui_deployer
+    type: com.sap.html5.application-content
+    path: skipum_srv_common_ui_deployer
+    requires:
+      - name: dt_skipum_srv_common_ui_deployer
+  - name: skipum-srv-common-db
+    type: hdb
+    path: db
+    parameters:
+      memory: 256M
+      disk-quota: 256M
+    requires:
+      - name: skipum-srv-common-hdi-container
+  - name: skipum-srv-common-srv
+    type: java
+    path: srv
+    parameters:
+      memory: 512M
+      disk-quota: 256M
+    provides:
+      - name: srv_api
+        properties:
+          url: ${default-url}
+    requires:
+      - name: skipum-srv-common-hdi-container
+resources:
+  - name: rt_skipum_srv_common_appRouter
+    parameters:
+      service-plan: app-runtime
+      service: html5-apps-repo
+    type: org.cloudfoundry.managed-service
+  - name: dt_skipum_srv_common_ui_deployer
+    parameters:
+      service-plan: app-host
+      service: html5-apps-repo
+    type: org.cloudfoundry.managed-service
+  - name: skipum-srv-common-hdi-container
+    type: com.sap.xs.hdi-container
+    properties:
+      hdi-container-name: ${service-name}
