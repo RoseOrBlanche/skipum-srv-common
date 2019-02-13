@@ -1,7 +1,10 @@
 {
 	"name": "skipum-srv-common",
 	"description": "Skipum Common Service",
-	"repository": "<Add your repository here>",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/RoseOrBlanche/skipum-srv-common.git"
+	},
 	"license": "ISC",
 	"version": "1.0.0",
 	"scripts": {
