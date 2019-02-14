@@ -185,6 +185,7 @@
     "com.skipum.common.CommonService.Currencies": {
       "kind": "entity",
       "source": "com.skipum.common.persistence.currency.Currency",
+      "@cds.persistence.exists": true,
       "@readonly": true,
       "@Common.SemanticKey": [
         {
@@ -243,6 +244,7 @@
     "com.skipum.common.CommonService.Countries": {
       "kind": "entity",
       "source": "com.skipum.common.geographic.Country",
+      "@cds.persistence.exists": true,
       "@readonly": true,
       "elements": {
         "name": {
@@ -296,6 +298,7 @@
     "com.skipum.common.CommonService.Regions": {
       "kind": "entity",
       "source": "com.skipum.common.geographic.Region",
+      "@cds.persistence.exists": true,
       "@readonly": true,
       "elements": {
         "name": {
@@ -401,6 +404,7 @@
     "com.skipum.common.CarrierService.Carriers": {
       "kind": "entity",
       "source": "com.skipum.common.carrier.Carrier",
+      "@cds.persistence.exists": true,
       "@readonly": true,
       "elements": {
         "name": {
@@ -551,6 +555,7 @@
     "com.skipum.common.CarrierService.Services": {
       "kind": "entity",
       "source": "com.skipum.common.carrier.Service",
+      "@cds.persistence.exists": true,
       "@readonly": true,
       "elements": {
         "name": {
@@ -837,6 +842,7 @@
     "com.skipum.common.CarrierService.ServiceSubTypes": {
       "kind": "entity",
       "source": "com.skipum.common.carrier.ServiceSubType",
+      "@cds.persistence.exists": true,
       "@readonly": true,
       "@Common.SemanticKey": [
         {
@@ -886,6 +892,7 @@
     "com.skipum.common.CarrierService.ServiceTypes": {
       "kind": "entity",
       "source": "com.skipum.common.carrier.ServiceType",
+      "@cds.persistence.exists": true,
       "@readonly": true,
       "@Common.SemanticKey": [
         {
@@ -935,6 +942,7 @@
     "com.skipum.common.CarrierService.ModeOfTransports": {
       "kind": "entity",
       "source": "com.skipum.common.carrier.ModeOfTransport",
+      "@cds.persistence.exists": true,
       "@readonly": true,
       "@Common.SemanticKey": [
         {
@@ -984,6 +992,7 @@
     "com.skipum.common.CarrierService.CarrierFeeds": {
       "kind": "entity",
       "source": "com.skipum.common.carrier.CarrierFeed",
+      "@cds.persistence.exists": true,
       "@readonly": true,
       "elements": {
         "feed": {
@@ -1157,6 +1166,7 @@
     "com.skipum.common.CarrierService.CarrierActions": {
       "kind": "entity",
       "source": "com.skipum.common.carrier.CarrierAction",
+      "@cds.persistence.exists": true,
       "@readonly": true,
       "elements": {
         "actionCode": {
@@ -1330,6 +1340,7 @@
     "com.skipum.common.CarrierService.ContentSources": {
       "kind": "entity",
       "source": "com.skipum.common.contentSource.ContentSource",
+      "@cds.persistence.exists": true,
       "@readonly": true,
       "@Common.SemanticKey": [
         {
@@ -1388,6 +1399,7 @@
     "com.skipum.common.CarrierService.ContentFeeds": {
       "kind": "entity",
       "source": "com.skipum.common.contentSource.ContentFeed",
+      "@cds.persistence.exists": true,
       "@readonly": true,
       "@Common.SemanticKey": [
         {
@@ -1446,6 +1458,7 @@
     "com.skipum.common.CarrierService.ContentActions": {
       "kind": "entity",
       "source": "com.skipum.common.contentSource.ContentAction",
+      "@cds.persistence.exists": true,
       "@readonly": true,
       "@Common.SemanticKey": [
         {
@@ -1500,6 +1513,51 @@
       "@Capabilities.UpdateRestrictions.Updatable": false,
       "@Common.Label": "Content Actions",
       "@cds.persistence.name": "COM_SKIPUM_COMMON_CARRIERSERVICE_CONTENTACTIONS"
+    },
+    "com.skipum.common.persistence.currency.Currency": {
+      "kind": "entity",
+      "includes": [
+        "com.skipum.common.model.currency.Currency"
+      ],
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.model.currency.Currency..name",
+          "indexNo": 1,
+          "@UI.HiddenFilter": true,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>currency}",
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "origin": "com.skipum.common.model.currency.Currency..code",
+          "indexNo": 2,
+          "key": true,
+          "type": "cds.String",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@UI.HiddenFilter": true,
+          "length": 3,
+          "@Common.Label": "{i18n>currencyCode}",
+          "@cds.persistence.name": "CODE"
+        }
+      },
+      "@UI.Identification": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "name"
+          }
+        }
+      ],
+      "@cds.autoexpose": true,
+      "@Common.Label": "{i18n>currencies}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_PERSISTENCE_CURRENCY_CURRENCY"
     },
     "com.skipum.common.address.Addressee": {
       "kind": "type",
@@ -4278,51 +4336,6 @@
       "@cds.autoexpose": true,
       "@Common.Label": "{i18n>currencies}",
       "@cds.persistence.name": "COM_SKIPUM_COMMON_MODEL_CURRENCY_CURRENCY"
-    },
-    "com.skipum.common.persistence.currency.Currency": {
-      "kind": "entity",
-      "includes": [
-        "com.skipum.common.model.currency.Currency"
-      ],
-      "elements": {
-        "name": {
-          "origin": "com.skipum.common.model.currency.Currency..name",
-          "indexNo": 1,
-          "@UI.HiddenFilter": true,
-          "localized": true,
-          "type": "cds.String",
-          "length": 60,
-          "@Common.Label": "{i18n>currency}",
-          "@cds.persistence.name": "NAME"
-        },
-        "code": {
-          "origin": "com.skipum.common.model.currency.Currency..code",
-          "indexNo": 2,
-          "key": true,
-          "type": "cds.String",
-          "@Common.Text.$value": {
-            "=": "name"
-          },
-          "@Common.Text.@UI.TextArrangement": {
-            "#": "TextOnly"
-          },
-          "@UI.HiddenFilter": true,
-          "length": 3,
-          "@Common.Label": "{i18n>currencyCode}",
-          "@cds.persistence.name": "CODE"
-        }
-      },
-      "@UI.Identification": [
-        {
-          "$Type": "UI.DataField",
-          "Value": {
-            "=": "name"
-          }
-        }
-      ],
-      "@cds.autoexpose": true,
-      "@Common.Label": "{i18n>currencies}",
-      "@cds.persistence.name": "COM_SKIPUM_COMMON_PERSISTENCE_CURRENCY_CURRENCY"
     },
     "com.skipum.common.geographic.CountryCode": {
       "kind": "type",
