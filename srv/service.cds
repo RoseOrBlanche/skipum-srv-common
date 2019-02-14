@@ -1,12 +1,14 @@
 namespace com.skipum.common;
 
 using com.skipum.common.measures as measures from '@contax/skipum-common';
-using com.skipum.common.currency as currency from '@contax/skipum-common';
+using com.skipum.common.persistence.currency as currency from '@contax/skipum-common';
 using com.skipum.common.geographic as geographic from '@contax/skipum-common';
 using com.skipum.common.carrier as carrier from '@contax/skipum-common';
 using com.skipum.common.contentSource as contentSource from '@contax/skipum-common';
 
 service CommonService {
+
+  @cds.persistence.exists
   @readonly entity WeightUnits
 	@(
 		title: '{i18n>weightUnits}',
@@ -17,6 +19,7 @@ service CommonService {
 	)
 	as projection on measures.WeightUnit;
 	
+  @cds.persistence.exists
   @readonly entity DistanceUnits
 	@(
 		title: '{i18n>distanceUnits}',
@@ -26,7 +29,8 @@ service CommonService {
 		}
 	)
 	as projection on measures.DistanceUnit;
-	
+
+  @cds.persistence.exists
   @readonly entity VolumeUnits
 	@(
 		title: '{i18n>volumeUnits}',
@@ -37,6 +41,7 @@ service CommonService {
 	)
 	as projection on measures.VolumeUnit;
 	
+	@cds.persistence.exists
 	@readonly entity Currencies
 	@(
 		title: '{i18n>currencies}',
@@ -47,12 +52,14 @@ service CommonService {
 	)
 	as projection on currency.Currency;
 	
+	@cds.persistence.exists
 	@readonly entity Countries
 	@(
 		title : 'Country'
 	)
 	as projection on geographic.Country;
 	
+	@cds.persistence.exists
 	@readonly entity Regions
 	@(
 		title : 'Region'
@@ -62,18 +69,21 @@ service CommonService {
 
  service CarrierService
  {
+	@cds.persistence.exists
  	@readonly entity Carriers
  	@(
  		title : 'Carriers'
  	)
  	as projection on carrier.Carrier;
 
+	@cds.persistence.exists
 	@readonly entity Services
 	@(
 		title : 'Carrier Services'
 	)
 	as projection on carrier.Service;
 	
+	@cds.persistence.exists
 	@readonly entity ServiceSubTypes
 	@(
 		title : 'Service Sub-types',
@@ -84,6 +94,7 @@ service CommonService {
 	)
 	as projection on carrier.ServiceSubType;
 
+	@cds.persistence.exists
 	@readonly entity ServiceTypes
 	@(
 		title : 'Service Types',
@@ -94,6 +105,7 @@ service CommonService {
 	)
 	as projection on carrier.ServiceType;
 
+	@cds.persistence.exists
 	@readonly entity ModeOfTransports
 	@(
 		title : 'Mode Of Transports',
@@ -104,18 +116,21 @@ service CommonService {
 	)
 	as projection on carrier.ModeOfTransport;
 
+	@cds.persistence.exists
 	@readonly entity CarrierFeeds
 	@(
 		title : 'Carrier Feeds'
 	)
 	as projection on carrier.CarrierFeed;
 
+	@cds.persistence.exists
 	@readonly entity CarrierActions
 	@(
 		title : 'Carrier Action'
 	)
 	as projection on carrier.CarrierAction;
 	
+	@cds.persistence.exists
 	@readonly entity ContentSources
 	@(
 		title : 'Carrier Sources',
@@ -126,6 +141,7 @@ service CommonService {
 	)
 	as projection on contentSource.ContentSource;
 	
+	@cds.persistence.exists
 	@readonly entity ContentFeeds
 	@(
 		title : 'Carrier Feeds',
@@ -136,6 +152,7 @@ service CommonService {
 	)
 	as projection on contentSource.ContentFeed;
 	
+	@cds.persistence.exists
 	@readonly entity ContentActions
 	@(
 		title : 'Content Actions',

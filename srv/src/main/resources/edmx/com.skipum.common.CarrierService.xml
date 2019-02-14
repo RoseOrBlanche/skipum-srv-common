@@ -36,16 +36,16 @@
         <EntitySet Name="CarrierActions" EntityType="com.skipum.common.CarrierService.CarrierActions"/>
         <EntitySet Name="CarrierFeeds" EntityType="com.skipum.common.CarrierService.CarrierFeeds"/>
         <EntitySet Name="Carriers" EntityType="com.skipum.common.CarrierService.Carriers"/>
+        <EntitySet Name="ContentActions" EntityType="com.skipum.common.CarrierService.ContentActions"/>
+        <EntitySet Name="ContentFeeds" EntityType="com.skipum.common.CarrierService.ContentFeeds"/>
+        <EntitySet Name="ContentSources" EntityType="com.skipum.common.CarrierService.ContentSources"/>
         <EntitySet Name="ModeOfTransports" EntityType="com.skipum.common.CarrierService.ModeOfTransports"/>
         <EntitySet Name="ServiceSubTypes" EntityType="com.skipum.common.CarrierService.ServiceSubTypes"/>
         <EntitySet Name="ServiceTypes" EntityType="com.skipum.common.CarrierService.ServiceTypes"/>
         <EntitySet Name="Services" EntityType="com.skipum.common.CarrierService.Services"/>
-        <EntitySet Name="com_skipum_common_contentSource_ContentAction" EntityType="com.skipum.common.CarrierService.com_skipum_common_contentSource_ContentAction"/>
-        <EntitySet Name="com_skipum_common_contentSource_ContentFeed" EntityType="com.skipum.common.CarrierService.com_skipum_common_contentSource_ContentFeed"/>
-        <EntitySet Name="com_skipum_common_contentSource_ContentSource" EntityType="com.skipum.common.CarrierService.com_skipum_common_contentSource_ContentSource"/>
         <AssociationSet Name="CarrierActions_actionCode" Association="com.skipum.common.CarrierService.CarrierActions_actionCode">
           <End Role="CarrierActions" EntitySet="CarrierActions"/>
-          <End Role="com_skipum_common_contentSource_ContentAction" EntitySet="com_skipum_common_contentSource_ContentAction"/>
+          <End Role="ContentActions" EntitySet="ContentActions"/>
         </AssociationSet>
         <AssociationSet Name="CarrierActions_carrier" Association="com.skipum.common.CarrierService.CarrierActions_carrier">
           <End Role="CarrierActions" EntitySet="CarrierActions"/>
@@ -53,11 +53,11 @@
         </AssociationSet>
         <AssociationSet Name="CarrierActions_provider" Association="com.skipum.common.CarrierService.CarrierActions_provider">
           <End Role="CarrierActions" EntitySet="CarrierActions"/>
-          <End Role="com_skipum_common_contentSource_ContentSource" EntitySet="com_skipum_common_contentSource_ContentSource"/>
+          <End Role="ContentSources" EntitySet="ContentSources"/>
         </AssociationSet>
         <AssociationSet Name="CarrierFeeds_feed" Association="com.skipum.common.CarrierService.CarrierFeeds_feed">
           <End Role="CarrierFeeds" EntitySet="CarrierFeeds"/>
-          <End Role="com_skipum_common_contentSource_ContentFeed" EntitySet="com_skipum_common_contentSource_ContentFeed"/>
+          <End Role="ContentFeeds" EntitySet="ContentFeeds"/>
         </AssociationSet>
         <AssociationSet Name="CarrierFeeds_carrier" Association="com.skipum.common.CarrierService.CarrierFeeds_carrier">
           <End Role="CarrierFeeds" EntitySet="CarrierFeeds"/>
@@ -65,7 +65,7 @@
         </AssociationSet>
         <AssociationSet Name="CarrierFeeds_provider" Association="com.skipum.common.CarrierService.CarrierFeeds_provider">
           <End Role="CarrierFeeds" EntitySet="CarrierFeeds"/>
-          <End Role="com_skipum_common_contentSource_ContentSource" EntitySet="com_skipum_common_contentSource_ContentSource"/>
+          <End Role="ContentSources" EntitySet="ContentSources"/>
         </AssociationSet>
         <AssociationSet Name="Services_modeOfTransport" Association="com.skipum.common.CarrierService.Services_modeOfTransport">
           <End Role="Services" EntitySet="Services"/>
@@ -89,10 +89,10 @@
           <PropertyRef Name="actionCode_code"/>
           <PropertyRef Name="carrier_code"/>
         </Key>
-        <NavigationProperty Name="actionCode" Relationship="com.skipum.common.CarrierService.CarrierActions_actionCode" FromRole="CarrierActions" ToRole="com_skipum_common_contentSource_ContentAction"/>
+        <NavigationProperty Name="actionCode" Relationship="com.skipum.common.CarrierService.CarrierActions_actionCode" FromRole="CarrierActions" ToRole="ContentActions"/>
         <NavigationProperty Name="carrier" Relationship="com.skipum.common.CarrierService.CarrierActions_carrier" FromRole="CarrierActions" ToRole="Carriers"/>
         <Property Name="enabled" Type="Edm.Boolean"/>
-        <NavigationProperty Name="provider" Relationship="com.skipum.common.CarrierService.CarrierActions_provider" FromRole="CarrierActions" ToRole="com_skipum_common_contentSource_ContentSource"/>
+        <NavigationProperty Name="provider" Relationship="com.skipum.common.CarrierService.CarrierActions_provider" FromRole="CarrierActions" ToRole="ContentSources"/>
         <Property Name="actionCode_code" Type="Edm.String" MaxLength="3" Nullable="false"/>
         <Property Name="carrier_code" Type="Edm.String" MaxLength="3" Nullable="false"/>
         <Property Name="provider_code" Type="Edm.String" MaxLength="3"/>
@@ -102,10 +102,10 @@
           <PropertyRef Name="feed_code"/>
           <PropertyRef Name="carrier_code"/>
         </Key>
-        <NavigationProperty Name="feed" Relationship="com.skipum.common.CarrierService.CarrierFeeds_feed" FromRole="CarrierFeeds" ToRole="com_skipum_common_contentSource_ContentFeed"/>
+        <NavigationProperty Name="feed" Relationship="com.skipum.common.CarrierService.CarrierFeeds_feed" FromRole="CarrierFeeds" ToRole="ContentFeeds"/>
         <NavigationProperty Name="carrier" Relationship="com.skipum.common.CarrierService.CarrierFeeds_carrier" FromRole="CarrierFeeds" ToRole="Carriers"/>
         <Property Name="enabled" Type="Edm.Boolean"/>
-        <NavigationProperty Name="provider" Relationship="com.skipum.common.CarrierService.CarrierFeeds_provider" FromRole="CarrierFeeds" ToRole="com_skipum_common_contentSource_ContentSource"/>
+        <NavigationProperty Name="provider" Relationship="com.skipum.common.CarrierService.CarrierFeeds_provider" FromRole="CarrierFeeds" ToRole="ContentSources"/>
         <Property Name="feed_code" Type="Edm.String" MaxLength="3" Nullable="false"/>
         <Property Name="carrier_code" Type="Edm.String" MaxLength="3" Nullable="false"/>
         <Property Name="provider_code" Type="Edm.String" MaxLength="3"/>
@@ -122,6 +122,27 @@
         <NavigationProperty Name="services" Relationship="com.skipum.common.CarrierService.Services_carrier" FromRole="Carriers" ToRole="Services"/>
         <NavigationProperty Name="actions" Relationship="com.skipum.common.CarrierService.CarrierActions_carrier" FromRole="Carriers" ToRole="CarrierActions"/>
         <NavigationProperty Name="feeds" Relationship="com.skipum.common.CarrierService.CarrierFeeds_carrier" FromRole="Carriers" ToRole="CarrierFeeds"/>
+      </EntityType>
+      <EntityType Name="ContentActions">
+        <Key>
+          <PropertyRef Name="code"/>
+        </Key>
+        <Property Name="name" Type="Edm.String" MaxLength="60"/>
+        <Property Name="code" Type="Edm.String" MaxLength="3" Nullable="false"/>
+      </EntityType>
+      <EntityType Name="ContentFeeds">
+        <Key>
+          <PropertyRef Name="code"/>
+        </Key>
+        <Property Name="name" Type="Edm.String" MaxLength="60"/>
+        <Property Name="code" Type="Edm.String" MaxLength="3" Nullable="false"/>
+      </EntityType>
+      <EntityType Name="ContentSources">
+        <Key>
+          <PropertyRef Name="code"/>
+        </Key>
+        <Property Name="name" Type="Edm.String" MaxLength="60"/>
+        <Property Name="code" Type="Edm.String" MaxLength="3" Nullable="false"/>
       </EntityType>
       <EntityType Name="ModeOfTransports">
         <Key>
@@ -160,32 +181,11 @@
         <Property Name="serviceSubType_code" Type="Edm.String" MaxLength="3"/>
         <Property Name="carrier_code" Type="Edm.String" MaxLength="3"/>
       </EntityType>
-      <EntityType Name="com_skipum_common_contentSource_ContentAction">
-        <Key>
-          <PropertyRef Name="code"/>
-        </Key>
-        <Property Name="name" Type="Edm.String" MaxLength="60"/>
-        <Property Name="code" Type="Edm.String" MaxLength="3" Nullable="false"/>
-      </EntityType>
-      <EntityType Name="com_skipum_common_contentSource_ContentFeed">
-        <Key>
-          <PropertyRef Name="code"/>
-        </Key>
-        <Property Name="name" Type="Edm.String" MaxLength="60"/>
-        <Property Name="code" Type="Edm.String" MaxLength="3" Nullable="false"/>
-      </EntityType>
-      <EntityType Name="com_skipum_common_contentSource_ContentSource">
-        <Key>
-          <PropertyRef Name="code"/>
-        </Key>
-        <Property Name="name" Type="Edm.String" MaxLength="60"/>
-        <Property Name="code" Type="Edm.String" MaxLength="3" Nullable="false"/>
-      </EntityType>
       <Association Name="CarrierActions_actionCode">
         <End Role="CarrierActions" Type="com.skipum.common.CarrierService.CarrierActions" Multiplicity="*"/>
-        <End Role="com_skipum_common_contentSource_ContentAction" Type="com.skipum.common.CarrierService.com_skipum_common_contentSource_ContentAction" Multiplicity="0..1"/>
+        <End Role="ContentActions" Type="com.skipum.common.CarrierService.ContentActions" Multiplicity="0..1"/>
         <ReferentialConstraint>
-          <Principal Role="com_skipum_common_contentSource_ContentAction">
+          <Principal Role="ContentActions">
             <PropertyRef Name="code"/>
           </Principal>
           <Dependent Role="CarrierActions">
@@ -207,9 +207,9 @@
       </Association>
       <Association Name="CarrierActions_provider">
         <End Role="CarrierActions" Type="com.skipum.common.CarrierService.CarrierActions" Multiplicity="*"/>
-        <End Role="com_skipum_common_contentSource_ContentSource" Type="com.skipum.common.CarrierService.com_skipum_common_contentSource_ContentSource" Multiplicity="0..1"/>
+        <End Role="ContentSources" Type="com.skipum.common.CarrierService.ContentSources" Multiplicity="0..1"/>
         <ReferentialConstraint>
-          <Principal Role="com_skipum_common_contentSource_ContentSource">
+          <Principal Role="ContentSources">
             <PropertyRef Name="code"/>
           </Principal>
           <Dependent Role="CarrierActions">
@@ -219,9 +219,9 @@
       </Association>
       <Association Name="CarrierFeeds_feed">
         <End Role="CarrierFeeds" Type="com.skipum.common.CarrierService.CarrierFeeds" Multiplicity="*"/>
-        <End Role="com_skipum_common_contentSource_ContentFeed" Type="com.skipum.common.CarrierService.com_skipum_common_contentSource_ContentFeed" Multiplicity="0..1"/>
+        <End Role="ContentFeeds" Type="com.skipum.common.CarrierService.ContentFeeds" Multiplicity="0..1"/>
         <ReferentialConstraint>
-          <Principal Role="com_skipum_common_contentSource_ContentFeed">
+          <Principal Role="ContentFeeds">
             <PropertyRef Name="code"/>
           </Principal>
           <Dependent Role="CarrierFeeds">
@@ -243,9 +243,9 @@
       </Association>
       <Association Name="CarrierFeeds_provider">
         <End Role="CarrierFeeds" Type="com.skipum.common.CarrierService.CarrierFeeds" Multiplicity="*"/>
-        <End Role="com_skipum_common_contentSource_ContentSource" Type="com.skipum.common.CarrierService.com_skipum_common_contentSource_ContentSource" Multiplicity="0..1"/>
+        <End Role="ContentSources" Type="com.skipum.common.CarrierService.ContentSources" Multiplicity="0..1"/>
         <ReferentialConstraint>
-          <Principal Role="com_skipum_common_contentSource_ContentSource">
+          <Principal Role="ContentSources">
             <PropertyRef Name="code"/>
           </Principal>
           <Dependent Role="CarrierFeeds">
@@ -329,6 +329,23 @@
         <Annotation Term="Common.Text" Path="action/name">
           <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextOnly"/>
         </Annotation>
+        <Annotation Term="Common.ValueList">
+          <Record Type="Common.ValueListType">
+            <PropertyValue Property="Label" String="Content Action"/>
+            <PropertyValue Property="CollectionPath" String="ContentActions"/>
+            <PropertyValue Property="Parameters">
+              <Collection>
+                <Record Type="Common.ValueListParameterInOut">
+                  <PropertyValue Property="LocalDataProperty" PropertyPath="actionCode_code"/>
+                  <PropertyValue Property="ValueListProperty" String="code"/>
+                </Record>
+                <Record Type="Common.ValueListParameterDisplayOnly">
+                  <PropertyValue Property="ValueListProperty" String="name"/>
+                </Record>
+              </Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
       </Annotations>
       <Annotations Target="com.skipum.common.CarrierService.CarrierActions/enabled" xmlns="http://docs.oasis-open.org/odata/ns/edm">
         <Annotation Term="Common.Label" String="Enabled"/>
@@ -339,6 +356,23 @@
         <Annotation Term="Common.Text" Path="defaultProvider/name">
           <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextOnly"/>
         </Annotation>
+        <Annotation Term="Common.ValueList">
+          <Record Type="Common.ValueListType">
+            <PropertyValue Property="Label" String="Content Source"/>
+            <PropertyValue Property="CollectionPath" String="ContentSources"/>
+            <PropertyValue Property="Parameters">
+              <Collection>
+                <Record Type="Common.ValueListParameterInOut">
+                  <PropertyValue Property="LocalDataProperty" PropertyPath="provider_code"/>
+                  <PropertyValue Property="ValueListProperty" String="code"/>
+                </Record>
+                <Record Type="Common.ValueListParameterDisplayOnly">
+                  <PropertyValue Property="ValueListProperty" String="name"/>
+                </Record>
+              </Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
       </Annotations>
       <Annotations Target="com.skipum.common.CarrierService.CarrierActions/actionCode_code" xmlns="http://docs.oasis-open.org/odata/ns/edm">
         <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
@@ -346,12 +380,46 @@
         <Annotation Term="Common.Text" Path="action/name">
           <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextOnly"/>
         </Annotation>
+        <Annotation Term="Common.ValueList">
+          <Record Type="Common.ValueListType">
+            <PropertyValue Property="Label" String="Content Action"/>
+            <PropertyValue Property="CollectionPath" String="ContentActions"/>
+            <PropertyValue Property="Parameters">
+              <Collection>
+                <Record Type="Common.ValueListParameterInOut">
+                  <PropertyValue Property="LocalDataProperty" PropertyPath="actionCode_code"/>
+                  <PropertyValue Property="ValueListProperty" String="code"/>
+                </Record>
+                <Record Type="Common.ValueListParameterDisplayOnly">
+                  <PropertyValue Property="ValueListProperty" String="name"/>
+                </Record>
+              </Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
       </Annotations>
       <Annotations Target="com.skipum.common.CarrierService.CarrierActions/provider_code" xmlns="http://docs.oasis-open.org/odata/ns/edm">
         <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
         <Annotation Term="Common.Label" String="Content Source"/>
         <Annotation Term="Common.Text" Path="defaultProvider/name">
           <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextOnly"/>
+        </Annotation>
+        <Annotation Term="Common.ValueList">
+          <Record Type="Common.ValueListType">
+            <PropertyValue Property="Label" String="Content Source"/>
+            <PropertyValue Property="CollectionPath" String="ContentSources"/>
+            <PropertyValue Property="Parameters">
+              <Collection>
+                <Record Type="Common.ValueListParameterInOut">
+                  <PropertyValue Property="LocalDataProperty" PropertyPath="provider_code"/>
+                  <PropertyValue Property="ValueListProperty" String="code"/>
+                </Record>
+                <Record Type="Common.ValueListParameterDisplayOnly">
+                  <PropertyValue Property="ValueListProperty" String="name"/>
+                </Record>
+              </Collection>
+            </PropertyValue>
+          </Record>
         </Annotation>
       </Annotations>
       <Annotations Target="com.skipum.common.CarrierService.CarrierFeeds" xmlns="http://docs.oasis-open.org/odata/ns/edm">
@@ -380,6 +448,23 @@
         <Annotation Term="Common.Text" Path="feed/name">
           <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextOnly"/>
         </Annotation>
+        <Annotation Term="Common.ValueList">
+          <Record Type="Common.ValueListType">
+            <PropertyValue Property="Label" String="Content Feed"/>
+            <PropertyValue Property="CollectionPath" String="ContentFeeds"/>
+            <PropertyValue Property="Parameters">
+              <Collection>
+                <Record Type="Common.ValueListParameterInOut">
+                  <PropertyValue Property="LocalDataProperty" PropertyPath="feed_code"/>
+                  <PropertyValue Property="ValueListProperty" String="code"/>
+                </Record>
+                <Record Type="Common.ValueListParameterDisplayOnly">
+                  <PropertyValue Property="ValueListProperty" String="name"/>
+                </Record>
+              </Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
       </Annotations>
       <Annotations Target="com.skipum.common.CarrierService.CarrierFeeds/enabled" xmlns="http://docs.oasis-open.org/odata/ns/edm">
         <Annotation Term="Common.Label" String="Enabled"/>
@@ -390,6 +475,23 @@
         <Annotation Term="Common.Text" Path="defaultProvider/name">
           <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextOnly"/>
         </Annotation>
+        <Annotation Term="Common.ValueList">
+          <Record Type="Common.ValueListType">
+            <PropertyValue Property="Label" String="Content Source"/>
+            <PropertyValue Property="CollectionPath" String="ContentSources"/>
+            <PropertyValue Property="Parameters">
+              <Collection>
+                <Record Type="Common.ValueListParameterInOut">
+                  <PropertyValue Property="LocalDataProperty" PropertyPath="provider_code"/>
+                  <PropertyValue Property="ValueListProperty" String="code"/>
+                </Record>
+                <Record Type="Common.ValueListParameterDisplayOnly">
+                  <PropertyValue Property="ValueListProperty" String="name"/>
+                </Record>
+              </Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
       </Annotations>
       <Annotations Target="com.skipum.common.CarrierService.CarrierFeeds/feed_code" xmlns="http://docs.oasis-open.org/odata/ns/edm">
         <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
@@ -397,12 +499,46 @@
         <Annotation Term="Common.Text" Path="feed/name">
           <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextOnly"/>
         </Annotation>
+        <Annotation Term="Common.ValueList">
+          <Record Type="Common.ValueListType">
+            <PropertyValue Property="Label" String="Content Feed"/>
+            <PropertyValue Property="CollectionPath" String="ContentFeeds"/>
+            <PropertyValue Property="Parameters">
+              <Collection>
+                <Record Type="Common.ValueListParameterInOut">
+                  <PropertyValue Property="LocalDataProperty" PropertyPath="feed_code"/>
+                  <PropertyValue Property="ValueListProperty" String="code"/>
+                </Record>
+                <Record Type="Common.ValueListParameterDisplayOnly">
+                  <PropertyValue Property="ValueListProperty" String="name"/>
+                </Record>
+              </Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
       </Annotations>
       <Annotations Target="com.skipum.common.CarrierService.CarrierFeeds/provider_code" xmlns="http://docs.oasis-open.org/odata/ns/edm">
         <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
         <Annotation Term="Common.Label" String="Content Source"/>
         <Annotation Term="Common.Text" Path="defaultProvider/name">
           <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextOnly"/>
+        </Annotation>
+        <Annotation Term="Common.ValueList">
+          <Record Type="Common.ValueListType">
+            <PropertyValue Property="Label" String="Content Source"/>
+            <PropertyValue Property="CollectionPath" String="ContentSources"/>
+            <PropertyValue Property="Parameters">
+              <Collection>
+                <Record Type="Common.ValueListParameterInOut">
+                  <PropertyValue Property="LocalDataProperty" PropertyPath="provider_code"/>
+                  <PropertyValue Property="ValueListProperty" String="code"/>
+                </Record>
+                <Record Type="Common.ValueListParameterDisplayOnly">
+                  <PropertyValue Property="ValueListProperty" String="name"/>
+                </Record>
+              </Collection>
+            </PropertyValue>
+          </Record>
         </Annotation>
       </Annotations>
       <Annotations Target="com.skipum.common.CarrierService.Carriers" xmlns="http://docs.oasis-open.org/odata/ns/edm">
@@ -437,8 +573,142 @@
       <Annotations Target="com.skipum.common.CarrierService.Carriers/enabled" xmlns="http://docs.oasis-open.org/odata/ns/edm">
         <Annotation Term="Common.Label" String="Enabled"/>
       </Annotations>
+      <Annotations Target="com.skipum.common.CarrierService.ContentActions" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="Common.Label" String="Content Actions"/>
+        <Annotation Term="Common.SemanticKey">
+          <Collection>
+            <PropertyPath>code</PropertyPath>
+          </Collection>
+        </Annotation>
+        <Annotation Term="UI.Identification">
+          <Collection>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Value" Path="name"/>
+            </Record>
+          </Collection>
+        </Annotation>
+      </Annotations>
+      <Annotations Target="com.skipum.common.CarrierService.EntityContainer/ContentActions" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="Capabilities.DeleteRestrictions">
+          <Record Type="Capabilities.DeleteRestrictionsType">
+            <PropertyValue Property="Deletable" Bool="false"/>
+          </Record>
+        </Annotation>
+        <Annotation Term="Capabilities.InsertRestrictions">
+          <Record Type="Capabilities.InsertRestrictionsType">
+            <PropertyValue Property="Insertable" Bool="false"/>
+          </Record>
+        </Annotation>
+        <Annotation Term="Capabilities.UpdateRestrictions">
+          <Record Type="Capabilities.UpdateRestrictionsType">
+            <PropertyValue Property="Updatable" Bool="false"/>
+          </Record>
+        </Annotation>
+      </Annotations>
+      <Annotations Target="com.skipum.common.CarrierService.ContentActions/name" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="Common.Label" String="Content Action"/>
+        <Annotation Term="UI.HiddenFilter" Bool="true"/>
+      </Annotations>
+      <Annotations Target="com.skipum.common.CarrierService.ContentActions/code" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="Common.Label" String="Content Action Code"/>
+        <Annotation Term="Common.Text" Path="name">
+          <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextOnly"/>
+        </Annotation>
+        <Annotation Term="UI.HiddenFilter" Bool="true"/>
+      </Annotations>
+      <Annotations Target="com.skipum.common.CarrierService.ContentFeeds" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="Common.Label" String="Carrier Feeds"/>
+        <Annotation Term="Common.SemanticKey">
+          <Collection>
+            <PropertyPath>code</PropertyPath>
+          </Collection>
+        </Annotation>
+        <Annotation Term="UI.Identification">
+          <Collection>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Value" Path="name"/>
+            </Record>
+          </Collection>
+        </Annotation>
+      </Annotations>
+      <Annotations Target="com.skipum.common.CarrierService.EntityContainer/ContentFeeds" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="Capabilities.DeleteRestrictions">
+          <Record Type="Capabilities.DeleteRestrictionsType">
+            <PropertyValue Property="Deletable" Bool="false"/>
+          </Record>
+        </Annotation>
+        <Annotation Term="Capabilities.InsertRestrictions">
+          <Record Type="Capabilities.InsertRestrictionsType">
+            <PropertyValue Property="Insertable" Bool="false"/>
+          </Record>
+        </Annotation>
+        <Annotation Term="Capabilities.UpdateRestrictions">
+          <Record Type="Capabilities.UpdateRestrictionsType">
+            <PropertyValue Property="Updatable" Bool="false"/>
+          </Record>
+        </Annotation>
+      </Annotations>
+      <Annotations Target="com.skipum.common.CarrierService.ContentFeeds/name" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="Common.Label" String="Content Feed"/>
+        <Annotation Term="UI.HiddenFilter" Bool="true"/>
+      </Annotations>
+      <Annotations Target="com.skipum.common.CarrierService.ContentFeeds/code" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="Common.Label" String="Content Feed"/>
+        <Annotation Term="Common.Text" Path="name">
+          <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextOnly"/>
+        </Annotation>
+        <Annotation Term="UI.HiddenFilter" Bool="true"/>
+      </Annotations>
+      <Annotations Target="com.skipum.common.CarrierService.ContentSources" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="Common.Label" String="Carrier Sources"/>
+        <Annotation Term="Common.SemanticKey">
+          <Collection>
+            <PropertyPath>code</PropertyPath>
+          </Collection>
+        </Annotation>
+        <Annotation Term="UI.Identification">
+          <Collection>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Value" Path="name"/>
+            </Record>
+          </Collection>
+        </Annotation>
+      </Annotations>
+      <Annotations Target="com.skipum.common.CarrierService.EntityContainer/ContentSources" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="Capabilities.DeleteRestrictions">
+          <Record Type="Capabilities.DeleteRestrictionsType">
+            <PropertyValue Property="Deletable" Bool="false"/>
+          </Record>
+        </Annotation>
+        <Annotation Term="Capabilities.InsertRestrictions">
+          <Record Type="Capabilities.InsertRestrictionsType">
+            <PropertyValue Property="Insertable" Bool="false"/>
+          </Record>
+        </Annotation>
+        <Annotation Term="Capabilities.UpdateRestrictions">
+          <Record Type="Capabilities.UpdateRestrictionsType">
+            <PropertyValue Property="Updatable" Bool="false"/>
+          </Record>
+        </Annotation>
+      </Annotations>
+      <Annotations Target="com.skipum.common.CarrierService.ContentSources/name" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="Common.Label" String="Content Source"/>
+        <Annotation Term="UI.HiddenFilter" Bool="true"/>
+      </Annotations>
+      <Annotations Target="com.skipum.common.CarrierService.ContentSources/code" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="Common.Label" String="Content Source Code"/>
+        <Annotation Term="Common.Text" Path="name">
+          <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextOnly"/>
+        </Annotation>
+        <Annotation Term="UI.HiddenFilter" Bool="true"/>
+      </Annotations>
       <Annotations Target="com.skipum.common.CarrierService.ModeOfTransports" xmlns="http://docs.oasis-open.org/odata/ns/edm">
         <Annotation Term="Common.Label" String="Mode Of Transports"/>
+        <Annotation Term="Common.SemanticKey">
+          <Collection>
+            <PropertyPath>code</PropertyPath>
+          </Collection>
+        </Annotation>
       </Annotations>
       <Annotations Target="com.skipum.common.CarrierService.EntityContainer/ModeOfTransports" xmlns="http://docs.oasis-open.org/odata/ns/edm">
         <Annotation Term="Capabilities.DeleteRestrictions">
@@ -468,6 +738,11 @@
       </Annotations>
       <Annotations Target="com.skipum.common.CarrierService.ServiceSubTypes" xmlns="http://docs.oasis-open.org/odata/ns/edm">
         <Annotation Term="Common.Label" String="Service Sub-types"/>
+        <Annotation Term="Common.SemanticKey">
+          <Collection>
+            <PropertyPath>code</PropertyPath>
+          </Collection>
+        </Annotation>
       </Annotations>
       <Annotations Target="com.skipum.common.CarrierService.EntityContainer/ServiceSubTypes" xmlns="http://docs.oasis-open.org/odata/ns/edm">
         <Annotation Term="Capabilities.DeleteRestrictions">
@@ -497,6 +772,11 @@
       </Annotations>
       <Annotations Target="com.skipum.common.CarrierService.ServiceTypes" xmlns="http://docs.oasis-open.org/odata/ns/edm">
         <Annotation Term="Common.Label" String="Service Types"/>
+        <Annotation Term="Common.SemanticKey">
+          <Collection>
+            <PropertyPath>code</PropertyPath>
+          </Collection>
+        </Annotation>
       </Annotations>
       <Annotations Target="com.skipum.common.CarrierService.EntityContainer/ServiceTypes" xmlns="http://docs.oasis-open.org/odata/ns/edm">
         <Annotation Term="Capabilities.DeleteRestrictions">
@@ -710,69 +990,6 @@
         <Annotation Term="Common.Text" Path="carrier/name">
           <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextOnly"/>
         </Annotation>
-      </Annotations>
-      <Annotations Target="com.skipum.common.CarrierService.com_skipum_common_contentSource_ContentAction" xmlns="http://docs.oasis-open.org/odata/ns/edm">
-        <Annotation Term="Common.Label" String="Content Actions"/>
-        <Annotation Term="UI.Identification">
-          <Collection>
-            <Record Type="UI.DataField">
-              <PropertyValue Property="Value" Path="name"/>
-            </Record>
-          </Collection>
-        </Annotation>
-      </Annotations>
-      <Annotations Target="com.skipum.common.CarrierService.com_skipum_common_contentSource_ContentAction/name" xmlns="http://docs.oasis-open.org/odata/ns/edm">
-        <Annotation Term="Common.Label" String="Content Action"/>
-        <Annotation Term="UI.HiddenFilter" Bool="true"/>
-      </Annotations>
-      <Annotations Target="com.skipum.common.CarrierService.com_skipum_common_contentSource_ContentAction/code" xmlns="http://docs.oasis-open.org/odata/ns/edm">
-        <Annotation Term="Common.Label" String="Content Action Code"/>
-        <Annotation Term="Common.Text" Path="name">
-          <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextOnly"/>
-        </Annotation>
-        <Annotation Term="UI.HiddenFilter" Bool="true"/>
-      </Annotations>
-      <Annotations Target="com.skipum.common.CarrierService.com_skipum_common_contentSource_ContentFeed" xmlns="http://docs.oasis-open.org/odata/ns/edm">
-        <Annotation Term="Common.Label" String="Content Feeds"/>
-        <Annotation Term="UI.Identification">
-          <Collection>
-            <Record Type="UI.DataField">
-              <PropertyValue Property="Value" Path="name"/>
-            </Record>
-          </Collection>
-        </Annotation>
-      </Annotations>
-      <Annotations Target="com.skipum.common.CarrierService.com_skipum_common_contentSource_ContentFeed/name" xmlns="http://docs.oasis-open.org/odata/ns/edm">
-        <Annotation Term="Common.Label" String="Content Feed"/>
-        <Annotation Term="UI.HiddenFilter" Bool="true"/>
-      </Annotations>
-      <Annotations Target="com.skipum.common.CarrierService.com_skipum_common_contentSource_ContentFeed/code" xmlns="http://docs.oasis-open.org/odata/ns/edm">
-        <Annotation Term="Common.Label" String="Content Feed"/>
-        <Annotation Term="Common.Text" Path="name">
-          <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextOnly"/>
-        </Annotation>
-        <Annotation Term="UI.HiddenFilter" Bool="true"/>
-      </Annotations>
-      <Annotations Target="com.skipum.common.CarrierService.com_skipum_common_contentSource_ContentSource" xmlns="http://docs.oasis-open.org/odata/ns/edm">
-        <Annotation Term="Common.Label" String="Content Sources"/>
-        <Annotation Term="UI.Identification">
-          <Collection>
-            <Record Type="UI.DataField">
-              <PropertyValue Property="Value" Path="name"/>
-            </Record>
-          </Collection>
-        </Annotation>
-      </Annotations>
-      <Annotations Target="com.skipum.common.CarrierService.com_skipum_common_contentSource_ContentSource/name" xmlns="http://docs.oasis-open.org/odata/ns/edm">
-        <Annotation Term="Common.Label" String="Content Source"/>
-        <Annotation Term="UI.HiddenFilter" Bool="true"/>
-      </Annotations>
-      <Annotations Target="com.skipum.common.CarrierService.com_skipum_common_contentSource_ContentSource/code" xmlns="http://docs.oasis-open.org/odata/ns/edm">
-        <Annotation Term="Common.Label" String="Content Source Code"/>
-        <Annotation Term="Common.Text" Path="name">
-          <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextOnly"/>
-        </Annotation>
-        <Annotation Term="UI.HiddenFilter" Bool="true"/>
       </Annotations>
     </Schema>
   </edmx:DataServices>

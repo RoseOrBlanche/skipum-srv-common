@@ -8,15 +8,13 @@
     "com.skipum.common.CommonService.WeightUnits": {
       "kind": "entity",
       "source": "com.skipum.common.measures.WeightUnit",
+      "@cds.persistence.exists": true,
       "@readonly": true,
       "@Common.SemanticKey": [
         {
           "=": "code"
         }
       ],
-      "@Capabilities.InsertRestrictions.Insertable": false,
-      "@Capabilities.UpdateRestrictions.Updatable": false,
-      "@Capabilities.DeleteRestrictions.Deletable": false,
       "elements": {
         "name": {
           "origin": "com.skipum.common.measures.WeightUnit..name",
@@ -60,21 +58,22 @@
         }
       ],
       "@cds.autoexpose": true,
+      "@Capabilities.DeleteRestrictions.Deletable": false,
+      "@Capabilities.InsertRestrictions.Insertable": false,
+      "@Capabilities.UpdateRestrictions.Updatable": false,
       "@Common.Label": "{i18n>weightUnits}",
       "@cds.persistence.name": "COM_SKIPUM_COMMON_COMMONSERVICE_WEIGHTUNITS"
     },
     "com.skipum.common.CommonService.DistanceUnits": {
       "kind": "entity",
       "source": "com.skipum.common.measures.DistanceUnit",
+      "@cds.persistence.exists": true,
       "@readonly": true,
       "@Common.SemanticKey": [
         {
           "=": "code"
         }
       ],
-      "@Capabilities.InsertRestrictions.Insertable": false,
-      "@Capabilities.UpdateRestrictions.Updatable": false,
-      "@Capabilities.DeleteRestrictions.Deletable": false,
       "elements": {
         "name": {
           "origin": "com.skipum.common.measures.DistanceUnit..name",
@@ -118,21 +117,22 @@
         }
       ],
       "@cds.autoexpose": true,
+      "@Capabilities.DeleteRestrictions.Deletable": false,
+      "@Capabilities.InsertRestrictions.Insertable": false,
+      "@Capabilities.UpdateRestrictions.Updatable": false,
       "@Common.Label": "{i18n>distanceUnits}",
       "@cds.persistence.name": "COM_SKIPUM_COMMON_COMMONSERVICE_DISTANCEUNITS"
     },
     "com.skipum.common.CommonService.VolumeUnits": {
       "kind": "entity",
       "source": "com.skipum.common.measures.VolumeUnit",
+      "@cds.persistence.exists": true,
       "@readonly": true,
       "@Common.SemanticKey": [
         {
           "=": "code"
         }
       ],
-      "@Capabilities.InsertRestrictions.Insertable": false,
-      "@Capabilities.UpdateRestrictions.Updatable": false,
-      "@Capabilities.DeleteRestrictions.Deletable": false,
       "elements": {
         "name": {
           "origin": "com.skipum.common.measures.VolumeUnit..name",
@@ -176,12 +176,15 @@
         }
       ],
       "@cds.autoexpose": true,
+      "@Capabilities.DeleteRestrictions.Deletable": false,
+      "@Capabilities.InsertRestrictions.Insertable": false,
+      "@Capabilities.UpdateRestrictions.Updatable": false,
       "@Common.Label": "{i18n>volumeUnits}",
       "@cds.persistence.name": "COM_SKIPUM_COMMON_COMMONSERVICE_VOLUMEUNITS"
     },
     "com.skipum.common.CommonService.Currencies": {
       "kind": "entity",
-      "source": "com.skipum.common.currency.Currency",
+      "source": "com.skipum.common.persistence.currency.Currency",
       "@readonly": true,
       "@Common.SemanticKey": [
         {
@@ -190,7 +193,7 @@
       ],
       "elements": {
         "name": {
-          "origin": "com.skipum.common.currency.Currency..name",
+          "origin": "com.skipum.common.persistence.currency.Currency..name",
           "indexNo": 1,
           "value": {
             "=": "Currency.name"
@@ -203,7 +206,7 @@
           "@cds.persistence.name": "NAME"
         },
         "code": {
-          "origin": "com.skipum.common.currency.Currency..code",
+          "origin": "com.skipum.common.persistence.currency.Currency..code",
           "indexNo": 2,
           "value": {
             "=": "Currency.code"
@@ -835,6 +838,11 @@
       "kind": "entity",
       "source": "com.skipum.common.carrier.ServiceSubType",
       "@readonly": true,
+      "@Common.SemanticKey": [
+        {
+          "=": "code"
+        }
+      ],
       "elements": {
         "name": {
           "origin": "com.skipum.common.carrier.ServiceSubType..name",
@@ -879,6 +887,11 @@
       "kind": "entity",
       "source": "com.skipum.common.carrier.ServiceType",
       "@readonly": true,
+      "@Common.SemanticKey": [
+        {
+          "=": "code"
+        }
+      ],
       "elements": {
         "name": {
           "origin": "com.skipum.common.carrier.ServiceType..name",
@@ -923,6 +936,11 @@
       "kind": "entity",
       "source": "com.skipum.common.carrier.ModeOfTransport",
       "@readonly": true,
+      "@Common.SemanticKey": [
+        {
+          "=": "code"
+        }
+      ],
       "elements": {
         "name": {
           "origin": "com.skipum.common.carrier.ModeOfTransport..name",
@@ -976,7 +994,7 @@
           },
           "key": true,
           "type": "cds.Association",
-          "target": "com.skipum.common.CarrierService.com_skipum_common_contentSource_ContentFeed",
+          "target": "com.skipum.common.CarrierService.ContentFeeds",
           "@Common.Text.$value": {
             "=": "feed.name"
           },
@@ -1042,7 +1060,7 @@
             "=": "CarrierFeed.provider"
           },
           "type": "cds.Association",
-          "target": "com.skipum.common.CarrierService.com_skipum_common_contentSource_ContentSource",
+          "target": "com.skipum.common.CarrierService.ContentSources",
           "@Common.Text.$value": {
             "=": "defaultProvider.name"
           },
@@ -1149,7 +1167,7 @@
           },
           "key": true,
           "type": "cds.Association",
-          "target": "com.skipum.common.CarrierService.com_skipum_common_contentSource_ContentAction",
+          "target": "com.skipum.common.CarrierService.ContentActions",
           "@Common.Text.$value": {
             "=": "action.name"
           },
@@ -1215,7 +1233,7 @@
             "=": "CarrierAction.provider"
           },
           "type": "cds.Association",
-          "target": "com.skipum.common.CarrierService.com_skipum_common_contentSource_ContentSource",
+          "target": "com.skipum.common.CarrierService.ContentSources",
           "@Common.Text.$value": {
             "=": "defaultProvider.name"
           },
@@ -1308,6 +1326,180 @@
       "@Capabilities.UpdateRestrictions.Updatable": false,
       "@Common.Label": "Carrier Action",
       "@cds.persistence.name": "COM_SKIPUM_COMMON_CARRIERSERVICE_CARRIERACTIONS"
+    },
+    "com.skipum.common.CarrierService.ContentSources": {
+      "kind": "entity",
+      "source": "com.skipum.common.contentSource.ContentSource",
+      "@readonly": true,
+      "@Common.SemanticKey": [
+        {
+          "=": "code"
+        }
+      ],
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.contentSource.ContentSource..name",
+          "indexNo": 1,
+          "value": {
+            "=": "ContentSource.name"
+          },
+          "@UI.HiddenFilter": true,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>contentSource}",
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "origin": "com.skipum.common.contentSource.ContentSource..code",
+          "indexNo": 2,
+          "value": {
+            "=": "ContentSource.code"
+          },
+          "key": true,
+          "type": "cds.String",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@UI.HiddenFilter": true,
+          "length": 3,
+          "@Common.Label": "{i18n>contentSourceCode}",
+          "@cds.persistence.name": "CODE"
+        }
+      },
+      "@UI.Identification": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "name"
+          }
+        }
+      ],
+      "@cds.autoexpose": true,
+      "@Capabilities.DeleteRestrictions.Deletable": false,
+      "@Capabilities.InsertRestrictions.Insertable": false,
+      "@Capabilities.UpdateRestrictions.Updatable": false,
+      "@Common.Label": "Carrier Sources",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CARRIERSERVICE_CONTENTSOURCES"
+    },
+    "com.skipum.common.CarrierService.ContentFeeds": {
+      "kind": "entity",
+      "source": "com.skipum.common.contentSource.ContentFeed",
+      "@readonly": true,
+      "@Common.SemanticKey": [
+        {
+          "=": "code"
+        }
+      ],
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.contentSource.ContentFeed..name",
+          "indexNo": 1,
+          "value": {
+            "=": "ContentFeed.name"
+          },
+          "@UI.HiddenFilter": true,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>contentFeed}",
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "origin": "com.skipum.common.contentSource.ContentFeed..code",
+          "indexNo": 2,
+          "value": {
+            "=": "ContentFeed.code"
+          },
+          "key": true,
+          "type": "cds.String",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@UI.HiddenFilter": true,
+          "length": 3,
+          "@Common.Label": "{i18n>contentFeedCode}",
+          "@cds.persistence.name": "CODE"
+        }
+      },
+      "@UI.Identification": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "name"
+          }
+        }
+      ],
+      "@cds.autoexpose": true,
+      "@Capabilities.DeleteRestrictions.Deletable": false,
+      "@Capabilities.InsertRestrictions.Insertable": false,
+      "@Capabilities.UpdateRestrictions.Updatable": false,
+      "@Common.Label": "Carrier Feeds",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CARRIERSERVICE_CONTENTFEEDS"
+    },
+    "com.skipum.common.CarrierService.ContentActions": {
+      "kind": "entity",
+      "source": "com.skipum.common.contentSource.ContentAction",
+      "@readonly": true,
+      "@Common.SemanticKey": [
+        {
+          "=": "code"
+        }
+      ],
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.contentSource.ContentAction..name",
+          "indexNo": 1,
+          "value": {
+            "=": "ContentAction.name"
+          },
+          "@UI.HiddenFilter": true,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>contentAction}",
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "origin": "com.skipum.common.contentSource.ContentAction..code",
+          "indexNo": 2,
+          "value": {
+            "=": "ContentAction.code"
+          },
+          "key": true,
+          "type": "cds.String",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@UI.HiddenFilter": true,
+          "length": 3,
+          "@Common.Label": "{i18n>contentActionCode}",
+          "@cds.persistence.name": "CODE"
+        }
+      },
+      "@UI.Identification": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "name"
+          }
+        }
+      ],
+      "@cds.autoexpose": true,
+      "@Capabilities.DeleteRestrictions.Deletable": false,
+      "@Capabilities.InsertRestrictions.Insertable": false,
+      "@Capabilities.UpdateRestrictions.Updatable": false,
+      "@Common.Label": "Content Actions",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_CARRIERSERVICE_CONTENTACTIONS"
     },
     "com.skipum.common.address.Addressee": {
       "kind": "type",
@@ -2406,15 +2598,15 @@
       },
       "@cds.persistence.name": "COM_SKIPUM_COMMON_BUSINESSOBJECT_MANAGEDOBJECT"
     },
-    "skipum.base.common.businessPartner.PartnerType": {
+    "com.skipum.common.businessPartner.PartnerType": {
       "kind": "type",
       "type": "cds.String",
       "@description": "{i18n>partnerType}",
       "length": 3,
       "@Common.Label": "{i18n>partnerType}",
-      "@cds.persistence.name": "SKIPUM_BASE_COMMON_BUSINESSPARTNER_PARTNERTYPE"
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_BUSINESSPARTNER_PARTNERTYPE"
     },
-    "skipum.base.common.businessPartner.PartnerTypes": {
+    "com.skipum.common.businessPartner.PartnerTypes": {
       "kind": "entity",
       "includes": [
         "com.skipum.common.codes.CodeList"
@@ -2440,9 +2632,9 @@
         }
       },
       "@cds.autoexpose": true,
-      "@cds.persistence.name": "SKIPUM_BASE_COMMON_BUSINESSPARTNER_PARTNERTYPES"
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_BUSINESSPARTNER_PARTNERTYPES"
     },
-    "skipum.base.common.businessPartner.BusinessAddress": {
+    "com.skipum.common.businessPartner.BusinessAddress": {
       "abstract": true,
       "kind": "entity",
       "includes": [
@@ -2660,23 +2852,23 @@
           "@cds.persistence.name": "COUNTRY_CODE"
         }
       },
-      "@cds.persistence.name": "SKIPUM_BASE_COMMON_BUSINESSPARTNER_BUSINESSADDRESS"
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_BUSINESSPARTNER_BUSINESSADDRESS"
     },
-    "skipum.base.common.businessPartner.PhoneNumber": {
+    "com.skipum.common.businessPartner.PhoneNumber": {
       "kind": "type",
       "type": "cds.String",
       "length": 20,
       "@Common.Label": "{i18n>phoneNumber}",
-      "@cds.persistence.name": "SKIPUM_BASE_COMMON_BUSINESSPARTNER_PHONENUMBER"
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_BUSINESSPARTNER_PHONENUMBER"
     },
-    "skipum.base.common.businessPartner.Email": {
+    "com.skipum.common.businessPartner.Email": {
       "kind": "type",
       "type": "cds.String",
       "length": 120,
       "@Common.Label": "{i18n>emailAddress}",
-      "@cds.persistence.name": "SKIPUM_BASE_COMMON_BUSINESSPARTNER_EMAIL"
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_BUSINESSPARTNER_EMAIL"
     },
-    "skipum.base.common.businessPartner.CommunicationMethod": {
+    "com.skipum.common.businessPartner.CommunicationMethod": {
       "abstract": true,
       "kind": "entity",
       "elements": {
@@ -2722,7 +2914,7 @@
           "@cds.persistence.name": "EMAIL"
         }
       },
-      "@cds.persistence.name": "SKIPUM_BASE_COMMON_BUSINESSPARTNER_COMMUNICATIONMETHOD"
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_BUSINESSPARTNER_COMMUNICATIONMETHOD"
     },
     "com.skipum.common.carrier.Enabled": {
       "kind": "type",
@@ -4035,14 +4227,15 @@
       },
       "@cds.persistence.name": "COM_SKIPUM_COMMON_CONTENTSOURCE_PROCESSORRETURN"
     },
-    "com.skipum.common.currency.CurrencyCode": {
+    "com.skipum.common.model.currency.CurrencyCode": {
       "kind": "type",
       "type": "cds.String",
       "length": 3,
       "@Common.Label": "{i18n>currencyCode}",
-      "@cds.persistence.name": "COM_SKIPUM_COMMON_CURRENCY_CURRENCYCODE"
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_MODEL_CURRENCY_CURRENCYCODE"
     },
-    "com.skipum.common.currency.Currency": {
+    "com.skipum.common.model.currency.Currency": {
+      "abstract": true,
       "kind": "entity",
       "includes": [
         "com.skipum.common.codes.CodeList"
@@ -4084,7 +4277,52 @@
       ],
       "@cds.autoexpose": true,
       "@Common.Label": "{i18n>currencies}",
-      "@cds.persistence.name": "COM_SKIPUM_COMMON_CURRENCY_CURRENCY"
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_MODEL_CURRENCY_CURRENCY"
+    },
+    "com.skipum.common.persistence.currency.Currency": {
+      "kind": "entity",
+      "includes": [
+        "com.skipum.common.model.currency.Currency"
+      ],
+      "elements": {
+        "name": {
+          "origin": "com.skipum.common.model.currency.Currency..name",
+          "indexNo": 1,
+          "@UI.HiddenFilter": true,
+          "localized": true,
+          "type": "cds.String",
+          "length": 60,
+          "@Common.Label": "{i18n>currency}",
+          "@cds.persistence.name": "NAME"
+        },
+        "code": {
+          "origin": "com.skipum.common.model.currency.Currency..code",
+          "indexNo": 2,
+          "key": true,
+          "type": "cds.String",
+          "@Common.Text.$value": {
+            "=": "name"
+          },
+          "@Common.Text.@UI.TextArrangement": {
+            "#": "TextOnly"
+          },
+          "@UI.HiddenFilter": true,
+          "length": 3,
+          "@Common.Label": "{i18n>currencyCode}",
+          "@cds.persistence.name": "CODE"
+        }
+      },
+      "@UI.Identification": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "name"
+          }
+        }
+      ],
+      "@cds.autoexpose": true,
+      "@Common.Label": "{i18n>currencies}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_PERSISTENCE_CURRENCY_CURRENCY"
     },
     "com.skipum.common.geographic.CountryCode": {
       "kind": "type",
@@ -4710,70 +4948,26 @@
       },
       "@cds.persistence.name": "COM_SKIPUM_COMMON_MEASURES_VOLUME"
     },
-    "com.skipum.common.CarrierService.com_skipum_common_contentSource_ContentFeed": {
-      "kind": "entity",
-      "source": "com.skipum.common.contentSource.ContentFeed",
-      "elements": {
-        "name": {
-          "origin": "com.skipum.common.contentSource.ContentFeed..name",
-          "indexNo": 1,
-          "@UI.HiddenFilter": true,
-          "localized": true,
-          "type": "cds.String",
-          "length": 60,
-          "@Common.Label": "{i18n>contentFeed}",
-          "value": {
-            "=": "ContentFeed.name"
-          },
-          "@cds.persistence.name": "NAME"
-        },
-        "code": {
-          "key": true,
-          "indexNo": 2,
-          "type": "cds.String",
-          "@Common.Text.$value": {
-            "=": "name"
-          },
-          "@Common.Text.@UI.TextArrangement": {
-            "#": "TextOnly"
-          },
-          "@UI.HiddenFilter": true,
-          "length": 3,
-          "@Common.Label": "{i18n>contentFeedCode}",
-          "value": {
-            "=": "ContentFeed.code"
-          },
-          "origin": "com.skipum.common.contentSource.ContentFeed..code",
-          "@cds.persistence.name": "CODE"
-        }
-      },
-      "@UI.Identification": [
-        {
-          "$Type": "UI.DataField",
-          "Value": {
-            "=": "name"
-          }
-        }
-      ],
-      "@cds.autoexpose": true,
-      "@Common.Label": "{i18n>contentFeeds}",
-      "@cds.persistence.name": "COM_SKIPUM_COMMON_CARRIERSERVICE_COM_SKIPUM_COMMON_CONTENTSOURCE_CONTENTFEED"
+    "com.skipum.common.packaging.PackagingTypeCode": {
+      "kind": "type",
+      "type": "cds.String",
+      "@description": "{i18n>packagingType}",
+      "length": 3,
+      "@Common.Label": "{i18n>packagingType}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_PACKAGING_PACKAGINGTYPECODE"
     },
-    "com.skipum.common.CarrierService.com_skipum_common_contentSource_ContentSource": {
+    "com.skipum.common.packaging.PackagingType": {
       "kind": "entity",
-      "source": "com.skipum.common.contentSource.ContentSource",
+      "includes": [
+        "com.skipum.common.codes.CodeList"
+      ],
       "elements": {
         "name": {
-          "origin": "com.skipum.common.contentSource.ContentSource..name",
+          "origin": "com.skipum.common.codes.CodeList..name",
           "indexNo": 1,
-          "@UI.HiddenFilter": true,
           "localized": true,
           "type": "cds.String",
           "length": 60,
-          "@Common.Label": "{i18n>contentSource}",
-          "value": {
-            "=": "ContentSource.name"
-          },
           "@cds.persistence.name": "NAME"
         },
         "code": {
@@ -4786,43 +4980,35 @@
           "@Common.Text.@UI.TextArrangement": {
             "#": "TextOnly"
           },
-          "@UI.HiddenFilter": true,
+          "@description": "{i18n>packagingType}",
           "length": 3,
-          "@Common.Label": "{i18n>contentSourceCode}",
-          "value": {
-            "=": "ContentSource.code"
-          },
-          "origin": "com.skipum.common.contentSource.ContentSource..code",
+          "@Common.Label": "{i18n>packagingType}",
           "@cds.persistence.name": "CODE"
         }
       },
-      "@UI.Identification": [
-        {
-          "$Type": "UI.DataField",
-          "Value": {
-            "=": "name"
-          }
-        }
-      ],
       "@cds.autoexpose": true,
-      "@Common.Label": "{i18n>contentSources}",
-      "@cds.persistence.name": "COM_SKIPUM_COMMON_CARRIERSERVICE_COM_SKIPUM_COMMON_CONTENTSOURCE_CONTENTSOURCE"
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_PACKAGING_PACKAGINGTYPE"
     },
-    "com.skipum.common.CarrierService.com_skipum_common_contentSource_ContentAction": {
+    "com.skipum.common.packaging.ContainerTypeCode": {
+      "kind": "type",
+      "type": "cds.String",
+      "@description": "{i18n>handlingUnitType}",
+      "length": 3,
+      "@Common.Label": "{i18n>handlingUnitType}",
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_PACKAGING_CONTAINERTYPECODE"
+    },
+    "com.skipum.common.packaging.ContainerType": {
       "kind": "entity",
-      "source": "com.skipum.common.contentSource.ContentAction",
+      "includes": [
+        "com.skipum.common.codes.CodeList"
+      ],
       "elements": {
         "name": {
-          "origin": "com.skipum.common.contentSource.ContentAction..name",
+          "origin": "com.skipum.common.codes.CodeList..name",
           "indexNo": 1,
-          "@UI.HiddenFilter": true,
           "localized": true,
           "type": "cds.String",
           "length": 60,
-          "@Common.Label": "{i18n>contentAction}",
-          "value": {
-            "=": "ContentAction.name"
-          },
           "@cds.persistence.name": "NAME"
         },
         "code": {
@@ -4835,27 +5021,14 @@
           "@Common.Text.@UI.TextArrangement": {
             "#": "TextOnly"
           },
-          "@UI.HiddenFilter": true,
+          "@description": "{i18n>handlingUnitType}",
           "length": 3,
-          "@Common.Label": "{i18n>contentActionCode}",
-          "value": {
-            "=": "ContentAction.code"
-          },
-          "origin": "com.skipum.common.contentSource.ContentAction..code",
+          "@Common.Label": "{i18n>handlingUnitType}",
           "@cds.persistence.name": "CODE"
         }
       },
-      "@UI.Identification": [
-        {
-          "$Type": "UI.DataField",
-          "Value": {
-            "=": "name"
-          }
-        }
-      ],
       "@cds.autoexpose": true,
-      "@Common.Label": "{i18n>contentActions}",
-      "@cds.persistence.name": "COM_SKIPUM_COMMON_CARRIERSERVICE_COM_SKIPUM_COMMON_CONTENTSOURCE_CONTENTACTION"
+      "@cds.persistence.name": "COM_SKIPUM_COMMON_PACKAGING_CONTAINERTYPE"
     }
   },
   "version": {
