@@ -4,6 +4,7 @@ using com.skipum.common.measures as measures from '@contax/skipum-common';
 using com.skipum.common.currency as currency from '@contax/skipum-common';
 using com.skipum.common.geographic as geographic from '@contax/skipum-common';
 using com.skipum.common.carrier as carrier from '@contax/skipum-common';
+using com.skipum.common.contentSource as contentSource from '@contax/skipum-common';
 
 service CommonService {
   @readonly entity WeightUnits
@@ -12,13 +13,6 @@ service CommonService {
 		Common:
 		{
 			SemanticKey: [code]
-		},
-		
-		Capabilities:
-		{
-			InsertRestrictions: {Insertable: false},
-			UpdateRestrictions: {Updatable: false},
-			DeleteRestrictions: {Deletable: false}
 		}
 	)
 	as projection on measures.WeightUnit;
@@ -29,13 +23,6 @@ service CommonService {
 		Common:
 		{
 			SemanticKey: [code]
-		},
-		
-		Capabilities:
-		{
-			InsertRestrictions: {Insertable: false},
-			UpdateRestrictions: {Updatable: false},
-			DeleteRestrictions: {Deletable: false}
 		}
 	)
 	as projection on measures.DistanceUnit;
@@ -46,13 +33,6 @@ service CommonService {
 		Common:
 		{
 			SemanticKey: [code]
-		},
-		
-		Capabilities:
-		{
-			InsertRestrictions: {Insertable: false},
-			UpdateRestrictions: {Updatable: false},
-			DeleteRestrictions: {Deletable: false}
 		}
 	)
 	as projection on measures.VolumeUnit;
@@ -96,19 +76,31 @@ service CommonService {
 	
 	@readonly entity ServiceSubTypes
 	@(
-		title : 'Service Sub-types'
+		title : 'Service Sub-types',
+		Common:
+		{
+			SemanticKey: [code]
+		}
 	)
 	as projection on carrier.ServiceSubType;
 
 	@readonly entity ServiceTypes
 	@(
-		title : 'Service Types'
+		title : 'Service Types',
+		Common:
+		{
+			SemanticKey: [code]
+		}
 	)
 	as projection on carrier.ServiceType;
 
 	@readonly entity ModeOfTransports
 	@(
-		title : 'Mode Of Transports'
+		title : 'Mode Of Transports',
+		Common:
+		{
+			SemanticKey: [code]
+		}
 	)
 	as projection on carrier.ModeOfTransport;
 
@@ -123,4 +115,34 @@ service CommonService {
 		title : 'Carrier Action'
 	)
 	as projection on carrier.CarrierAction;
+	
+	@readonly entity ContentSources
+	@(
+		title : 'Carrier Sources',
+		Common:
+		{
+			SemanticKey: [code]
+		}
+	)
+	as projection on contentSource.ContentSource;
+	
+	@readonly entity ContentFeeds
+	@(
+		title : 'Carrier Feeds',
+		Common:
+		{
+			SemanticKey: [code]
+		}
+	)
+	as projection on contentSource.ContentFeed;
+	
+	@readonly entity ContentActions
+	@(
+		title : 'Content Actions',
+		Common:
+		{
+			SemanticKey: [code]
+		}
+	)
+	as projection on contentSource.ContentAction;
 }
