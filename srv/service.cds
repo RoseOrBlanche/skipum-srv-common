@@ -1,7 +1,7 @@
 namespace com.skipum.common;
 
 using com.skipum.common.measures as measures from '@contax/skipum-common';
-using com.skipum.common.persistence.currency as currency from '../db/currency-db';
+using com.skipum.common.currency as currency from '@contax/skipum-common';
 using com.skipum.common.geographic as geographic from '@contax/skipum-common';
 using com.skipum.common.carrier as carrier from '@contax/skipum-common';
 using com.skipum.common.contentSource as contentSource from '@contax/skipum-common';
