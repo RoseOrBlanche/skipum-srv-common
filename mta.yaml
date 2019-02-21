@@ -5,14 +5,14 @@ parameters:
   deploy_mode: html5-repo
 version: 0.0.1
 modules:
-  - name: skipum_srv_common_appRouter
-    type: approuter.nodejs
-    path: skipum_srv_common_appRouter
-    parameters:
-      disk-quota: 256M
-      memory: 256M
-    requires:
-      - name: rt_skipum_srv_common_appRouter
+  #- name: skipum_srv_common_appRouter
+  #  type: approuter.nodejs
+  #  path: skipum_srv_common_appRouter
+  #  parameters:
+  #    disk-quota: 256M
+  #    memory: 256M
+  #  requires:
+  #    - name: rt_skipum_srv_common_appRouter
   - name: skipum_srv_common_ui_deployer
     type: com.sap.html5.application-content
     path: skipum_srv_common_ui_deployer
@@ -39,11 +39,11 @@ modules:
     requires:
       - name: skipum-srv-common-hdi-container
 resources:
-  - name: rt_skipum_srv_common_appRouter
-    parameters:
-      service-plan: app-runtime
-      service: html5-apps-repo
-    type: org.cloudfoundry.managed-service
+  #- name: rt_skipum_srv_common_appRouter
+  #  parameters:
+  #    service-plan: app-runtime
+  #    service: html5-apps-repo
+  #  type: org.cloudfoundry.managed-service
   - name: dt_skipum_srv_common_ui_deployer
     parameters:
       service-plan: app-host
