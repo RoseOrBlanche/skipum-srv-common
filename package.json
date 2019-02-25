@@ -8,12 +8,11 @@
 	"license": "ISC",
 	"version": "1.0.0",
 	"scripts": {
-		"build": "npm install @contax/skipum-common && cds build --clean"
+		"build": "cds build --clean"
 	},
 	"dependencies": {
 		"@sap/cds": "^3.5.0",
-		"express": "^4.16.4",
-		"@contax/skipum-common": "https://github.com/RoseOrBlanche/skipum-cds-common.git"
+		"express": "^4.16.4"
 	},
 	"engines": {
 		"node": ">=8"
